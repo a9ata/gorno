@@ -1,0 +1,37 @@
+<?php
+include_once 'config/config.php';
+?>
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<?= CSS_URL ?>styles.css">
+    <title>Горно</title>
+</head>
+<body>
+    <?php
+        // Подключаем шапку
+        include_once 'templates/header.php';
+    ?>
+
+    <main>
+        <?php
+            // Здесь будет основной контент страницы
+            if (isset($page)) {
+                include_once "pages/{$page}.php";
+            } else {
+                include_once 'index.php'; // Файл главной страницы
+            }
+        ?>
+    </main>
+
+    <?php
+        // Подключаем подвал
+        include_once 'templates/footer.php';
+    ?>
+</body>
+</html>
+
+
