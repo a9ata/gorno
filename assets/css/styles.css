@@ -82,6 +82,105 @@ body{
             a{
                 text-decoration: none;
             }
+
+            /* Модальное окно */
+            .login-modal {
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                background: #fff;
+                padding: 50px 167px;
+                border: 4px solid #FFE4C4;
+                border-radius: 5px;
+                width: 90%;
+                max-width: 600px;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+
+                .modal-content {
+                    background: #fff;
+                    border-radius: 5px;
+
+                    .auth-form {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        text-align: center;
+                    }
+
+                    .auth-form input {
+                        width: 80%;
+                        height: 45px;
+                        margin: 20px 0;
+                        padding: 14px 30px;
+                        border: 3px solid #808080;
+                        border-radius: 5px;
+                        font-size: 1.2em;
+                    }
+
+                    .auth-form input[type="text"],
+                    .auth-form input[type="email"],
+                    .auth-form input[type="tel"],
+                    .auth-form input[type="password"] {
+                        background-color: #fff;
+                        border: 3px solid #808080;
+                    }
+
+                    .auth-form input[type="text"]::placeholder,
+                    .auth-form input[type="email"]::placeholder,
+                    .auth-form input[type="tel"]::placeholder,
+                    .auth-form input[type="password"]::placeholder {
+                        color: #808080;
+                    }
+
+                    /* Стиль для иконки календаря */
+                    #birthdateInput {
+                        /* padding-left: 30px; Отступ для иконки */
+                        background-image: url('<?= ICONS_URL ?>calendar.svg');
+                        background-repeat: no-repeat;
+                        background-position: 10px center;
+                        /* background-size: 20px; */
+                    }
+
+                    /* Кнопки */
+                    .auth-form button {
+                        padding: 10px 25px;
+                        background-color: #808080;
+                        color: #fff;
+                        font-size: 1.2em;
+                        border: none;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        transition: background-color 0.3s ease;
+                    }
+
+                    .auth-form button:hover {
+                        background-color: #FFE4C4;
+                        color: #000000;
+                    }
+
+                    /* Закрытие кнопки */
+                    .close-btn {
+                        position: absolute;
+                        top: 10px;
+                        right: 15px;
+                        font-size: 36px;
+                        cursor: pointer;
+                    }
+
+                    .hidden {
+                        display: none;
+                    }
+                }
+            }
+
+            /* Скрытие модалки */
+            .hidden {
+                display: none;
+            }
+
         }
     }
 }

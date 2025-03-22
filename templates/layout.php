@@ -30,6 +30,8 @@ include_once 'config/config.php';
         // Подключаем подвал
         include_once 'templates/footer.php';
     ?>
+    <script src="https://unpkg.com/inputmask/dist/inputmask.min.js"></script>
+    <script src="<?= JS_URL ?>modal-auth.js"></script>
 </body>
 </html>
 

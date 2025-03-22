@@ -40,9 +40,15 @@
             <a href="/?page=cart" class="icon-link">
                 <img src="<?= ICONS_URL ?>shopping-cart.svg" alt="Корзина" />
             </a>
-            <a href="/?forms/auth/login.php=login" class="icon-link">
-                <img src="<?= ICONS_URL ?>login.svg" alt="Логин" />
-            </a>
+            <?php if (isset($_SESSION['user'])): ?>
+                <p>Привет, <?= htmlspecialchars($_SESSION['user']) ?>!</p>
+                <a href="logout.php" class="icon-link">Выйти</a>
+            <?php else: ?>
+                <a href="javascript:void(0);" class="icon-link" onclick="openLoginModal()">
+                    <img src="<?= ICONS_URL ?>login.svg" alt="Login">
+                </a>
+                <?php include 'templates/modal-auth.php'; ?>
+            <?php endif; ?>
         </div>
     </nav>
 </header>
