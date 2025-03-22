@@ -18,11 +18,10 @@ include_once 'config/config.php';
 
     <main>
         <?php
-            // Здесь будет основной контент страницы
             if (isset($page)) {
                 include_once "pages/{$page}.php";
             } else {
-                include_once 'index.php'; // Файл главной страницы
+                include_once 'pages/home.php'; // главная страница
             }
         ?>
     </main>

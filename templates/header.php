@@ -18,9 +18,9 @@
                         <?php if (!empty($categories)): ?>
                             <?php foreach ($categories as $category => $subcategories): ?>
                                 <li>
-                                    <a href="#"><?= $category ?></a>
+                                    <p><?= $category ?></p>
                                     <?php if (!empty($subcategories)): ?>
-                                        <ul class="sub-dropdown">
+                                        <ul>
                                             <?php foreach ($subcategories as $subcategory): ?>
                                                 <li><a href="#"><?= $subcategory ?></a></li>
                                             <?php endforeach; ?>
@@ -37,7 +37,7 @@
             <a href="/?page=favorite" class="icon-link">
                 <img src="<?= ICONS_URL ?>favorite-default.svg" alt="Избранные" />
             </a>
-            <a href="/?page=shoppingCart" class="icon-link">
+            <a href="/?page=cart" class="icon-link">
                 <img src="<?= ICONS_URL ?>shopping-cart.svg" alt="Корзина" />
             </a>
             <a href="/?forms/auth/login.php=login" class="icon-link">

@@ -24,16 +24,49 @@ body{
             display: flex;
             align-items: center;
             justify-content: flex-start;
-            width: 60%;
+            width: 70%;
             list-style: none;
             padding: 0;
         
             li {
+                position: relative;
                 margin-right: 35px;
                 a{
                     text-decoration: none;
-                    color: black;
+                    color: #000000;
                 }
+
+                .dropdown {
+                    list-style: none;
+                    padding: 30px;
+                    margin: 0;
+                    position: absolute;
+                    left: 0;
+                    top: 100%;
+                    background: #FFFAFA;
+                    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+                    display: none;
+                    min-width: 150px;
+                    z-index: 1000;
+
+
+                    li {
+                        padding-bottom: 8px;
+                        position: relative;
+
+                        p{
+                            color: #808080;
+                        }
+
+                        ul{
+                            list-style: none;
+                        }
+                    }
+                }
+            }
+
+            li:hover > .dropdown {
+                display: block;
             }
         }
 
@@ -115,6 +148,42 @@ body{
 }
 
 
+.gender-links {
+    width: 70%;
+    margin: 50px auto;
 
+    .gender-grid{
+        display: flex;
+        justify-content: space-evenly;
 
+        a {
+            text-decoration: none;
+        }
+    }
+}
 
+.promo-banner {
+    position: relative;
+    display: flex;
+    width: 80%;
+    margin: 155px auto;
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 10px;
+    }
+
+    .promo-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        
+        color: #000000;
+        font-size: 5rem;
+        font-weight: regular;
+        text-align: center;
+    }
+}
