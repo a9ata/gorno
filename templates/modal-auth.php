@@ -3,7 +3,7 @@
     <span class="close-btn" onclick="closeLoginModal()">&times;</span>
 
     <!-- Форма входа -->
-    <form id="loginForm" class="auth-form" action="login.php" method="POST">
+    <form id="loginForm" class="auth-form" action="forms/auth/login.php" method="POST">
       <input type="email" name="email" placeholder="Почта" required>
       <input type="password" name="password" placeholder="Пароль" required>
       <button type="submit">Войти</button>
@@ -11,7 +11,7 @@
     </form>
 
     <!-- Форма регистрации -->
-    <form id="registerForm" class="auth-form hidden" action="register.php" method="POST">
+    <form id="registerForm" class="auth-form hidden" action="forms/auth/register.php" method="POST">
       <input type="text" name="name" placeholder="Имя пользователя" required>
       <input type="email" name="email" placeholder="Почта" required>
       <input type="tel" name="phone" id="phoneInput" placeholder="Телефон" required>

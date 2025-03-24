@@ -40,14 +40,14 @@
             <a href="/?page=cart" class="icon-link">
                 <img src="<?= ICONS_URL ?>shopping-cart.svg" alt="Корзина" />
             </a>
-            <?php if (isset($_SESSION['user'])): ?>
-                <p>Привет, <?= htmlspecialchars($_SESSION['user']) ?>!</p>
-                <a href="logout.php" class="icon-link">Выйти</a>
-            <?php else: ?>
-                <a href="javascript:void(0);" class="icon-link" onclick="openLoginModal()">
-                    <img src="<?= ICONS_URL ?>login.svg" alt="Login">
+            <a href="javascript:void(0);" class="icon-link" onclick="openLoginModal()">
+                <img src="<?= ICONS_URL ?>login.svg" alt="Вход">
+            </a>
+            <?php include 'templates/modal-auth.php'; ?>                                    
+            <?php if (isset($_SESSION['name'])): ?>
+                <a href="/?page=profile" class="user-name">
+                    <?= htmlspecialchars($_SESSION['name']) ?>
                 </a>
-                <?php include 'templates/modal-auth.php'; ?>
             <?php endif; ?>
         </div>
     </nav>

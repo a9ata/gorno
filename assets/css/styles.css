@@ -93,7 +93,6 @@ body{
                 padding: 50px 167px;
                 border: 4px solid #FFE4C4;
                 border-radius: 5px;
-                width: 90%;
                 max-width: 600px;
                 box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
                 z-index: 1000;
@@ -111,9 +110,8 @@ body{
                     }
 
                     .auth-form input {
-                        width: 80%;
-                        height: 45px;
-                        margin: 20px 0;
+                        width: 90%;
+                        margin: 15px 0;
                         padding: 14px 30px;
                         border: 3px solid #808080;
                         border-radius: 5px;
@@ -137,19 +135,19 @@ body{
 
                     /* Стиль для иконки календаря */
                     #birthdateInput {
-                        /* padding-left: 30px; Отступ для иконки */
-                        background-image: url('<?= ICONS_URL ?>calendar.svg');
+                        width: 40%;
+                        background-image: url('../images/icon/calendar.svg');
                         background-repeat: no-repeat;
-                        background-position: 10px center;
-                        /* background-size: 20px; */
+                        background-position: right 19px center;
                     }
 
                     /* Кнопки */
                     .auth-form button {
                         padding: 10px 25px;
+                        margin: 15px 0;
                         background-color: #808080;
                         color: #fff;
-                        font-size: 1.2em;
+                        font-size: 1em;
                         border: none;
                         border-radius: 5px;
                         cursor: pointer;
@@ -285,4 +283,45 @@ body{
         font-weight: regular;
         text-align: center;
     }
+}
+
+
+.profile {
+    max-width: 500px;
+    margin: 60px auto;
+    padding: 40px;
+    background-color: #FFFAFA;
+    border: 3px solid #FFE4C4;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.profile input {
+    width: 80%;
+    margin: 15px 0;
+    padding: 14px 30px;
+    border: 3px solid #808080;
+    border-radius: 5px;
+    font-size: 1.1em;
+    background-color: #fff;
+}
+
+.profile button {
+    margin-top: 10px;
+    padding: 10px 25px;
+    font-size: 1em;
+    background-color: #808080;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.profile button:hover {
+    background-color: #FFE4C4;
+    color: #000;
+}
+
+.hidden {
+    display: none;
 }

@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once 'config/db.php';
+require_once '../../config/db.php';
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $email    = trim($_POST['email']);
@@ -11,12 +11,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $user = $stmt->fetch();
 
     if ($user && password_verify($password, $user['password'])) {
-        $_SESSION['user'] = $user['email'];
-        header("Location: index.php");
+        $_SESSION['name'] = $user['name'];
+        $_SESSION['email'] = $user['email'];
+        $_SESSION['phone'] = $user['phone'];
+        $_SESSION['birthdate'] = $user['birthdate'];
+        header("Location: /");
         exit;
     } else {
         $_SESSION['error'] = "Неверный email или пароль.";
-        header("Location: index.php");
+        header("Location: /index.php");
         exit;
     }
 }
