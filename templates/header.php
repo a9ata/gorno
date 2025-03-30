@@ -34,10 +34,10 @@
             <?php endforeach; ?>
         </ul>
         <div class="user-actions">
-            <a href="/?page=favorite" class="icon-link">
+            <a href="/favorite" class="icon-link">
                 <img src="<?= ICONS_URL ?>favorite-default.svg" alt="Избранные" />
             </a>
-            <a href="/?page=cart" class="icon-link">
+            <a href="/cart" class="icon-link">
                 <img src="<?= ICONS_URL ?>shopping-cart.svg" alt="Корзина" />
             </a>
             <a href="javascript:void(0);" class="icon-link" onclick="openLoginModal()">
@@ -45,7 +45,7 @@
             </a>
             <?php include 'templates/modal-auth.php'; ?>                                    
             <?php if (isset($_SESSION['name'])): ?>
-                <a href="/?page=profile" class="user-name">
+                <a href="/profile" class="user-name">
                     <?= htmlspecialchars($_SESSION['name']) ?>
                 </a>
             <?php endif; ?>

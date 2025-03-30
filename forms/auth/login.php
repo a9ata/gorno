@@ -19,7 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         exit;
     } else {
         $_SESSION['error'] = "Неверный email или пароль.";
-        header("Location: /index.php");
+        header("Location: /index");
         exit;
     }
 }

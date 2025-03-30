@@ -34,6 +34,7 @@ include_once 'config/config.php';
     <script src="<?= JS_URL ?>modal-auth.js"></script>
     <script src="<?= JS_URL ?>auth-validation.js"></script>
     <script src="<?= JS_URL ?>profile-edit.js"></script>
+    <script src="<?= JS_URL ?>faq.js"></script>
 </body>
 </html>
 
