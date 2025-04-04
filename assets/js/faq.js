@@ -1,11 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Раскрытие категорий
-    document.querySelectorAll('.category-toggle').forEach(btn => {
-      btn.addEventListener('click', () => {
-        btn.classList.toggle('active');
-        const content = btn.nextElementSibling;
-        content.style.display = content.style.display === 'block' ? 'none' : 'block';
-      });
+  document.querySelectorAll('.category-toggle').forEach(btn => {
+    btn.addEventListener('click', () => {
+      btn.classList.toggle('active');
+      const content = btn.nextElementSibling;
+      if (btn.classList.contains('active')) {
+        content.style.maxHeight = content.scrollHeight + 'px';
+      } else {
+        content.style.maxHeight = null;
+      }
     });
   });
-  
+});

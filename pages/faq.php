@@ -13,10 +13,12 @@ foreach ($faq_items as $item) {
 ?>
 
 <section class="faq">
-  <h2>Часто задаваемые вопросы</h2>
   <?php foreach ($grouped as $section => $items): ?>
     <div class="faq-category">
-      <button class="category-toggle"><?= htmlspecialchars($section) ?></button>
+      <button class="category-toggle">
+        <?= htmlspecialchars($section) ?>
+        <img src="<?= ICONS_URL ?>formkit_down.svg" alt="">
+      </button>
       <div class="category-content">
         <?php foreach ($items as $item): ?>
           <div class="faq-item">

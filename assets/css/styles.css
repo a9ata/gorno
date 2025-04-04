@@ -133,7 +133,7 @@ body{
                         color: #808080;
                     }
 
-                    /* Стиль для иконки календаря */
+                    
                     #birthdateInput {
                         width: 40%;
                         background-image: url('../images/icon/calendar.svg');
@@ -164,7 +164,7 @@ body{
                         position: absolute;
                         top: 10px;
                         right: 15px;
-                        font-size: 36px;
+                        font-size: 40px;
                         cursor: pointer;
                     }
 
@@ -327,4 +327,103 @@ body{
 }
 
 
+.contact-info,
+.feedback-form,
+.faq-section{
+    margin: 50px 160px;
+
+    .info{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .faq{
+        .category-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+          
+        .category-toggle.active + .category-content {
+            max-height: 1000px;
+        }          
+        .category-toggle{
+            border:none;
+            background-color: inherit;
+            font-size: 1.1em;
+            font-family: 'Merriweather', sans-serif;
+        }
+
+        .category-toggle:hover{
+            color: #808080;
+        }
+
+        .faq-item{
+            margin: 30px 0;
+
+            .faq-question,
+            .faq-answer{
+                margin: 10px 0;
+
+                display: flex;
+                align-items: center;
+
+                img{
+                    margin-right: 30px; 
+                }
+            }
+        }
+    }
+}
+
+.feedback-form{
+    form{
+        max-width: 500px;
+        margin: 60px auto;
+        padding: 40px;
+        background-color: #FFFAFA;
+        border: 3px solid #FFE4C4;
+        border-radius: 5px;
+        text-align: center;
+
+        input {
+            width: 50%;
+            margin: 15px 0;
+            padding: 14px 30px;
+            border: 3px solid #808080;
+            border-radius: 5px;
+            font-size: 1.1em;
+            background-color: #fff;
+        }
+
+        textarea{
+            width: 80%;
+            margin: 15px 0;
+            padding: 14px 30px;
+            border: 3px solid #808080;
+            border-radius: 5px;
+            font-size: 1.1em;
+            background-color: #fff;
+        }
+    
+        button {
+            margin-top: 10px;
+            padding: 10px 25px;
+            font-size: 1em;
+            background-color: #808080;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    
+        button:hover {
+            background-color: #FFE4C4;
+            color: #000;
+        }
+    }
+    
+}
 

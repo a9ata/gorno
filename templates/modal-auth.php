@@ -12,7 +12,7 @@
 
     <!-- Форма регистрации -->
     <form id="registerForm" class="auth-form hidden" action="forms/auth/register.php" method="POST">
-      <input type="text" name="name" placeholder="Имя пользователя" required>
+      <input type="text" name="name" placeholder="Имя" required>
       <input type="email" name="email" placeholder="Почта" required>
       <input type="tel" name="phone" id="phoneInput" placeholder="Телефон" required>
       <input type="password" name="password" placeholder="Пароль" required>
