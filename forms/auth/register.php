@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../../models/User.php';
+require_once '../../modules/User.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name      = trim($_POST['name']);

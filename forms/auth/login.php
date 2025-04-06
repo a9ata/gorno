@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once '../../models/User.php';
+require_once '../../modules/User.php';
 
 // Создаем функцию для логирования
 function debug_log($message) {
