@@ -286,43 +286,107 @@ body{
 
 
 .profile {
-    max-width: 500px;
-    margin: 60px auto;
-    padding: 40px;
-    background-color: #FFFAFA;
-    border: 3px solid #FFE4C4;
-    border-radius: 5px;
-    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
 
-    input {
-        width: 80%;
-        margin: 15px 0;
-        padding: 14px 30px;
-        border: 3px solid #808080;
+    .profile-info{
+        max-width: 500px;
+        margin: 60px auto;
+        padding: 40px;
+        border: 3px solid #FFE4C4;
         border-radius: 5px;
-        font-size: 1.1em;
-        background-color: #fff;
-    }
-
-    button {
-        margin-top: 10px;
-        padding: 10px 25px;
-        font-size: 1em;
-        background-color: #808080;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    button:hover {
-        background-color: #FFE4C4;
-        color: #000;
+        text-align: center;
+    
+        input {
+            width: 80%;
+            margin: 15px 0;
+            padding: 14px 30px;
+            border: 3px solid #808080;
+            border-radius: 5px;
+            font-size: 1.1em;
+            background-color: #fff;
+        }
+    
+        button {
+            margin-top: 10px;
+            padding: 10px 25px;
+            font-size: 1em;
+            background-color: #808080;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    
+        button:hover {
+            background-color: #FFE4C4;
+            color: #000;
+        }
+        
+        .hidden {
+            display: none;
+        }
     }
     
-    .hidden {
-        display: none;
+    .booking{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+
+
+
+        .loyalty-card-box{
+            .loyalty-card{
+                padding: 37px 30px;
+                width: 360px;
+                background: linear-gradient(#FFE4C4,#D9D9D9);
+                border-radius: 25px;
+
+
+                div{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+                }
+
+                .loyalty-active{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    margin-bottom: 50px;
+
+                    h2{
+                        font-size: 24px;
+                        color: #000;
+                    }
+                }
+
+                .loyalty-info{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+
+                    div{
+                        font-size: 12px;
+                        color:#808080;
+                    }
+                }
+
+                .loyalty-values{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-evenly;
+
+                    strong{
+                        font-size: 32px;
+                        color: #000;
+                    }
+                }
+            }
+        }
     }
+    
 }
 
 

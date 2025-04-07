@@ -18,6 +18,13 @@ include_once __DIR__ . '/../config/config.php';
         // Подключаем шапку
         include_once __DIR__ . '/header.php';
     ?>
+    <?php
+        require_once __DIR__ . '/../includes/admin_function.php';
+        if (isAdmin()) {
+            include 'templates/admin-menu.php';
+        }
+    ?>
+
 
     <main>
         <?php
@@ -39,5 +46,8 @@ include_once __DIR__ . '/../config/config.php';
     <script src="<?= JS_URL ?>auth-validation.js"></script>
     <script src="<?= JS_URL ?>profile-edit.js"></script>
     <script src="<?= JS_URL ?>faq.js"></script>
+    <script src="<?= JS_URL ?>modal-loyalty.js"></script>
+    <script src="<?= JS_URL ?>favorite.js"></script>
+
 </body>
 </html>
