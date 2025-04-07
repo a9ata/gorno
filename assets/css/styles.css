@@ -289,17 +289,19 @@ body{
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
+    width: 85%;
+    margin: 50px auto;
+    border: 3px solid #FFE4C4;
+    border-radius: 5px;
+    text-align: center;
 
     .profile-info{
-        max-width: 500px;
-        margin: 60px auto;
-        padding: 40px;
-        border: 3px solid #FFE4C4;
-        border-radius: 5px;
+        width: 70%;
+        padding: 20px;
         text-align: center;
     
         input {
-            width: 80%;
+            width: 50%;
             margin: 15px 0;
             padding: 14px 30px;
             border: 3px solid #808080;
@@ -334,9 +336,30 @@ body{
         flex-direction: row;
         justify-content: space-evenly;
 
+        .user-bookings{
+            
+            .booking-mini-card{
+                width: 80%;
+                label{
+                    input{
+                        width: 70%;
+                        margin: 15px 0;
+                        padding: 14px 30px;
+                        border: 3px solid #808080;
+                        border-radius: 5px;
+                        font-size: 1.2em;
+                    }   
 
+                    input[type="text"]{
+                        color: #808080;
+                    }
+                }
+            }
+        }
 
         .loyalty-card-box{
+            padding: 40px;
+
             .loyalty-card{
                 padding: 37px 30px;
                 width: 360px;
