@@ -18,6 +18,8 @@ include_once __DIR__ . '/../config/config.php';
         // Подключаем шапку
         include_once __DIR__ . '/header.php';
     ?>
+    <?php include_once 'templates/modal-product.php'; ?>
+    
     <?php
         require_once __DIR__ . '/../includes/admin_function.php';
         if (isAdmin()) {
@@ -48,6 +50,6 @@ include_once __DIR__ . '/../config/config.php';
     <script src="<?= JS_URL ?>faq.js"></script>
     <script src="<?= JS_URL ?>modal-loyalty.js"></script>
     <script src="<?= JS_URL ?>favorite.js"></script>
-
+    <script src="<?= JS_URL ?>modal-product.js"></script>
 </body>
 </html>

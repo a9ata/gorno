@@ -47,7 +47,7 @@ $products = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
                         <h3><?= htmlspecialchars($product['name']) ?></h3>
                         <p><?= htmlspecialchars($product['subcategory_name']) ?></p>
                         <p><?= htmlspecialchars($product['price']) ?> ₽</p>
-                        <button class="open-modal-btn" data-id="<?= $product['id'] ?>">Добавить в корзину</button>
+                        <button type="button" onclick="openProductModal(<?= $product['id'] ?>)">Добавить в корзину</button>
                     </div>
                 </div>
             <?php endforeach; ?>

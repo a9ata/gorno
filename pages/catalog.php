@@ -53,7 +53,7 @@
                     <h3><?= htmlspecialchars($product['name']) ?></h3>
                     <p class="subcategory"><?= htmlspecialchars($product['subcategory_name']) ?></p>
                     <p class="price"><?= htmlspecialchars($product['price']) ?> ₽</p>
-                    <button class="open-modal-btn" data-id="<?= $product['id'] ?>">Добавить в корзину</button>
+                    <button type="button" onclick="openProductModal(<?= $product['id'] ?>)">Добавить в корзину</button>
                 </div>
             </div>
         <?php endforeach; ?>
