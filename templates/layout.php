@@ -19,6 +19,7 @@ include_once __DIR__ . '/../config/config.php';
         include_once __DIR__ . '/header.php';
     ?>
     <?php include_once 'templates/modal-product.php'; ?>
+    <?php include __DIR__ . '/../forms/loyaltyCard.php'; ?>
     
     <?php
         require_once __DIR__ . '/../includes/admin_function.php';

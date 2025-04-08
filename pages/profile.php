@@ -122,12 +122,14 @@ $discount = calculateDiscount($totalSpent);
             <div class="loyalty-card">
                 <div class="loyalty-active">
                     <h2>ГОРНО</h2>
-                    <?php if (!$isActive): ?>
-                        <p style="color: red;">Неактивна</p>
-                        <button onclick="openModal()" style="color: blue;">Активировать</button>
-                    <?php else: ?>
-                        <p class="loyalty-status" style="color: green;">Активна</p>
-                    <?php endif; ?>
+                    <div>
+                        <?php if (!$isActive): ?>
+                            <p style="color: red;">Неактивна</p>
+                            <button class="open-loyalty-modal" style="color: blue;">Активировать</button>
+                        <?php else: ?>
+                            <p class="loyalty-status" style="color: green;">Активна</p>
+                        <?php endif; ?>
+                    </div>
                 </div>
                 <div class="loyalty-info">
                     <div>Скидка</div>
@@ -141,8 +143,6 @@ $discount = calculateDiscount($totalSpent);
         </div>
     </div>
 </section>
-
-<?php include __DIR__ . '/../forms/loyaltyCard.php'; ?>
 
 <script>
 document.getElementById('editBtn').addEventListener('click', function () {

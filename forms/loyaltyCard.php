@@ -3,7 +3,7 @@
         <button class="modal-loyalty-close">&times;</button>
         <h2>Оформление карты лояльности</h2>
 
-        <form method="POST" action="/forms/handle_loyalty.php" class="form-loyalty">
+        <form method="POST" action="/forms/handle_loyalty.php">
             <input type="text" name="name" placeholder="Имя" required>
             <input type="email" name="email" placeholder="Почта" required>
             <input type="date" name="birthdate" required>

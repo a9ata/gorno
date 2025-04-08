@@ -65,8 +65,7 @@ $userBirthdate = $_SESSION['birthdatephone'] ?? '';
                 скидками товаров категории Sale и промокодами.
                 </span>
             </div>
-            <button onclick="openModal()">Оформить прямо сейчас</button>
+            <button class="open-loyalty-modal">Оформить прямо сейчас</button>
         </div>
     </div>
 </section>
-<?php include __DIR__ . '/../forms/loyaltyCard.php'; ?>
