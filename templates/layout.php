@@ -51,5 +51,8 @@ include_once __DIR__ . '/../config/config.php';
     <script src="<?= JS_URL ?>modal-loyalty.js"></script>
     <script src="<?= JS_URL ?>favorite.js"></script>
     <script src="<?= JS_URL ?>modal-product.js"></script>
+    <script src="<?= JS_URL ?>check-cart.js"></script>
+    <script src="<?= JS_URL ?>quantity.js"></script>
+    <script src="<?= JS_URL ?>cart-actions.js"></script>
 </body>
 </html>

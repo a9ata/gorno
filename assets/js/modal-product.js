@@ -21,7 +21,7 @@ function openProductModal(productId) {
                         <div class="additional-photos">${additionalImages}</div>
                     </div>
                     <div class="about-product">
-                        <form method="post" action="add_to_cart.php">
+                        <form method="post" action="/includes/add_to_cart.php">
                             <input type="hidden" name="product_id" value="${data.id}">
                             <div>
                                 <label>Цвет:</label>
