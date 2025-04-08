@@ -1,6 +1,7 @@
 document.querySelectorAll('.favorite-btn').forEach(button => {
     button.addEventListener('click', function () {
         const productId = this.dataset.id;
+        const icon = this.querySelector('img');
 
         fetch('/forms/favorite_toggle.php', {
             method: 'POST',
@@ -12,9 +13,9 @@ document.querySelectorAll('.favorite-btn').forEach(button => {
         .then(res => res.text())
         .then(res => {
             if (res === 'added') {
-                this.querySelector('img').src = '<?= ICON_URL ?>favorite-active.svg';
+                icon.src = '/assets/icons/favorite-active.svg';
             } else if (res === 'removed') {
-                this.querySelector('img').src = '<?= ICON_URL ?>favorite-default.svg';
+                icon.src = '/assets/icons/favorite-default.svg';
             }
         });
     });

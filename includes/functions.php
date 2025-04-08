@@ -22,8 +22,6 @@ function getCategories() {
 }
 
 
-
-
 function getFilteredProducts($conn, $gender, $filters) {
     $sql = "SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
             FROM products p
