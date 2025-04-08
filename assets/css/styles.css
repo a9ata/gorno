@@ -1190,3 +1190,173 @@ body{
     }
     
 }
+
+.bookings{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+
+    .forms-bookings{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        align-items: stretch;
+        flex-wrap: wrap;
+        column-gap: 100px;
+
+        div{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form-custom-order,
+        .form-fitting,
+        .form-stylist {
+            border-radius: 5px;
+            border: 3px solid #FFE4C4;
+            padding: 50px 120px;
+            color: #808080;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .form-custom-order input,
+        .form-fitting input,
+        .form-stylist input,
+        .form-custom-order textarea,
+        .form-fitting textarea {
+            padding: 10px;
+            color: #808080;
+            border: 3px solid #808080;
+            border-radius: 5px;
+            background-color: #fff;
+            font-size: 1em;
+        }
+
+        .form-custom-order textarea,
+        .form-fitting textarea {
+            width: 90%;
+        }
+        
+        .form-custom-order button,
+        .form-fitting button,
+        .form-stylist button {
+            align-self: center;
+            padding: 10px 20px;
+            background-color: #808080;
+            border-radius: 5px;
+            border: none;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+        
+        .form-custom-order button:hover,
+        .form-fitting button:hover,
+        .form-stylist button:hover {
+            background-color: #FFE4C4;
+            color: #000;
+        }
+        .form-stylist .stylist-select {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            label {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                color: #808080;
+            }
+        }
+    }
+}
+
+.loyaltycard {
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    width: 100%;
+
+    .title {
+        font-size: 1.8em;
+        margin-bottom: 20px;
+    }
+
+    .content{
+        display: flex;
+        flex-direction: row;
+        gap: 45px;
+        border-radius: 5px;
+        border: 3px solid #808080;
+        width: 85%;
+
+        .visual {
+            background-color: #808080;
+            padding: 60px 90px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            .logo-box{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                h1 {
+                    font-size: 2em;
+                    margin: 10px 0;
+                }
+    
+            }
+            
+        }
+
+        .details {
+            display: flex;
+            flex-direction: column;
+            width: 60%;
+
+            .text{
+                p {
+                    margin-bottom: 10px;
+                    line-height: 1.5;
+                }
+    
+                span {
+                    display: block;
+                    margin-top: 20px;
+                    color: #808080;
+                    font-size: 0.9em;
+                }    
+            }
+
+            button {
+                width: 25%;
+                border: none;
+                margin-top: 20px;
+                padding: 10px 20px;
+                background-color: #808080;
+                color: #fff;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: background-color 0.2s ease;
+            }
+            
+            button:hover {
+                background-color: #FFE4C4;
+                color: #000;
+            }
+        }
+    }
+
+}
+
+
