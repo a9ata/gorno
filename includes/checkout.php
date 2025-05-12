@@ -1,6 +1,8 @@
 <?php
 session_start();
-require_once '../config/db.php';
+
+require_once __DIR__ . '/../config/config.php';
+require_once __DIR__ . '/../config/db.php';
 
 // Получаем JSON-данные из JS
 $data = json_decode(file_get_contents("php://input"), true);

@@ -1,5 +1,7 @@
 <?php
+session_start();
 require_once '../config/db.php';
+require_once '../config/config.php'; // если у тебя там ICONS_URL
 
 $id = $_GET['id'] ?? null;
 if (!$id) exit;
@@ -11,11 +13,31 @@ $product = $conn->query("SELECT p.*, s.name AS subcategory FROM products p
 $images = $conn->query("SELECT image_url, is_main FROM product_images WHERE product_id = $id")->fetch_all(MYSQLI_ASSOC);
 $attributes = $conn->query("SELECT color, size FROM product_attributes WHERE product_id = $id")->fetch_all(MYSQLI_ASSOC);
 
+// Получаем основное изображение
 $mainImage = '';
 foreach ($images as $img) {
     if ($img['is_main']) {
         $mainImage = $img['image_url'];
         break;
+    }
+}
+
+// Проверяем, добавлен ли товар в избранное
+$isFavorite = false;
+$icon = ICONS_URL . 'favorite-default.svg'; // по умолчанию
+
+if (isset($_SESSION['id_user'])) {
+    $userId = $_SESSION['id_user'];
+    $stmt = $conn->prepare("SELECT COUNT(*) FROM favorites WHERE user_id = ? AND product_id = ?");
+    $stmt->bind_param("ii", $userId, $id);
+    $stmt->execute();
+    $stmt->bind_result($count);
+    $stmt->fetch();
+    $stmt->close();
+
+    if ($count > 0) {
+        $isFavorite = true;
+        $icon = ICONS_URL . 'favorite-active.svg';
     }
 }
 
@@ -27,4 +49,6 @@ echo json_encode([
     'main_image' => $mainImage,
     'images' => $images,
     'attributes' => $attributes,
+    'is_favorite' => $isFavorite,
+    'icon' => $icon
 ]);

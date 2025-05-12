@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("iiss", $userId, $stylistId, $date, $time);
 
     if ($stmt->execute()) {
-        header("Location: /pages/services.php?success=1");
+        header("Location: /services?success=1");
         exit;
     } else {
         echo "Ошибка при бронировании.";

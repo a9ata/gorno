@@ -1,6 +1,3 @@
-<?php
-?>
-
 <footer class="footer">
     <div class="footer-container">
         <div class="footer-logo">
@@ -47,4 +44,17 @@
         <p>&copy; 2021–2025 Горно. Все права защищены.</p>
     </div>
 </footer>
-
+<script src="https://unpkg.com/inputmask/dist/inputmask.min.js"></script>
+    <script src="https://smartcaptcha.yandexcloud.net/captcha.js" defer></script>
+    <script src="<?= JS_URL ?>modal-auth.js"></script>
+    <script src="<?= JS_URL ?>auth-validation.js"></script>
+    <script src="<?= JS_URL ?>profile-edit.js"></script>
+    <script src="<?= JS_URL ?>faq.js"></script>
+    <script src="<?= JS_URL ?>modal-loyalty.js"></script>
+    <script src="<?= JS_URL ?>favorite.js"></script>
+    <script src="<?= JS_URL ?>modal-product.js"></script>
+    <script src="<?= JS_URL ?>check-cart.js"></script>
+    <script src="<?= JS_URL ?>quantity.js"></script>
+    <script src="<?= JS_URL ?>cart-actions.js"></script>
+</body>
+</html>

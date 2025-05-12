@@ -6,7 +6,18 @@
     <form id="loginForm" class="auth-form" action="forms/auth/login.php" method="POST">
       <input type="email" name="email" placeholder="Почта" required>
       <input type="password" name="password" placeholder="Пароль" required>
-      <button type="submit">Войти</button>
+
+      <!-- контейнер SmartCaptcha -->
+      <div
+        class="smart-captcha"
+        data-sitekey="<?= htmlspecialchars(YANDEX_CAPTCHA_CLIENT) ?>"
+        data-callback="onCaptchaSuccess"
+        data-expired-callback="onCaptchaExpired">
+      </div>
+      <!-- скрытое поле с токеном -->
+      <input type="hidden" name="captcha_token" id="loginCaptchaToken">
+
+      <button type="submit" id="loginSubmit" disabled>Войти</button>
       <p>Ещё нет аккаунта? <a href="#" onclick="switchForm('register')">Зарегистрироваться</a></p>
     </form>
 
@@ -17,7 +28,18 @@
       <input type="tel" name="phone" id="phoneInput" placeholder="Телефон" required>
       <input type="password" name="password" placeholder="Пароль" required>
       <input type="text" name="birthdate" id="birthdateInput" placeholder="гггг.мм.дд" required>
-      <button type="submit">Зарегистрироваться</button>
+
+      <!-- контейнер SmartCaptcha -->
+      <div
+        class="smart-captcha"
+        data-sitekey="<?= htmlspecialchars(YANDEX_CAPTCHA_CLIENT) ?>"
+        data-callback="onCaptchaSuccess"
+        data-expired-callback="onCaptchaExpired">
+      </div>
+      <!-- скрытое поле с токеном -->
+      <input type="hidden" name="captcha_token" id="registerCaptchaToken">
+
+      <button type="submit" id="registerSubmit" disabled>Зарегистрироваться</button>
       <p>Уже есть аккаунт? <a href="#" onclick="switchForm('login')">Войти</a></p>
     </form>
   </div>

@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("issss", $userId, $address, $time, $date, $description);
 
     if ($stmt->execute()) {
-        header("Location: /pages/services.php?success=1");
+        header("Location: /services?success=1");
         exit;
     } else {
         echo "Ошибка при отправке заявки на примерку.";

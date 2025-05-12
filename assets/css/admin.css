@@ -1,0 +1,124 @@
+.admin-nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    background-color: #808080;
+
+    ul{
+       display: flex;
+       align-items: center;
+       justify-content: space-evenly;
+        li {
+            position: relative;
+            margin-right: 35px;
+            list-style: none;
+            a{
+                text-decoration: none;
+                color: #fff;
+            }
+        } 
+    }
+}
+
+.admin-panel{
+   margin: auto;
+
+}
+
+.admin-panel h1 {
+    font-size: 1.3em;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+.admin-panel section {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 90px;
+    margin-bottom: 2rem;
+}
+
+/* Таблицы */
+.admin-panel table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+.admin-panel table thead {
+    background-color: #e9ecef;
+}
+
+.admin-panel table th,
+.admin-panel table td {
+    padding: 0.75rem;
+    border: 1px solid #dee2e6;
+    text-align: left;
+}
+
+.admin-panel table th {
+    font-weight: 600;
+}
+
+/* Кнопки-диакшены для строк таблицы */
+.admin-panel table td a,
+.admin-panel table td button {
+    margin-right: 0.5rem;
+    display: inline-block;
+    padding: 0.4rem 0.8rem;
+    font-size: 0.875rem;
+    text-decoration: none;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.admin-panel table td a {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.admin-panel table td button {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+/* Форма добавления / редактирования */
+.admin-panel section form {
+    display: flex;
+    flex-direction: column;
+}
+
+.admin-panel section form label {
+    display: flex;
+    flex-direction: column;
+    font-weight: 500;
+}
+
+.admin-panel section form input,
+.admin-panel section form select {
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+}
+
+.admin-panel section form button {
+    padding: 0.6rem 1.2rem;
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.admin-panel section p {
+    margin: 0 0 1rem 0;
+}

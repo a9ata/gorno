@@ -15,7 +15,7 @@ $check->execute();
 $result = $check->get_result();
 
 if ($result->num_rows > 0) {
-    header("Location: /pages/services.php?loyalty=exists");
+    header("Location: /profile");
     exit;
 }
 
@@ -24,8 +24,8 @@ $stmt = $conn->prepare("INSERT INTO loyalty_cards (user_id, total_spent, discoun
 $stmt->bind_param("i", $userId);
 
 if ($stmt->execute()) {
-    header("Location: /pages/services.php?loyalty=success");
+    header("Location: /services?loyalty=success");
 } else {
-    header("Location: /pages/services.php?loyalty=error");
+    header("Location: /services?loyalty=error");
 }
 exit;

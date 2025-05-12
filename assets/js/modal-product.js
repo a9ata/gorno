@@ -37,8 +37,8 @@ function openProductModal(productId) {
                                 `).join('')}
                             </div>
                             <div class="title">
-                                <button class="favorite-btn" data-id="<?= $product['id'] ?>">
-                                    <img src="<?= $icon ?>" alt="В избранное">
+                                <button class="favorite-btn" data-id="${data.id}">
+                                    <img src="${data.icon}" alt="В избранное">
                                 </button>
                                 <h2>${data.name}</h2>
                                 <p>${data.subcategory}</p>

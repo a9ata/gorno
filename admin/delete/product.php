@@ -23,5 +23,5 @@ $stmt = $conn->prepare("DELETE FROM products WHERE id = ?");
 $stmt->bind_param("i", $productId);
 $stmt->execute();
 
-header("Location: /index.php?page=admin/products");
+header("Location: /admin/index.php?section=products&success=1");
 exit;

@@ -2,7 +2,7 @@
 session_start();
 require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../config/db.php';
-
+$pageTitle = 'Корзина — Горно';
 
 $userId = $_SESSION['id_user'] ?? null;
 
@@ -45,8 +45,7 @@ $totalSum = 0;
                 $totalSum += $sum;
             ?>
                 <tr>
-                    <!-- ✅ чекбокс вне формы -->
-                    <td><input type="checkbox" class="select-item" value="<?= $item['id'] ?>"></td>
+                    <td><input type="checkbox" class="select-item" name="selected_items[]" value="<?= $item['id'] ?>"></td>
                     <td><img src="<?= $item['image_url'] ?? IMAGES_URL . 'products/default.png' ?>" width="248px" /></td>
                     <td><?= htmlspecialchars($item['name']) ?><br><small><?= htmlspecialchars($item['description']) ?></small></td>
                     <td><?= $item['price'] ?> ₽</td>
@@ -70,7 +69,6 @@ $totalSum = 0;
         </tbody>
     </table>
 
-    <!-- ✅ форма оплаты отдельная -->
     <div class="total-sum">
         <p><strong>Общая стоимость:</strong> <?= number_format($totalSum, 0, '.', ' ') ?> ₽</p>
 

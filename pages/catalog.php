@@ -1,6 +1,8 @@
 <?php
     require_once __DIR__ . '/../config/db.php';
-    require_once  __DIR__ . '/../includes/functions.php'; 
+    require_once  __DIR__ . '/../includes/functions.php';
+    $pageTitle = 'Каталог — Горно';
+
 
     // Получаем фильтры из URL
     $gender = $_GET['gender'] ?? null;
@@ -31,7 +33,7 @@
     <aside class="filter-sidebar">
         <?php include 'includes/filter.php'; ?>
     </aside>
-    <div class="product-list">
+    <div class="container product-list">
         <?php foreach ($products as $product): ?>
             <?php
                 $isFavorite = in_array($product['id'], $favIds);

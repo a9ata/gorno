@@ -66,6 +66,6 @@ foreach ($colors as $color) {
     }
 }
 
-header("Location: /index.php?page=admin-products&success=1");
+header("Location: /admin/index.php?section=products&success=1");
 exit;
 ?>

@@ -5,7 +5,7 @@
     <input type="hidden" name="page" value="catalog">
     <input type="hidden" name="gender" value="<?= htmlspecialchars($_GET['gender'] ?? '') ?>">
 
-    <h3>Фильтр</h3>
+    <h2>Фильтр</h2>
     <ul class="category-filter">
         <?php foreach (getAllCategories($conn) as $cat): ?>
             <li>

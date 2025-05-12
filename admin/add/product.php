@@ -21,8 +21,8 @@ $colors = getEnumValues($conn, 'product_attributes', 'color');
 
 ?>
 
-<h2>Добавить товар</h2>
-<form method="post" action="/admin/add/product_process.php" class="add-product-form">
+<h3>Добавить товар</h3>
+<form method="post" action="/admin/add/product_add.php" class="add-product-form">
     <label>Категория:</label>
     <select name="category" required>
         <?php foreach ($categories as $cat): ?>

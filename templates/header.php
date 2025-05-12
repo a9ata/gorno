@@ -1,8 +1,19 @@
-<?php
-    include_once 'includes/functions.php'; // Подключаем файл с функциями
-    $categories = getCategories(); // Получаем данные из базы
-?>
-
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,opsz,wght@0,18..144,300..900;1,18..144,300..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<?= CSS_URL ?>styles.css">
+    <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+        <link rel="stylesheet" href="<?= CSS_URL ?>admin.css">
+    <?php endif; ?>
+    <link rel="icon" href="<?= ICONS_URL ?>favicon.svg" type="image/svg+xml">
+    <title><?= htmlspecialchars($pageTitle) ?></title>
+</head>
+<body>
 <header class="header">
     <nav class="header-container">
         <div class="header-logo">
@@ -34,13 +45,20 @@
             <?php endforeach; ?>
         </ul>
         <div class="user-actions">
+            <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                <a href="/admin/index.php" class="icon-link" title="Админ-панель">
+                    <img src="<?= ICONS_URL ?>admin-panel.svg" alt="Админ-панель">
+                </a>
+            <?php endif; ?>
+
+
             <a href="/favorite" class="icon-link">
                 <img src="<?= ICONS_URL ?>favorite-default.svg" alt="Избранные" />
             </a>
             <a href="/cart" class="icon-link">
                 <img src="<?= ICONS_URL ?>shopping-cart.svg" alt="Корзина" />
             </a>
-            <?php include 'templates/modal-auth.php'; ?>
+            <?php include __DIR__ . '/../templates/modal-auth.php'; ?>
             <?php if (isset($_SESSION['name'])): ?>
                 <a href="/index.php?page=profile" class="icon-link">
                     <img src="<?= ICONS_URL ?>account.svg" alt="Профиль">
