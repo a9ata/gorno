@@ -1,7 +1,7 @@
 <?php
 session_start();
-require_once '../config/db.php';
-require_once '../includes/admin_function.php';
+require_once __DIR__ . '/../config/db.php';
+require_once __DIR__ . '/../includes/admin_function.php';
 
 if (!isAdmin()) {
     header("Location: /index.php");
@@ -11,7 +11,7 @@ if (!isAdmin()) {
 // Обработка добавления пользователя
 $success = '';
 $error = '';
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && empty($_POST['edit_id'])) {
     $name     = trim($_POST['name']);
     $email    = trim($_POST['email']);
     $phone    = trim($_POST['phone']);
@@ -27,6 +27,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     } else {
         $error = "Ошибка при добавлении пользователя.";
     }
+}
+
+$edit = null;
+if (!empty($_GET['edit_id'])) {
+    $eid = (int)$_GET['edit_id'];
+    $q = $conn->prepare(
+      "SELECT id,name,email,phone,birthdate,role FROM users WHERE id=?"
+    );
+    $q->bind_param('i', $eid);
+    $q->execute();
+    $edit = $q->get_result()->fetch_assoc();
 }
 
 // Получаем список пользователей
@@ -45,21 +56,22 @@ $result = $conn->query("SELECT id, name, email, phone, birthdate, role FROM user
                 <th>Телефон</th>
                 <th>Дата рождения</th>
                 <th>Роль</th>
-                <th>Действия</th>
+                <th colspan="2">Действия</th>
             </tr>
-            <?php while ($user = $result->fetch_assoc()): ?>
-            <tr>
-                <td><?= $user['id'] ?></td>
-                <td><?= htmlspecialchars($user['name']) ?></td>
-                <td><?= htmlspecialchars($user['email']) ?></td>
-                <td><?= htmlspecialchars($user['phone']) ?></td>
-                <td><?= htmlspecialchars($user['birthdate']) ?></td>
-                <td><?= $user['role'] ?></td>
-                <td>
-                <a href="/admin/edit/user.php?id=<?= $user['id'] ?>">Редактировать</a>
-                <a href="/admin/delete/user.php?id=<?= $user['id'] ?>" onclick="return confirm('Удалить пользователя?')">Удалить</a>
-                </td>
-            </tr>
+            <?php while($u=$result->fetch_assoc()): ?>
+                <tr>
+                    <td><?=$u['id']?></td>
+                    <td><?=htmlspecialchars($u['name'])?></td>
+                    <td><?=htmlspecialchars($u['email'])?></td>
+                    <td><?=htmlspecialchars($u['phone']   ?? '')?></td>
+                    <td><?=htmlspecialchars($u['birthdate']??'')?></td>
+                    <td><?=htmlspecialchars($u['role'])?></td>
+                    <td><a href="?section=users&edit_id=<?=$u['id']?>">Редакт.</a></td>
+                    <td>
+                    <a href="/admin/delete/user.php?id=<?=$u['id']?>"
+                        onclick="return confirm('Удалить?')">Удалить</a>
+                    </td>
+                </tr>
             <?php endwhile; ?>
         </table>
     </div>
@@ -67,4 +79,11 @@ $result = $conn->query("SELECT id, name, email, phone, birthdate, role FROM user
     <div>
         <?php require_once __DIR__ . '/../admin/add/user.php'; ?>
     </div>
+
+    <?php if ($edit): ?>
+        <div class="form">
+            <h3>Редактировать запись #<?= $edit['id'] ?></h3>
+            <?php require_once __DIR__ . '/../admin/edit/user.php'; ?>
+        </div>
+    <?php endif; ?>
 </section>

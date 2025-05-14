@@ -38,8 +38,7 @@ $result = $conn->query($sql);
                     <th>Пол</th>
                     <th>Цена</th>
                     <th>Описание</th>
-                    <th>Действия</th>
-                    <th>Действия</th>
+                    <th colspan="2">Действия</th>
                 </tr>
             </thead>
             <tbody>

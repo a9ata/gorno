@@ -58,7 +58,6 @@ unset($_SESSION['success'], $_SESSION['error']);
                 <td><?= htmlspecialchars(mb_strimwidth($row['question'],0,50,'…')) ?></td>
                 <td><?= htmlspecialchars(mb_strimwidth($row['answer'],0,50,'…')) ?></td>
                 <td>
-                    <!-- Ссылка на редактирование: пробрасываем оба параметра -->
                     <a href="?section=faq&edit_id=<?= $row['id'] ?>">Редакт.</a>
                 </td>
                 <td>

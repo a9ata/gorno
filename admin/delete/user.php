@@ -21,7 +21,7 @@ $stmt = $conn->prepare("DELETE FROM users WHERE id = ?");
 $stmt->bind_param("i", $id);
 
 if ($stmt->execute()) {
-    header("Location: /admin/users.php?deleted=1");
+    header("Location: /admin/?section=users");
     exit;
 } else {
     echo "Ошибка при удалении пользователя.";

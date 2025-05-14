@@ -51,7 +51,7 @@ $result = $stmt->get_result();
                 <?php foreach ($cols as $c): ?>
                     <th><?= htmlspecialchars($c) ?></th>
                 <?php endforeach ?>
-                <th>Действия</th>
+                <th colspan="2">Действия</th>
                 </tr>
             </thead>
             <tbody>
@@ -62,7 +62,8 @@ $result = $stmt->get_result();
                     <?php endforeach ?>
                     <td>
                         <a href="/admin/edit/booking.php?id=<?= $row['id'] ?>&type=<?= urlencode($type) ?>">Редакт.</a>
-                        |
+                    </td>
+                    <td>
                         <form action="/admin/delete/booking.php" method="POST" style="display:inline">
                             <input type="hidden" name="id"   value="<?= $row['id'] ?>">
                             <input type="hidden" name="type" value="<?= htmlspecialchars($type) ?>">
