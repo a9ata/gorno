@@ -2,6 +2,11 @@
 session_start();
 require_once __DIR__ . '/../config/db.php';
 
+if (!isAdmin()) {
+    header("Location: /index.php");
+    exit;
+}
+
 // Получаем список товаров с основной информацией
 $sql = "SELECT 
     p.id, 

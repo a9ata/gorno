@@ -104,4 +104,5 @@ $categories = $conn->query("SELECT id, name FROM categories")->fetch_all(MYSQLI_
     ?>">
 
     <button type="submit">Сохранить</button>
+    <a href="/admin/index.php?section=users">Назад</a>
 </form>

@@ -74,5 +74,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </select>
     </label><br>
     <button type="submit">Сохранить</button>
-    <a href="/admin/users.php">Назад</a>
+    <a href="/admin/index.php?section=users">Назад</a>
 </form>

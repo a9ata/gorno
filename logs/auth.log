@@ -224,3 +224,110 @@ user3@bk.ru User3$33333
 Попытка логина: user2@bk.ru / Agaza2oo5$$$$$$
  → user->login вернул: true
  → Успешный логин, редирект в профиль.
+=== Новый запрос авторизации ===
+Получен captcha_token: “dD0xNzQ3MDc1ODcwO2k9ODUuMTk4LjEwNS4xOTk7RD1DMURCNDkzMDM2RTdGMkM4QjE5REMzM0NFRDMyQjNCRjY2REYwRDE4OEI4QzQzNTkyMUE5NzExNjdCNDdFNzJFQUUwNzdGNjAwQzE3MjE1QzQ1NkNGNEZGMjI5NTM0QzgzMTU3M0Y5ODJFMDgyMzYwRThCRjZDQjBBMDYxNjBEMUNBQjI7dT0xNzQ3MDc1ODcwODc5ODMyNTc4O2g9ZTdkM2ZjMTVjMDRhMmRiYzg0MTBmNjU1MDFkODMwY2U=”
+Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+ → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+ → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+ → Капча ОК
+Попытка логина: admin@bk.ru / Admin555&3535
+ → user->login вернул: true
+ → Успешный логин, редирект в профиль.
+=== Новый запрос авторизации ===
+Получен captcha_token: “dD0xNzQ3MDc1OTM5O2k9ODUuMTk4LjEwNS4xOTk7RD02RjlBMDQxNzhGMkIxMUVBQzQwRTJCMDgwOTc4MEY0QzhDRkJENDEzQzQ2RDA2N0ZEOUU0QjVDNjA5NkYzOUQwNDZEMEVEMjA4QkE4NDVGQjRBMDdEMzcyODBCNDQ4NTE0REYzODA5NTdBRkEwODU3RkY4OEMzNTE1QTdEQzQyMTAxNDE7dT0xNzQ3MDc1OTM5MTg4OTM5NTgxO2g9N2I4MTc1NGI0YzM3OTIyMjE1Njk4NjFjNDM2OWNiNzA=”
+Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+ → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+ → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+ → Капча ОК
+Попытка логина: a9ata9er@gmail.com / Agaza2oo5$$$$$$
+Пользователь не найден.
+ → user->login вернул: false
+ → Неверный email или пароль, редирект на форму.
+=== Новый запрос авторизации ===
+Получен captcha_token: “dD0xNzQ3MDc2Mjc4O2k9ODUuMTk4LjEwNS4xOTk7RD01RTczNDRFRDFGOTk1RTVBNzc2M0MwRjczRUM4RENENkMzRkI1NEU0QzQ4MTg2OTlCMUI0OUI3MEM3RjI1ODcyQkJCRTZGQzdGMjIzNkEzRjEyMkU5NjdCNkI5MzVFNkJCNTEzOTEwQ0I1QUFEMjRBMDk0OEYwMTU1QjhBNUNFOEYxMzQ7dT0xNzQ3MDc2Mjc4NTU1NzYzOTI4O2g9MTA1MmIyMTgzNWJhYjVhNDc2ZTVjN2I1NzI5NzhlZjg=”
+Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+ → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+ → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+ → Капча ОК
+Попытка логина: user2@bk.ru / grbverrvbewb
+пароль неверный
+ → user->login вернул: false
+ → Неверный email или пароль, редирект на форму.
+=== Новый запрос авторизации ===
+Получен captcha_token: “dD0xNzQ3MjA2NjUwO2k9ODUuMTk4LjEwNS4xOTk7RD0xOUQ0QUQyRTUwQzY1MzYxOTdEQzAwODlCOUY3MDFEQzM5QzMwRDdBQkM4MTUwMjE2NjcwMDQ4QTVBMUQ2MjZDMDAyMTUyQTY4RUFGNTAyOUIzQzFBNTA1NTJCNjNBRTVGNzlGODM3M0E3QzM0RDBENTVCQ0REN0FCNzhDREIzOTY0QzI7dT0xNzQ3MjA2NjUwNTY4NTI1MDYwO2g9ZDYwZWRjMmE2NTFlNzBlNGVmOTMxNzk3YjMzZjQ0ODc=”
+Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+ → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+ → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+ → Капча ОК
+Попытка логина: admin@bk.ru / Admin555&3535
+ → user->login вернул: true
+ → Успешный логин, редирект в профиль.
+=== Новый запрос авторизации ===
+Получен captcha_token: “dD0xNzQ3MjMwNTkyO2k9ODUuMTk4LjEwNS4xOTk7RD1DRDVCRUMzRkUwQjI3RkQzMDg5RTI4Q0M2RjE0N0EyQkYyNkVFMzRBQUMzQkJGQTk5QjM2NzYyQkJBMjIyRDgyODUxNEU4NTUyMDkyQTQ2RUI2MTA0MTk5NDk2NUFCRTUyMjhFMEIyMzc2RkJDODYyQUY0MzRBOUQ4NEVCMjEwMUYyNUFFQTt1PTE3NDcyMzA1OTIyMTU4OTY3NjM7aD04ODIyNGIzYzFjOTE4NzEwOWI1ZDlmMmZmNTg4YzMwZg==”
+Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+ → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+ → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+ → Капча ОК
+Попытка логина: user3@bk.ru / User3$33333
+ → user->login вернул: true
+ → Успешный логин, редирект в профиль.
+=== Новый запрос авторизации ===
+Получен captcha_token: “dD0xNzQ3MjMwNTkxO2k9ODUuMTk4LjEwNS4xOTk7RD00OTZDRDJCMTdCMkQ2MjBGMkU1MzAzMkRCMjI5QzdCMEI5RDdBOTlDNzI4QUQzNDIwNUU3NzE2RkNDNzNBMzYzRjQ5NkUyMEM4ODBGMkY0OTMwNjdBOEM3RTY3ODhCQjE5QjIxMTMyQ0MzMEYwQ0NFMTRDMDUzREIxOEUzNDlFMjhCRDk2QTt1PTE3NDcyMzA1OTExMzAxNjc1NjI7aD1kMjQ5NTMzYTg4Zjc2YTQ5MzE0NmZkNjg5ZTVhNTE1OA==”
+Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+ → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+ → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+ → Капча ОК
+Попытка логина: user2@bk.ru / Agaza2oo5$$$$$$
+ → user->login вернул: true
+ → Успешный логин, редирект в профиль.
+=== Новый запрос авторизации ===
+Получен captcha_token: “dD0xNzQ3MjMxOTg2O2k9ODUuMTk4LjEwNS4xOTk7RD1EM0ZDNzk0NDVBQjkwOEMyMzQ2Qzg1ODIwQTc3RDA1MEJCRTc3Q0E2RURERUJBRDgyN0ZGQzM0NUI5NUM1OTRBM0M5NzNCRjI1OTZGOUMzRTQ3RkRDQUQ3REQwMkIwOEVDRUQxQzE5QTNEQjVCMzU2Q0MwQTg4OTUzOTk1MEE2MEMzNjE0OTt1PTE3NDcyMzE5ODYyNTQ1MjM5MjU7aD01NTQ5NmRiODA5ZmNhZmRkZTMwZGM1MTVlNTM4YzVkMA==”
+Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+ → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+ → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+ → Капча ОК
+Попытка логина: admin@bk.ru / Admin555&3535
+ → user->login вернул: true
+ → Успешный логин, редирект в профиль.
