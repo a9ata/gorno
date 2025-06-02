@@ -1,6 +1,14 @@
 <?php
 // Подключаем конфигурацию базы данных
-include_once 'config/db.php';
+include_once __DIR__ . '/../config/db.php';
+
+function debug_log($message) {
+    if (is_array($message)) {
+        $message = print_r($message, true); // форматирует массив в читаемую строку
+    }
+    error_log($message . PHP_EOL, 3,  __DIR__ . '/../logs/auth.log');
+}
+
 
 function getCategories() {
     global $conn; // Используем подключение из config/db.php
@@ -53,11 +61,12 @@ function getFilteredProducts($conn, $gender, $filters) {
         $params[] = $filters['price_max'];
     }
 
-    if (!empty($filters['sizes'])) {
-        $placeholders = implode(',', array_fill(0, count($filters['sizes']), '?'));
-        $sql .= " AND pa.size IN ($placeholders)";
-        $params = array_merge($params, $filters['sizes']);
+    if (!empty($filters['size_ids'])) {
+        $placeholders = implode(',', array_fill(0, count($filters['size_ids']), '?'));
+        $sql .= " AND pa.size_id IN ($placeholders)";
+        $params = array_merge($params, $filters['size_ids']);
     }
+
 
     if (!empty($filters['colors'])) {
         $placeholders = implode(',', array_fill(0, count($filters['colors']), '?'));
@@ -66,7 +75,7 @@ function getFilteredProducts($conn, $gender, $filters) {
     }
 
     $sql .= " GROUP BY p.id"; // чтобы избежать дубликатов при нескольких атрибутах
-
+    debug_log("SQL: $sql");
     $stmt = $conn->prepare($sql);
 
     if ($params) {
@@ -74,11 +83,47 @@ function getFilteredProducts($conn, $gender, $filters) {
         foreach ($params as $param) {
             $types .= is_numeric($param) ? 'd' : 's';
         }
+
+        debug_log(['params' => $params]);
         $stmt->bind_param($types, ...$params);
     }
     
 
     $stmt->execute();
+    
+    $result = $stmt->get_result();
+    debug_log(['result' => $result]);
+    return $result->fetch_all(MYSQLI_ASSOC);
+}
+
+function getSizesByType($conn, $type) {
+    $stmt = $conn->prepare("SELECT id, name FROM sizes WHERE type = ? ORDER BY name");
+    $stmt->bind_param("s", $type);
+    $stmt->execute();
+    return $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+}
+
+function getAvailableColors($conn) {
+    $sql = "SELECT DISTINCT color FROM product_attributes WHERE color IS NOT NULL AND color != '' ORDER BY color";
+    $res = $conn->query($sql);
+    $colors = [];
+    while ($row = $res->fetch_assoc()) {
+        $colors[] = $row['color'];
+    }
+    return $colors;
+}
+
+
+function getProductAttributes($conn, $product_id) {
+    $sql = "SELECT pa.color, pa.size_id, s.name AS size_name
+            FROM product_attributes pa
+            JOIN sizes s ON pa.size_id = s.id
+            WHERE pa.product_id = ?";
+
+    $stmt = $conn->prepare($sql);
+    $stmt->bind_param("i", $product_id);
+    $stmt->execute();
+
     $result = $stmt->get_result();
     return $result->fetch_all(MYSQLI_ASSOC);
 }

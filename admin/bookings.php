@@ -14,6 +14,31 @@ $allowed = [
     'индивидуальный заказ' => ['id','user_id','date','time','description','created_at'],
 ];
 
+$users    = [];
+$stylists = [];
+$r = $conn->query("SELECT id, name, email, role FROM users ORDER BY name");
+while ($row = $r->fetch_assoc()) {
+  $users[] = $row;
+}
+$r = $conn->query("SELECT id, name, email FROM users WHERE role='stylist' ORDER BY name");
+while ($row = $r->fetch_assoc()) {
+  $stylists[] = $row;
+}
+
+// --- Режим «Редактирование»? Подгружаем бронь по edit_id ---
+$editBooking = null;
+if (!empty($_GET['edit_id'])) {
+  $eid = (int)$_GET['edit_id'];
+  $q = $conn->prepare("SELECT * FROM bookings WHERE id = ?");
+  $q->bind_param('i', $eid);
+  $q->execute();
+  $editBooking = $q->get_result()->fetch_assoc();
+  // Если вдруг не нашлось — сбрасываем
+  if (! $editBooking) {
+    $editBooking = null;
+  }
+}
+
 // определяем текущий тип (из GET)
 $type = mb_strtolower($_GET['type'] ?? 'примерка на дому');
 if (! isset($allowed[$type])) {
@@ -61,7 +86,7 @@ $result = $stmt->get_result();
                     <td><?= nl2br(htmlspecialchars($row[$c])) ?></td>
                     <?php endforeach ?>
                     <td>
-                        <a href="/admin/edit/booking.php?id=<?= $row['id'] ?>&type=<?= urlencode($type) ?>">Редакт.</a>
+                        <a href="index.php?section=bookings&edit_id=<?= $row['id'] ?>&type=<?= urlencode($type) ?>">Редакт.</a>
                     </td>
                     <td>
                         <form action="/admin/delete/booking.php" method="POST" style="display:inline">
@@ -75,8 +100,11 @@ $result = $stmt->get_result();
             </tbody>
         </table>
     </div>
-
-    <div class="add-form">
-        <?php require_once __DIR__ . '/../admin/add/booking.php'; ?>
+    <div class="form">
+        <?php if ($editBooking): ?>
+            <?php require __DIR__ . '/../admin/edit/booking.php'; ?>
+        <?php else: ?>
+            <?php require __DIR__ . '/../admin/add/booking.php'; ?>
+        <?php endif; ?>
     </div>
   </section>

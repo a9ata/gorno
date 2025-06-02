@@ -16,7 +16,7 @@ function getEnumValues(mysqli $conn, string $table, string $column): array {
     }
     return [];
 }
-$sizes = getEnumValues($conn, 'product_attributes', 'size');
+$sizes = $conn->query("SELECT id, name FROM sizes ORDER BY name")->fetch_all(MYSQLI_ASSOC);
 $colors = getEnumValues($conn, 'product_attributes', 'color');
 
 ?>
@@ -63,12 +63,11 @@ $colors = getEnumValues($conn, 'product_attributes', 'color');
 
 
     <label>Размеры:</label>
-    <select name="size[]" multiple>
+    <select name="size_ids[]" multiple>
         <?php foreach ($sizes as $size): ?>
-            <option value="<?= $size ?>"><?= $size ?></option>
+            <option value="<?= $size['id'] ?>"><?= $size['name'] ?></option>
         <?php endforeach; ?>
     </select>
-
 
     <label>Количество:</label>
     <input type="number" name="quantity" required>

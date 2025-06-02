@@ -1,105 +1,66 @@
 <?php
-session_start();
-require_once __DIR__ . '/../../config/db.php';
-require_once __DIR__ . '/../../includes/admin_function.php';
+// admin/edit/booking.php — partial, подключается из bookings.php
+// в этот момент есть $editBooking, $users, $stylists, $type
 
-if (! isAdmin()) {
-    header('Location: /');
-    exit;
-}
-
-$users    = [];
-$stylists = [];
-
-$res = $conn->query("SELECT id, name, email, role FROM users ORDER BY name");
-while ($r = $res->fetch_assoc()) {
-    $users[] = $r;
-}
-
-$res = $conn->query("SELECT id, name, email FROM users WHERE role = 'stylist' ORDER BY name");
-while ($r = $res->fetch_assoc()) {
-    $stylists[] = $r;
-}
-
-$id   = isset($_GET['id'])   ? (int) $_GET['id']   : 0;
-$type = isset($_GET['type']) ? $_GET['type']       : 'примерка на дому';
-
-$stmt = $conn->prepare("SELECT * FROM bookings WHERE id = ?");
-$stmt->bind_param('i', $id);
-$stmt->execute();
-$booking = $stmt->get_result()->fetch_assoc();
-
-if (! $booking) {
-    header('Location: /admin/index.php?section=bookings&type=' . urlencode($type));
-    exit;
-}
-
+$b = $editBooking;
 ?>
-<h1>Редактировать бронь #<?= $booking['id'] ?></h1>
+<h3>Редактировать бронь #<?= $b['id'] ?></h3>
+<?php if (! empty($_SESSION['error'])): ?>
+  <p style="color:red;"><?= htmlspecialchars($_SESSION['error']) ?></p>
+  <?php unset($_SESSION['error']); ?>
+<?php endif; ?>
 
-  <?php if (! empty($_SESSION['error'])): ?>
-    <p style="color:red;"><?= htmlspecialchars($_SESSION['error']) ?></p>
-    <?php unset($_SESSION['error']); ?>
-  <?php endif; ?>
+<form method="POST" action="/admin/edit/booking_update.php">
+  <input type="hidden" name="id"   value="<?= $b['id'] ?>">
+  <input type="hidden" name="type" value="<?= htmlspecialchars($type) ?>">
 
-  <form method="POST" action="/admin/edit/booking_update.php">
-    <input type="hidden" name="id"   value="<?= $booking['id'] ?>">
-    <input type="hidden" name="type" value="<?= htmlspecialchars($type) ?>">
-
-    <label>Тип:
-      <select name="type" required>
-        <?php foreach (['примерка на дому','консультация','индивидуальный заказ'] as $t): ?>
-        <option value="<?= $t ?>"
-          <?= $t === $booking['type'] ? 'selected' : '' ?>>
-          <?= mb_convert_case($t, MB_CASE_TITLE, 'UTF-8') ?>
+  <label>Тип:
+    <select name="type" required>
+      <?php foreach (array_keys($allowed) as $_t): ?>
+        <option value="<?= $_t ?>" <?= $_t === $b['type'] ? 'selected' : '' ?>>
+          <?= htmlspecialchars(mb_convert_case($_t, MB_CASE_TITLE,'UTF-8')) ?>
         </option>
-        <?php endforeach ?>
-      </select>
-    </label>
+      <?php endforeach; ?>
+    </select>
+  </label><br><br>
 
-    <label>Пользователь:
-      <select name="user_id" required>
-        <?php foreach ($users as $u): ?>
-        <option value="<?= $u['id'] ?>"
-          <?= $u['id'] === (int)$booking['user_id'] ? 'selected' : '' ?>>
-          <?= htmlspecialchars("ID {$u['id']} – {$u['name']} ({$u['role']}) – {$u['email']}") ?>
+  <label>Пользователь:
+    <select name="user_id" required>
+      <?php foreach ($users as $u): ?>
+        <option value="<?= $u['id'] ?>" <?= $u['id']==$b['user_id']?'selected':''?>>
+          <?= htmlspecialchars("ID{$u['id']} – {$u['name']} ({$u['role']})") ?>
         </option>
-        <?php endforeach ?>
-      </select>
-    </label>
+      <?php endforeach; ?>
+    </select>
+  </label><br><br>
 
-    <label>Стилист (для консультации):
-      <select name="stylist_id">
-        <option value="">— не выбран —</option>
-        <?php foreach ($stylists as $s): ?>
-        <option value="<?= $s['id'] ?>"
-          <?= $s['id'] === (int)$booking['stylist_id'] ? 'selected' : '' ?>>
-          <?= htmlspecialchars("ID {$s['id']} – {$s['name']} – {$s['email']}") ?>
+  <label>Стилист:
+    <select name="stylist_id">
+      <option value="">— не выбран —</option>
+      <?php foreach ($stylists as $s): ?>
+        <option value="<?= $s['id'] ?>" <?= $s['id']==$b['stylist_id']?'selected':''?>>
+          <?= htmlspecialchars("ID{$s['id']} – {$s['name']}") ?>
         </option>
-        <?php endforeach ?>
-      </select>
-    </label>
+      <?php endforeach; ?>
+    </select>
+  </label><br><br>
 
-    <label>Дата:
-      <input type="date" name="date"
-             value="<?= htmlspecialchars($booking['date']) ?>" required>
-    </label>
+  <label>Дата:
+    <input type="date" name="date" value="<?= htmlspecialchars($b['date']) ?>" required>
+  </label><br><br>
 
-    <label>Время:
-      <input type="time" name="time"
-            value="<?= htmlspecialchars($booking['time']) ?>" required>
-    </label>
+  <label>Время:
+    <input type="time" name="time" value="<?= htmlspecialchars($b['time']) ?>" required>
+  </label><br><br>
 
-    <label>Адрес:
-      <textarea name="address" rows="2"><?= 
-        htmlspecialchars($booking['address'] ?? '') 
-      ?></textarea>
-    </label>
+  <label>Адрес:<br>
+    <textarea name="address" rows="2"><?= htmlspecialchars($b['address'] ?? '') ?></textarea>
+  </label><br><br>
 
-    <label>Описание:
-      <textarea name="description" rows="3"><?= htmlspecialchars($booking['description']) ?></textarea>
-    </label>
+  <label>Описание:<br>
+    <textarea name="description" rows="3"><?= htmlspecialchars($b['description'] ?? '') ?></textarea>
+  </label><br><br>
 
-    <button type="submit">Сохранить</button>
-    <a href="/admin/index.php?section=bookings&type=<?= urlencode($type) ?>">Отмена</a>
-  </form>
+  <button type="submit">Сохранить</button>
+  <a href="/admin/index.php?section=bookings&type=<?= urlencode($type) ?>">Отмена</a>
+</form>

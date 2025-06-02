@@ -686,8 +686,24 @@ main{
                 .checkbox-wrapper input[type="checkbox"]:checked::before {
                     opacity: 1;
                 }
+            }
 
+            .size-filter.grid-sizes {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+                gap: 8px;
+                padding: 0;
+                list-style: none;
+            }
 
+            .size-filter.grid-sizes input[type="checkbox"] {
+                display: none;
+            }
+
+            .size-filter.grid-sizes input[type="checkbox"]:checked + span {
+                background-color: #FFE4C4;
+                padding: 8px;
+                border-radius: 5px;
             }
 
             button{

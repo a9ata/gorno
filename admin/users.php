@@ -75,15 +75,11 @@ $result = $conn->query("SELECT id, name, email, phone, birthdate, role FROM user
             <?php endwhile; ?>
         </table>
     </div>
-    
-    <div>
-        <?php require_once __DIR__ . '/../admin/add/user.php'; ?>
+    <div class="form">
+        <?php if ($edit): ?>
+            <?php require __DIR__ . '/../admin/edit/user.php'; ?>
+        <?php else: ?>
+            <?php require __DIR__ . '/../admin/add/user.php'; ?>
+        <?php endif; ?>
     </div>
-
-    <?php if ($edit): ?>
-        <div class="form">
-            <h3>Редактировать запись #<?= $edit['id'] ?></h3>
-            <?php require_once __DIR__ . '/../admin/edit/user.php'; ?>
-        </div>
-    <?php endif; ?>
 </section>

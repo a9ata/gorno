@@ -9,10 +9,12 @@ $userId = $_SESSION['id_user'] ?? null;
 $sql = "SELECT 
     c.*, 
     p.name, p.description, p.price, 
-    pi.image_url 
+    pi.image_url,
+    s.name AS size_name
 FROM cart c
 JOIN products p ON c.product_id = p.id
 LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+JOIN sizes s ON c.size_id = s.id
 WHERE c.user_id = ?";
 
 $stmt = $conn->prepare($sql);
@@ -57,7 +59,7 @@ $totalSum = 0;
                             <button name="action" value="increase">+</button>
                         </form>
                     </td>
-                    <td><?= $item['size'] ?></td>
+                    <td><?= htmlspecialchars($item['size_name']) ?></td>
                     <td><?= number_format($sum, 0, '.', ' ') ?> ₽</td>
                     <td>
                         <button class="trash-btn" data-id="<?= $item['id'] ?>">

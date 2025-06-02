@@ -11,7 +11,16 @@ $product = $conn->query("SELECT p.*, s.name AS subcategory FROM products p
                          WHERE p.id = $id")->fetch_assoc();
 
 $images = $conn->query("SELECT image_url, is_main FROM product_images WHERE product_id = $id")->fetch_all(MYSQLI_ASSOC);
-$attributes = $conn->query("SELECT color, size FROM product_attributes WHERE product_id = $id")->fetch_all(MYSQLI_ASSOC);
+
+$stmt = $conn->prepare("
+    SELECT pa.color, pa.size_id, s.name AS size_name
+    FROM product_attributes pa
+    JOIN sizes s ON pa.size_id = s.id
+    WHERE pa.product_id = ?
+");
+$stmt->bind_param("i", $id);
+$stmt->execute();
+$attributes = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 
 // Получаем основное изображение
 $mainImage = '';

@@ -15,7 +15,7 @@ $description = $_POST['description'] ?? '';
 $price = $_POST['price'] ?? 0;
 
 $colors = explode(',', $_POST['colors'] ?? '');
-$sizes = explode(',', $_POST['sizes'] ?? '');
+$sizes = $_POST['sizes'] ?? [];
 $quantity = $_POST['quantity'] ?? 0;
 
 $mainImage = trim($_POST['main_image'] ?? '');
@@ -55,12 +55,12 @@ $stmt->bind_param("i", $id);
 $stmt->execute();
 
 foreach ($colors as $color) {
-    foreach ($sizes as $size) {
+    foreach ($sizes as $sizeId) {
         $color = trim($color);
-        $size = trim($size);
-        if ($color && $size) {
-            $stmt = $conn->prepare("INSERT INTO product_attributes (product_id, color, size, quantity) VALUES (?, ?, ?, ?)");
-            $stmt->bind_param("issi", $id, $color, $size, $quantity);
+        $sizeId = intval($sizeId);
+        if ($color && $sizeId) {
+            $stmt = $conn->prepare("INSERT INTO product_attributes (product_id, color, size_id, quantity) VALUES (?, ?, ?, ?)");
+            $stmt->bind_param("isii", $id, $color, $sizeId, $quantity);
             $stmt->execute();
         }
     }

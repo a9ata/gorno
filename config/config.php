@@ -18,4 +18,3 @@
     const DB_PASSWORD = ''; // Пароль базы данных
     const DB_NAME = 'gorno'; // Имя базы данных
 ?>
-

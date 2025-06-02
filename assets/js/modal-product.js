@@ -6,7 +6,9 @@ function openProductModal(productId) {
             const container = document.getElementById("productDetails");
 
             let colors = [...new Set(data.attributes.map(attr => attr.color))];
-            let sizes = [...new Set(data.attributes.map(attr => attr.size))];
+            let sizes = [...new Map(
+                data.attributes.map(attr => [attr.size_id, attr.size_name])
+            ).entries()];
 
             const additionalImages = data.images
                 .filter(img => img.is_main == 0)
@@ -26,14 +28,18 @@ function openProductModal(productId) {
                             <div>
                                 <label>Цвет:</label>
                                 ${colors.map(color => `
-                                    <label class="radio-wrapper"><input type="radio" name="color" value="${color}" required> ${color}</label>
+                                    <label class="radio-wrapper">
+                                        <input type="radio" name="color" value="${color}" required> ${color}
+                                    </label>
                                 `).join('')}
                             </div>
                             
                             <div>
                                 <label>Размер:</label>
-                                ${sizes.map(size => `
-                                    <label class="radio-wrapper"><input type="radio" name="size" value="${size}" required> ${size}</label>
+                                ${sizes.map(([id, name]) => `
+                                    <label class="radio-wrapper">
+                                        <input type="radio" name="size_id" value="${id}" required> ${name}
+                                    </label>
                                 `).join('')}
                             </div>
                             <div class="title">

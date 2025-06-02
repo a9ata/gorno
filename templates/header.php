@@ -1,3 +1,12 @@
+<?php
+$genders = [
+    'Женщины' => 'f',
+    'Мужчины'  => 'm',
+    'Девочки'  => 'g',
+    'Мальчики' => 'b',
+];
+$allCats = getAllCategories($conn);
+?>
 <!doctype html>
 <html lang="ru">
 <head>
@@ -22,26 +31,37 @@
             </a>
         </div>
         <ul class="header-menu">
-            <?php foreach (['Женщины', 'Мужчины', 'Девочки', 'Мальчики'] as $section): ?>
-                <li>
-                    <a href="#"><?= $section ?></a>
-                    <ul class="dropdown">
-                        <?php if (!empty($categories)): ?>
-                            <?php foreach ($categories as $category => $subcategories): ?>
-                                <li>
-                                    <p><?= $category ?></p>
-                                    <?php if (!empty($subcategories)): ?>
-                                        <ul>
-                                            <?php foreach ($subcategories as $subcategory): ?>
-                                                <li><a href="#"><?= $subcategory ?></a></li>
-                                            <?php endforeach; ?>
-                                        </ul>
-                                    <?php endif; ?>
-                                </li>
-                            <?php endforeach; ?>
-                        <?php endif; ?>
-                    </ul>
-                </li>
+            <?php foreach ($genders as $label => $genderKey): ?>
+            <li>
+                <!-- ссылка на весь сегмент -->
+                <a href="/index.php?page=catalog&gender=<?= $genderKey ?>">
+                <?= htmlspecialchars($label) ?>
+                </a>
+                <ul class="dropdown">
+                <?php foreach ($allCats as $catId => $cat): ?>
+                    <li>
+                    <p>
+                        <!-- ссылка на конкретную категорию -->
+                        <a href="/index.php?page=catalog&gender=<?= $genderKey ?>&category_id=<?= $catId ?>">
+                        <?= htmlspecialchars($cat['name']) ?>
+                        </a>
+                    </p>
+                    <?php if (!empty($cat['subcategories'])): ?>
+                        <ul>
+                        <?php foreach ($cat['subcategories'] as $sub): ?>
+                            <li>
+                            <!-- ссылка на подкатегорию -->
+                            <a href="/index.php?page=catalog&gender=<?= $genderKey ?>&subcategory_id=<?= $sub['id'] ?>">
+                                <?= htmlspecialchars($sub['name']) ?>
+                            </a>
+                            </li>
+                        <?php endforeach; ?>
+                        </ul>
+                    <?php endif; ?>
+                    </li>
+                <?php endforeach; ?>
+                </ul>
+            </li>
             <?php endforeach; ?>
         </ul>
         <div class="user-actions">

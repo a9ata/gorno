@@ -72,31 +72,28 @@ unset($_SESSION['success'], $_SESSION['error']);
             </tbody>
         </table>
     </div>
-    
-    <div class="faq-form">
-        <?php require_once __DIR__ . '/../admin/add/faq.php'; ?>
+    <div class="form">
+        <?php if ($editFaq): ?>
+            <h3>Редактировать запись #<?= $editFaq['id'] ?></h3>
+            <form action="/admin/edit/faq.php" method="POST">
+                <input type="hidden" name="id" value="<?= $editFaq['id'] ?>">
+                <label>Раздел:
+                    <input type="text"
+                        name="section_title"
+                        value="<?= htmlspecialchars($editFaq['section_title']) ?>"
+                        required>
+                </label>
+                <label>Вопрос:
+                    <textarea name="question" rows="2" required><?= htmlspecialchars($editFaq['question']) ?></textarea>
+                </label>
+                <label>Ответ:
+                    <textarea name="answer" rows="4" required><?= htmlspecialchars($editFaq['answer']) ?></textarea>
+                </label>
+                <button type="submit">Обновить</button>
+                <a href="?section=faq" class="btn-secondary">Отмена</a>
+            </form>
+        <?php else: ?>
+            <?php require __DIR__ . '/../admin/add/faq.php'; ?>
+        <?php endif; ?>
     </div>
-
-    <?php if ($editFaq): ?>
-    <div class="faq-form">
-        <h3>Редактировать запись #<?= $editFaq['id'] ?></h3>
-        <form action="/admin/edit/faq.php" method="POST">
-            <input type="hidden" name="id" value="<?= $editFaq['id'] ?>">
-            <label>Раздел:
-                <input type="text"
-                    name="section_title"
-                    value="<?= htmlspecialchars($editFaq['section_title']) ?>"
-                    required>
-            </label>
-            <label>Вопрос:
-                <textarea name="question" rows="2" required><?= htmlspecialchars($editFaq['question']) ?></textarea>
-            </label>
-            <label>Ответ:
-                <textarea name="answer" rows="4" required><?= htmlspecialchars($editFaq['answer']) ?></textarea>
-            </label>
-            <button type="submit">Обновить</button>
-            <a href="?section=faq" class="btn-secondary">Отмена</a>
-        </form>
-    </div>
-    <?php endif; ?>
 </section>

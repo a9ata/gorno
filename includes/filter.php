@@ -1,6 +1,3 @@
-<?php 
-    require_once 'includes/functions.php'; 
-?>
 <form method="GET" action="index.php">
     <input type="hidden" name="page" value="catalog">
     <input type="hidden" name="gender" value="<?= htmlspecialchars($_GET['gender'] ?? '') ?>">
@@ -14,7 +11,8 @@
                     <?php foreach ($cat['subcategories'] as $sub): ?>
                         <li>
                             <label class="checkbox-wrapper">
-                                <input type="checkbox" name="subcategory_ids[]" value="<?= $sub['id'] ?>">
+                                <input type="checkbox" name="subcategory_ids[]" value="<?= $sub['id'] ?>"
+                                <?= in_array($sub['id'], $_GET['subcategory_ids'] ?? []) ? 'checked' : '' ?>>
                                 <?= $sub['name'] ?>
                             </label>
                         </li>
@@ -32,32 +30,39 @@
 
     <h4>Размеры одежды</h4>
     <ul class="size-filter">
-        <?php foreach (['XS', 'S', 'M', 'L', 'XL', 'XXL'] as $size): ?>
+        <?php foreach (getSizesByType($conn, 'clothing') as $size): ?>
             <li>
                 <label class="checkbox-wrapper">
-                    <input type="checkbox" name="sizes[]" value="<?= $size ?>"> <?= $size ?>
+                    <input type="checkbox" name="size_ids[]" value="<?= $size['id'] ?>"
+                        <?= in_array($size['id'], $_GET['size_ids'] ?? []) ? 'checked' : '' ?>>
+                    <?= $size['name'] ?>
                 </label>
             </li>
         <?php endforeach; ?>
     </ul>
 
     <h4>Размеры обуви</h4>
-    <ul class="shoe-size-filter">
-        <?php for ($i = 16; $i <= 45; $i++): ?>
+    <ul class="size-filter grid-sizes">
+        <?php foreach (getSizesByType($conn, 'shoes') as $size): ?>
             <li>
-                <label class="checkbox-wrapper">
-                    <input type="checkbox" name="sizes[]" value="<?= $i ?>"> <?= $i ?>
+                <label>
+                    <input type="checkbox" name="size_ids[]" value="<?= $size['id'] ?>"
+                        <?= in_array($size['id'], $_GET['size_ids'] ?? []) ? 'checked' : '' ?>>
+                    <span><?= $size['name'] ?></span>
                 </label>
             </li>
-        <?php endfor; ?>
+        <?php endforeach; ?>
     </ul>
+
 
     <h4>Цвета</h4>
     <ul class="color-filter">
-        <?php foreach (['Белый', 'Черный', 'Синий', 'Красный', 'Зеленый', 'Голубой'] as $color): ?>
+        <?php foreach (getAvailableColors($conn) as $color): ?>
             <li>
                 <label class="checkbox-wrapper">
-                    <input type="checkbox" name="colors[]" value="<?= $color ?>"> <?= $color ?>
+                    <input type="checkbox" name="colors[]" value="<?= htmlspecialchars($color) ?>" 
+                        <?= in_array($color, $_GET['colors'] ?? []) ? 'checked' : '' ?>>
+                    <?= htmlspecialchars($color) ?>
                 </label>
             </li>
         <?php endforeach; ?>

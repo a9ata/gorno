@@ -21,11 +21,10 @@ if (!$subcategoryId || !$gender || !$name || $price <= 0 || !$mainImage) {
 
 // 2) Цвета и размеры
 $rawColors = $_POST['colors'] ?? '';
-$rawSizes  = $_POST['size']  ?? '';
 $colors    = is_array($rawColors) ? $rawColors : explode(',', $rawColors);
-$sizes     = is_array($rawSizes)  ? $rawSizes  : explode(',', $rawSizes);
 $colors    = array_filter(array_map('trim', $colors), fn($v) => $v !== '');
-$sizes     = array_filter(array_map('trim', $sizes),  fn($v) => $v !== '');
+$rawSizeIds = $_POST['size_ids'] ?? [];
+$sizeIds = array_filter($rawSizeIds, fn($v) => is_numeric($v));
 
 // 3) Добавляем продукт
 $stmt = $conn->prepare("
@@ -59,16 +58,17 @@ foreach (preg_split('/\s*,\s*/', $_POST['additional_images'] ?? '') as $uri) {
 $stmt->close();
 
 // 5) Добавляем атрибуты, только если и цвета и размеры есть
-if ($colors && $sizes) {
+if ($colors && $sizeIds) {
     $stmt = $conn->prepare("
         INSERT INTO product_attributes
-          (product_id, color, size, quantity)
+        (product_id, color, size_id, quantity)
         VALUES
-          (?, ?, ?, ?)
+        (?, ?, ?, ?)
     ");
+
     foreach ($colors as $color) {
-        foreach ($sizes as $size) {
-            $stmt->bind_param("issi", $productId, $color, $size, $quantity);
+        foreach ($sizeIds as $sizeId) {
+            $stmt->bind_param("isii", $productId, $color, $sizeId, $quantity);
             $stmt->execute();
         }
     }

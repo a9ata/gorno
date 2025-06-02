@@ -1,108 +1,111 @@
 <?php
-session_start();
-require_once __DIR__ . '/../../config/db.php';
+// Получаем списки категорий и подкатегорий
+$categories = $conn->query("SELECT id, name FROM categories ORDER BY name")
+                  ->fetch_all(MYSQLI_ASSOC);
+$subcategories = $conn->query("SELECT id, name FROM subcategories ORDER BY name")
+                     ->fetch_all(MYSQLI_ASSOC);
 
-$productId = $_GET['id'] ?? null;
-if (!$productId) {
-    die("Товар не найден.");
+// Извлекаем данные из $edit
+$productId     = $edit['id'];
+$name          = $edit['name'];
+$description   = $edit['description'];
+$price         = $edit['price'];
+$gender        = $edit['gender'];
+$categoryId    = $edit['category_id'];
+$subcategoryId = $edit['subcategory_id'];
+$images        = $edit['images'] ?? [];
+$colors        = $edit['colors']   ?? [];
+$sizesListAll = $conn->query("SELECT id, name FROM sizes ORDER BY name")->fetch_all(MYSQLI_ASSOC);
+$quantity      = $edit['quantity'] ?? 0;
+
+// Формируем строки для изображений и атрибутов
+$mainImage = '';
+$additional = [];
+foreach ($images as $img) {
+    if ($img['is_main']) {
+        $mainImage = $img['image_url'];
+    } else {
+        $additional[] = $img['image_url'];
+    }
 }
-
-// Получаем данные товара
-$sql = "
-    SELECT 
-        p.*, 
-        s.category_id, 
-        s.name AS subcategory_name,
-        s.id AS subcategory_id
-    FROM products p
-    JOIN subcategories s ON p.subcategory_id = s.id
-    WHERE p.id = ?
-";
-
-$stmt = $conn->prepare($sql);
-$stmt->bind_param("i", $productId);
-$stmt->execute();
-$product = $stmt->get_result()->fetch_assoc();
-
-// Получаем изображения
-$stmt = $conn->prepare("SELECT * FROM product_images WHERE product_id = ?");
-$stmt->bind_param("i", $productId);
-$stmt->execute();
-$images = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-
-// Получаем атрибуты
-$stmt = $conn->prepare("SELECT * FROM product_attributes WHERE product_id = ?");
-$stmt->bind_param("i", $productId);
-$stmt->execute();
-$attributes = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
-
-$colors = array_unique(array_column($attributes, 'color'));
-$sizes = array_unique(array_column($attributes, 'size'));
-$quantity = $attributes[0]['quantity'] ?? 0;
-
-// Получаем подкатегории и категории
-$subcategories = $conn->query("SELECT id, name FROM subcategories")->fetch_all(MYSQLI_ASSOC);
-$categories = $conn->query("SELECT id, name FROM categories")->fetch_all(MYSQLI_ASSOC);
-
+$additionalImages = implode(',', $additional);
+$colorsList       = implode(',', $colors);
+$sizesList        = implode(',', $sizes);
 ?>
-
-<h2>Редактировать товар: <?= htmlspecialchars($product['name']) ?></h2>
+<h3>Редактировать товар #<?= $productId ?>: <?= htmlspecialchars($name) ?></h3>
 <form method="post" action="/admin/edit/product_update.php" class="edit-product-form">
-    <input type="hidden" name="id" value="<?= $product['id'] ?>">
+    <input type="hidden" name="id" value="<?= $productId ?>">
 
-    <label>Категория:</label>
-    <select name="category">
+    <label>Категория:<br>
+      <select name="category" required>
         <?php foreach ($categories as $cat): ?>
-            <option value="<?= $cat['id'] ?>" <?= ($cat['id'] == $product['category_id']) ? 'selected' : '' ?>>
-                <?= htmlspecialchars($cat['name']) ?>
-            </option>
+          <option value="<?= $cat['id'] ?>"
+            <?= $cat['id'] == $categoryId ? 'selected' : '' ?>>
+            <?= htmlspecialchars($cat['name']) ?>
+          </option>
         <?php endforeach; ?>
-    </select>
+      </select>
+    </label><br><br>
 
-    <label>Подкатегория:</label>
-    <select name="subcategory">
+    <label>Подкатегория:<br>
+      <select name="subcategory" required>
         <?php foreach ($subcategories as $sub): ?>
-            <option value="<?= $sub['id'] ?>" <?= ($sub['id'] == $product['subcategory_id']) ? 'selected' : '' ?>>
-                <?= htmlspecialchars($sub['name']) ?>
-            </option>
+          <option value="<?= $sub['id'] ?>"
+            <?= $sub['id'] == $subcategoryId ? 'selected' : '' ?>>
+            <?= htmlspecialchars($sub['name']) ?>
+          </option>
         <?php endforeach; ?>
-    </select>
+      </select>
+    </label><br><br>
 
-    <label>Пол:</label>
-    <select name="gender">
-        <option value="f" <?= $product['gender'] === 'f' ? 'selected' : '' ?>>Женщина</option>
-        <option value="m" <?= $product['gender'] === 'm' ? 'selected' : '' ?>>Мужчина</option>
-        <option value="g" <?= $product['gender'] === 'g' ? 'selected' : '' ?>>Девочка</option>
-        <option value="b" <?= $product['gender'] === 'b' ? 'selected' : '' ?>>Мальчик</option>
-    </select>
+    <label>Пол:<br>
+      <select name="gender" required>
+        <option value="f" <?= $gender==='f' ? 'selected' : '' ?>>Женщина</option>
+        <option value="m" <?= $gender==='m' ? 'selected' : '' ?>>Мужчина</option>
+        <option value="g" <?= $gender==='g' ? 'selected' : '' ?>>Девочка</option>
+        <option value="b" <?= $gender==='b' ? 'selected' : '' ?>>Мальчик</option>
+      </select>
+    </label><br><br>
 
-    <label>Название:</label>
-    <input type="text" name="name" value="<?= htmlspecialchars($product['name']) ?>" required>
+    <label>Название:<br>
+      <input type="text" name="name" value="<?= htmlspecialchars($name) ?>" required>
+    </label><br><br>
 
-    <label>Описание:</label>
-    <textarea name="description"><?= htmlspecialchars($product['description']) ?></textarea>
+    <label>Описание:<br>
+      <textarea name="description" rows="4"><?= htmlspecialchars($description) ?></textarea>
+    </label><br><br>
 
-    <label>Цена:</label>
-    <input type="number" step="0.01" name="price" value="<?= $product['price'] ?>" required>
+    <label>Цена (₽):<br>
+      <input type="number" step="0.01" name="price" value="<?= $price ?>" required>
+    </label><br><br>
 
-    <label>Цвета:</label>
-    <input type="text" name="colors" value="<?= implode(',', $colors) ?>">
+    <label>Цвета (через запятую):<br>
+      <input type="text" name="colors" value="<?= htmlspecialchars($colorsList) ?>">
+    </label><br><br>
 
-    <label>Размеры:</label>
-    <input type="text" name="sizes" value="<?= implode(',', $sizes) ?>">
+    <label>Размеры:<br>
+      <select name="sizes[]" multiple>
+        <?php foreach ($sizesListAll as $s): ?>
+          <option value="<?= $s['id'] ?>" <?= in_array($s['name'], $sizes) ? 'selected' : '' ?>>
+            <?= htmlspecialchars($s['name']) ?>
+          </option>
+        <?php endforeach; ?>
+      </select>
+    </label><br><br>
 
-    <label>Количество:</label>
-    <input type="number" name="quantity" value="<?= $quantity ?>">
 
-    <label>Главное изображение:</label>
-    <input type="text" name="main_image" value="<?= htmlspecialchars($images[0]['image_url'] ?? '') ?>">
+    <label>Количество:<br>
+      <input type="number" name="quantity" value="<?= $quantity ?>" required>
+    </label><br><br>
 
-    <label>Доп. изображения (через запятую):</label>
-    <input type="text" name="additional_images" value="<?php
-        $addImgs = array_filter($images, fn($img) => !$img['is_main']);
-        echo implode(',', array_column($addImgs, 'image_url'));
-    ?>">
+    <label>Главное изображение (URL):<br>
+      <input type="text" name="main_image" value="<?= htmlspecialchars($mainImage) ?>">
+    </label><br><br>
+
+    <label>Доп. изображения (через запятую):<br>
+      <input type="text" name="additional_images" value="<?= htmlspecialchars($additionalImages) ?>">
+    </label><br><br>
 
     <button type="submit">Сохранить</button>
-    <a href="/admin/index.php?section=users">Назад</a>
+    <a href="/admin/index.php?section=products" style="margin-left:10px;">Отмена</a>
 </form>
