@@ -34,7 +34,7 @@ $allCats = getAllCategories($conn);
             <?php foreach ($genders as $label => $genderKey): ?>
             <li>
                 <!-- ссылка на весь сегмент -->
-                <a href="/index.php?page=catalog&gender=<?= $genderKey ?>">
+                <a href="/catalog&gender=<?= $genderKey ?>">
                 <?= htmlspecialchars($label) ?>
                 </a>
                 <ul class="dropdown">
@@ -42,7 +42,7 @@ $allCats = getAllCategories($conn);
                     <li>
                     <p>
                         <!-- ссылка на конкретную категорию -->
-                        <a href="/index.php?page=catalog&gender=<?= $genderKey ?>&category_id=<?= $catId ?>">
+                        <a href="/catalog&gender=<?= $genderKey ?>&category_id=<?= $catId ?>">
                         <?= htmlspecialchars($cat['name']) ?>
                         </a>
                     </p>
@@ -51,7 +51,7 @@ $allCats = getAllCategories($conn);
                         <?php foreach ($cat['subcategories'] as $sub): ?>
                             <li>
                             <!-- ссылка на подкатегорию -->
-                            <a href="/index.php?page=catalog&gender=<?= $genderKey ?>&subcategory_id=<?= $sub['id'] ?>">
+                            <a href="/catalog&gender=<?= $genderKey ?>&subcategory_id=<?= $sub['id'] ?>">
                                 <?= htmlspecialchars($sub['name']) ?>
                             </a>
                             </li>
@@ -71,7 +71,6 @@ $allCats = getAllCategories($conn);
                 </a>
             <?php endif; ?>
 
-
             <a href="/favorite" class="icon-link">
                 <img src="<?= ICONS_URL ?>favorite-default.svg" alt="Избранные" />
             </a>
@@ -80,7 +79,7 @@ $allCats = getAllCategories($conn);
             </a>
             <?php include __DIR__ . '/../templates/modal-auth.php'; ?>
             <?php if (isset($_SESSION['name'])): ?>
-                <a href="/index.php?page=profile" class="icon-link">
+                <a href="/profile" class="icon-link">
                     <img src="<?= ICONS_URL ?>account.svg" alt="Профиль">
                 </a>
             <?php else: ?>

@@ -3064,3 +3064,467 @@ Array
 
 )
 
+SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+Array
+(
+    [params] => Array
+        (
+            [0] => f
+        )
+
+)
+
+Array
+(
+    [result] => mysqli_result Object
+        (
+            [current_field] => 0
+            [field_count] => 9
+            [lengths] => 
+            [num_rows] => 8
+            [type] => 0
+        )
+
+)
+
+SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? AND p.subcategory_id IN (?) GROUP BY p.id
+Array
+(
+    [params] => Array
+        (
+            [0] => f
+            [1] => 27
+        )
+
+)
+
+Array
+(
+    [result] => mysqli_result Object
+        (
+            [current_field] => 0
+            [field_count] => 9
+            [lengths] => 
+            [num_rows] => 1
+            [type] => 0
+        )
+
+)
+
+SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+Array
+(
+    [params] => Array
+        (
+            [0] => f
+        )
+
+)
+
+Array
+(
+    [result] => mysqli_result Object
+        (
+            [current_field] => 0
+            [field_count] => 9
+            [lengths] => 
+            [num_rows] => 8
+            [type] => 0
+        )
+
+)
+
+=== Новый запрос авторизации ===
+Получен captcha_token: “dD0xNzQ5ODI3OTE4O2k9ODUuMTk4LjEwNS4yNTQ7RD02QjI5NUNENTMzNEVCRjQ4NTYyODJDNDYwQTM3Q0VBOEZDQkQ5QkNCQTgyODg4MzExQ0FFQkMxMUUzODExNkEwQzg0RTMxQkNEODAyOTkyRDExQjhDMDY1RkQyQkYyOTJEQUFENjcwQkQ3REQxNjQ2MTQ0MTNBMzkzRjBFRUU2QTExQTNBMjt1PTE3NDk4Mjc5MTg5Njg3NzI3OTA7aD02ZWZkMjQ1MWJiNWU5MTdiNGI3YzY0MWU5OTcxYjNlOQ==”
+Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+ → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+ → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+ → Капча ОК
+Попытка логина: admin@bk.ru / Admin555&3535
+ → user->login вернул: true
+ → Успешный логин, редирект в профиль.
+SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+Array
+(
+    [params] => Array
+        (
+            [0] => f
+        )
+
+)
+
+Array
+(
+    [result] => mysqli_result Object
+        (
+            [current_field] => 0
+            [field_count] => 9
+            [lengths] => 
+            [num_rows] => 8
+            [type] => 0
+        )
+
+)
+
+SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+Array
+(
+    [params] => Array
+        (
+            [0] => f
+        )
+
+)
+
+Array
+(
+    [result] => mysqli_result Object
+        (
+            [current_field] => 0
+            [field_count] => 9
+            [lengths] => 
+            [num_rows] => 8
+            [type] => 0
+        )
+
+)
+
+SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+Array
+(
+    [params] => Array
+        (
+            [0] => m
+        )
+
+)
+
+Array
+(
+    [result] => mysqli_result Object
+        (
+            [current_field] => 0
+            [field_count] => 9
+            [lengths] => 
+            [num_rows] => 1
+            [type] => 0
+        )
+
+)
+
+SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+Array
+(
+    [params] => Array
+        (
+            [0] => g
+        )
+
+)
+
+Array
+(
+    [result] => mysqli_result Object
+        (
+            [current_field] => 0
+            [field_count] => 9
+            [lengths] => 
+            [num_rows] => 0
+            [type] => 0
+        )
+
+)
+
+SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+Array
+(
+    [params] => Array
+        (
+            [0] => b
+        )
+
+)
+
+Array
+(
+    [result] => mysqli_result Object
+        (
+            [current_field] => 0
+            [field_count] => 9
+            [lengths] => 
+            [num_rows] => 1
+            [type] => 0
+        )
+
+)
+
+SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+Array
+(
+    [params] => Array
+        (
+            [0] => f
+        )
+
+)
+
+Array
+(
+    [result] => mysqli_result Object
+        (
+            [current_field] => 0
+            [field_count] => 9
+            [lengths] => 
+            [num_rows] => 8
+            [type] => 0
+        )
+
+)
+
+SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+Array
+(
+    [params] => Array
+        (
+            [0] => f
+        )
+
+)
+
+Array
+(
+    [result] => mysqli_result Object
+        (
+            [current_field] => 0
+            [field_count] => 9
+            [lengths] => 
+            [num_rows] => 8
+            [type] => 0
+        )
+
+)
+
+SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+Array
+(
+    [params] => Array
+        (
+            [0] => f
+        )
+
+)
+
+Array
+(
+    [result] => mysqli_result Object
+        (
+            [current_field] => 0
+            [field_count] => 9
+            [lengths] => 
+            [num_rows] => 8
+            [type] => 0
+        )
+
+)
+
+SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+Array
+(
+    [params] => Array
+        (
+            [0] => f
+        )
+
+)
+
+Array
+(
+    [result] => mysqli_result Object
+        (
+            [current_field] => 0
+            [field_count] => 9
+            [lengths] => 
+            [num_rows] => 8
+            [type] => 0
+        )
+
+)
+
+SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+Array
+(
+    [params] => Array
+        (
+            [0] => m
+        )
+
+)
+
+Array
+(
+    [result] => mysqli_result Object
+        (
+            [current_field] => 0
+            [field_count] => 9
+            [lengths] => 
+            [num_rows] => 1
+            [type] => 0
+        )
+
+)
+
+SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+Array
+(
+    [params] => Array
+        (
+            [0] => g
+        )
+
+)
+
+Array
+(
+    [result] => mysqli_result Object
+        (
+            [current_field] => 0
+            [field_count] => 9
+            [lengths] => 
+            [num_rows] => 0
+            [type] => 0
+        )
+
+)
+
+SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+Array
+(
+    [params] => Array
+        (
+            [0] => b
+        )
+
+)
+
+Array
+(
+    [result] => mysqli_result Object
+        (
+            [current_field] => 0
+            [field_count] => 9
+            [lengths] => 
+            [num_rows] => 1
+            [type] => 0
+        )
+
+)
+
+SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+Array
+(
+    [params] => Array
+        (
+            [0] => g
+        )
+
+)
+
+Array
+(
+    [result] => mysqli_result Object
+        (
+            [current_field] => 0
+            [field_count] => 9
+            [lengths] => 
+            [num_rows] => 0
+            [type] => 0
+        )
+
+)
+
