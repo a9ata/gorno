@@ -2,8 +2,6 @@
 session_start();
 include_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../includes/booking_function.php';
-$pageTitle = 'Профиль — Горно';
-
 
 $userId = $_SESSION['id_user'] ?? null;
 

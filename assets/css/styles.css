@@ -14,6 +14,21 @@ h1, h2, h3, h4, h5, h6, p {
     word-wrap: break-word;
 }
 
+.form-error {
+  color: #d8000c;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #d8000c;
+  border-radius: 4px;
+}
+
+.form-success {
+  color: #007700;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #007700;
+  border-radius: 4px;
+}
 
 main{
     flex: 1;

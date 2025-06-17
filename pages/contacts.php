@@ -1,6 +1,3 @@
-<?php
-$pageTitle = 'FAQ — Горно';
-?>
 <section class="contact-info">
     <h2>Контакты</h2>
     <div class="info">

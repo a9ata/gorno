@@ -2,7 +2,6 @@
 session_start();
 require_once __DIR__ . '/../config/db.php';
 require_once __DIR__ . '/../includes/booking_function.php';
-$pageTitle = 'Услуги — Горно';
 
 $userName  = $_SESSION['name']  ?? '';
 $userEmail = $_SESSION['email'] ?? '';

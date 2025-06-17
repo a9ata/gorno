@@ -2,7 +2,6 @@
 session_start();
 require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../config/db.php';
-$pageTitle = 'Корзина — Горно';
 
 $userId = $_SESSION['id_user'] ?? null;
 

@@ -1,7 +1,3 @@
-<?php
-$pageTitle = 'Главная — Горно';
-?>
-
 <section class="gender-links">
     <div class="gender-grid">
         <a href="/catalog&gender=f" class="gender-item">

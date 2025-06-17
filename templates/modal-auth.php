@@ -2,6 +2,18 @@
   <div class="modal-content">
     <span class="close-btn" onclick="closeLoginModal()">&times;</span>
 
+    <?php if (!empty($_SESSION['error'])): ?>
+      <div class="form-error">
+        <?= $_SESSION['error']; unset($_SESSION['error']); ?>
+      </div>
+    <?php endif; ?>
+
+    <?php if (!empty($_SESSION['success'])): ?>
+      <div class="form-success">
+        <?= $_SESSION['success']; unset($_SESSION['success']); ?>
+      </div>
+    <?php endif; ?>
+
     <!-- Форма входа -->
     <form id="loginForm" class="auth-form" action="forms/auth/login.php" method="POST">
       <input type="email" name="email" placeholder="Почта" required>

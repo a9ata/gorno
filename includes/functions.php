@@ -3,10 +3,10 @@
 include_once __DIR__ . '/../config/db.php';
 
 function debug_log($message) {
-    if (is_array($message)) {
-        $message = print_r($message, true); // форматирует массив в читаемую строку
+    if (is_array($message) || is_object($message)) {
+        $message = print_r($message, true);
     }
-    error_log($message . PHP_EOL, 3,  __DIR__ . '/../logs/auth.log');
+    file_put_contents(__DIR__ . '/../logs/debug.log', date('[Y-m-d H:i:s] ') . $message . PHP_EOL, FILE_APPEND);
 }
 
 

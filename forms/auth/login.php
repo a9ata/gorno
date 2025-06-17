@@ -1,15 +1,8 @@
 <?php
 session_start();
-require_once '../../modules/User.php';
-include_once __DIR__ . '/../config/config.php';
-
-
-// Создаем функцию для логирования
-function debug_log($message) {
-    error_log($message . PHP_EOL, 3, '../../logs/auth.log');
-
-}
-
+require_once __DIR__ . '/../../modules/User.php';
+include_once __DIR__ . '/../../config/config.php';
+require_once __DIR__ . '/../../includes/functions.php';
 
 debug_log("=== Новый запрос авторизации ===");
 
@@ -76,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($authSuccess) {
         debug_log(" → Успешный логин, редирект в профиль.");
-        header("Location: /index.php?page=profile");
+        header("Location: /profile");
     } else {
         debug_log(" → Неверный email или пароль, редирект на форму.");
         $_SESSION['error'] = "Неверный email или пароль.";

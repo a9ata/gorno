@@ -1,7 +1,8 @@
 <?php
 session_start();
 require_once '../../modules/User.php';
-include_once __DIR__ . '/../config/config.php';
+require_once __DIR__ . '/../../includes/functions.php';
+include_once __DIR__ . '/../../config/config.php';
 
 
 // 1) Проверяем, передан ли токен
@@ -55,9 +56,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $registered = $user->register($name, $email, $phone, $password, $birthdate);
 
     if ($registered) {
-        // После регистрации сразу логиним
-        $user->login($email, $password);
-        header("Location: /index.php?page=profile");
+        debug_log("→ Результат регистрации: " . ($registered ? "успешно" : "неудача"));
+
+        $_SESSION['success'] = "Регистрация прошла успешно. Подтвердите email через ссылку, которую мы отправили вам на почту.";
+        header("Location: /index.php");
+
     } else {
         $_SESSION['error'] = "Пользователь с таким email уже существует.";
         header("Location: /index.php");

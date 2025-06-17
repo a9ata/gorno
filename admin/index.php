@@ -3,7 +3,7 @@ session_start();
 include_once __DIR__ . '/../config/config.php';
 include_once __DIR__ . '/../includes/functions.php'; // Подключаем файл с функциями
     $categories = getCategories(); // Получаем данные из базы
-
+$pageTitle = 'Админ-панель — Горно';
 
 require_once __DIR__ . '/../includes/admin_function.php';
 if (!isAdmin()) {

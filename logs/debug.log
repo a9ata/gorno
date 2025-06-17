@@ -1,0 +1,303 @@
+[2025-06-17 11:16:17] === Регистрация нового пользователя: poderbatmelissa@gmail.com ===
+[2025-06-17 11:16:17] Генерация токена: 6ee4ae8e4421cb9c50a6d530c1f55439
+[2025-06-17 11:16:17] Отправка письма подтверждения на poderbatmelissa@gmail.com
+[2025-06-17 11:16:17] Заголовок: Подтверждение регистрации
+[2025-06-17 11:16:17] Тело письма:
+Здравствуйте!
+
+Подтвердите регистрацию по ссылке:
+https://gorno/verify.php?token=6ee4ae8e4421cb9c50a6d530c1f55439
+
+Если вы не регистрировались — просто проигнорируйте это письмо.
+[2025-06-17 11:16:17] Ошибка при отправке письма: SMTP Error: Could not authenticate.
+[2025-06-17 11:16:17] → Результат регистрации: успешно
+[2025-06-17 11:32:08] === Регистрация нового пользователя: poderbatmelissa@gmail.com ===
+[2025-06-17 11:32:08] Генерация токена: 7970870cd935c3fb8bc7b6fbc3515ebc
+[2025-06-17 11:32:08] Отправка письма подтверждения на poderbatmelissa@gmail.com
+[2025-06-17 11:32:08] Заголовок: Подтверждение регистрации
+[2025-06-17 11:32:08] Тело письма:
+Здравствуйте!
+
+Подтвердите регистрацию по ссылке:
+https://gorno/verify.php?token=7970870cd935c3fb8bc7b6fbc3515ebc
+
+Если вы не регистрировались — просто проигнорируйте это письмо.
+[2025-06-17 11:32:08] Ошибка при отправке письма: SMTP Error: Could not authenticate.
+[2025-06-17 11:32:08] → Результат регистрации: успешно
+[2025-06-17 11:58:08] === Регистрация нового пользователя: poderbatmelissa@gmail.com ===
+[2025-06-17 11:58:08] Генерация токена: 91b0a9ab27ca874f5cc35e620add37cf
+[2025-06-17 11:58:08] Отправка письма подтверждения на poderbatmelissa@gmail.com
+[2025-06-17 11:58:08] Заголовок: Подтверждение регистрации
+[2025-06-17 11:58:08] Тело письма:
+Здравствуйте!
+
+Подтвердите регистрацию по ссылке:
+https://gorno/verify.php?token=91b0a9ab27ca874f5cc35e620add37cf
+
+Если вы не регистрировались — просто проигнорируйте это письмо.
+[2025-06-17 11:58:09] Ошибка при отправке письма: SMTP Error: Could not authenticate.
+[2025-06-17 11:58:09] → Результат регистрации: успешно
+[2025-06-17 14:14:29] Зарегистрирован: a9ata9er@gmail.com, токен: 4289307c2b1860d53949378c098dbbdc
+[2025-06-17 14:14:29] Письмо подтверждения -> a9ata9er@gmail.com
+[2025-06-17 14:14:29] Тема: Подтверждение регистрации
+[2025-06-17 14:14:29] Тело:
+Здравствуйте!
+
+Подтвердите регистрацию, перейдя по ссылке:
+http://localhost/gorno/verify.php?token=4289307c2b1860d53949378c098dbbdc
+
+Если вы не регистрировались — проигнорируйте это письмо.
+[2025-06-17 14:14:30] Письмо успешно отправлено.
+[2025-06-17 14:14:30] → Результат регистрации: успешно
+[2025-06-17 14:25:38] Зарегистрирован: a9ata9er@gmail.com, токен: 63cbe7e3fa820c735c5d9b6816136262
+[2025-06-17 14:25:38] Письмо подтверждения -> a9ata9er@gmail.com
+[2025-06-17 14:25:38] Тема: Подтверждение регистрации
+[2025-06-17 14:25:38] Тело:
+Здравствуйте!
+
+Подтвердите регистрацию, перейдя по ссылке:
+http://gorno/verify.php?token=63cbe7e3fa820c735c5d9b6816136262
+
+Если вы не регистрировались — проигнорируйте это письмо.
+[2025-06-17 14:25:39] Письмо успешно отправлено.
+[2025-06-17 14:25:39] → Результат регистрации: успешно
+[2025-06-17 14:25:46] 
+==== Подтверждение email ====
+[2025-06-17 14:25:46] Получен токен: 63cbe7e3fa820c735c5d9b6816136262
+[2025-06-17 14:25:46] Пользователь найден по токену. ID: 34
+[2025-06-17 14:25:46] Статус подтверждения обновлён успешно.
+[2025-06-17 14:25:46] Редирект на главную страницу.
+[2025-06-17 14:29:24] === Новый запрос авторизации ===
+[2025-06-17 14:29:24] Получен captcha_token: “dD0xNzUwMTU5NTQwO2k9NTEuMTU4LjIwNS4xMzk7RD1CRjkwNkYwNUZGRDBFOThGNkIxREM2RjA2MERCRjVDMTJENjlFREQyNTE1MTEzRTExMkI2MjU3MTE0QTg0MDMyNTNDRDhFQUZDQkREMjY0RUM5NkI1RjA2MTgwQ0IxNzQ0QTlERTZFOEY2MEFGNzI2MERDNDJGMTg3MkNCQkI3MTdBREI2NkRGO3U9MTc1MDE1OTU0MDY3NTExODQ0MDtoPTVmY2U4NGVlMTlhZDlkOTQyYzY1ZTFhZTVlZDU5MmE2”
+[2025-06-17 14:29:24] Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+[2025-06-17 14:29:24]  → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+[2025-06-17 14:29:24]  → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+[2025-06-17 14:29:24]  → Капча ОК
+[2025-06-17 14:29:24] Попытка логина: a9ata9er@gmail.com / Agaza2oo5$$$$$$
+[2025-06-17 14:29:25]  → user->login вернул: true
+[2025-06-17 14:29:25]  → Успешный логин, редирект в профиль.
+[2025-06-17 14:32:14] === Новый запрос авторизации ===
+[2025-06-17 14:32:14] Получен captcha_token: “dD0xNzUwMTU5OTI0O2k9NTEuMTU4LjIwNS4xMzk7RD1DODkyNTE3MTg5REIzQ0ZGODdCQkVERDdCQzU3MDBDM0JEQzVDOUMwQjMzNTJBQzRDM0VGMEIzRjI0QkEzQjQ4OUQ1QkQ5Qjg0NkY4MjJGNEMwNUEyQTUyRThDRkYzRTUwQTEzMjk1QzdFM0ZFRDgyQUEwODg0NzExQjRDRDZGQTg0Q0Q2QjdEO3U9MTc1MDE1OTkyNDgxMDUzNjkwMztoPWYwMjc1ODFiYzJiODNhY2UxNzkxYzBhYjZjYzJiOTg2”
+[2025-06-17 14:32:14] Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+[2025-06-17 14:32:15]  → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+[2025-06-17 14:32:15]  → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+[2025-06-17 14:32:15]  → Капча ОК
+[2025-06-17 14:32:15] Попытка логина: admin@bk.ru / Admin555&3535
+[2025-06-17 14:32:15]  → user->login вернул: true
+[2025-06-17 14:32:15]  → Успешный логин, редирект в профиль.
+[2025-06-17 14:38:17] SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+[2025-06-17 14:38:17] Array
+[2025-06-17 14:38:17] Array
+[2025-06-17 14:40:24] SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+[2025-06-17 14:40:24] Array
+[2025-06-17 14:40:24] Array
+[2025-06-17 14:40:32] SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+[2025-06-17 14:40:32] Array
+[2025-06-17 14:40:32] Array
+[2025-06-17 14:44:26] SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+[2025-06-17 14:44:26] Array
+[2025-06-17 14:44:26] Array
+[2025-06-17 14:44:30] SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+[2025-06-17 14:44:30] Array
+[2025-06-17 14:44:30] Array
+[2025-06-17 14:47:52] SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+[2025-06-17 14:47:52] Array
+[2025-06-17 14:47:52] Array
+[2025-06-17 14:49:40] SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+[2025-06-17 14:49:40] Array
+[2025-06-17 14:49:40] Array
+[2025-06-17 14:52:17] SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+[2025-06-17 14:52:17] Array
+[2025-06-17 14:52:17] Array
+[2025-06-17 14:53:36] SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+[2025-06-17 14:53:36] Array
+(
+    [params] => Array
+        (
+            [0] => f
+        )
+
+)
+
+[2025-06-17 14:53:36] Array
+(
+    [result] => mysqli_result Object
+        (
+            [current_field] => 0
+            [field_count] => 9
+            [lengths] => 
+            [num_rows] => 8
+            [type] => 0
+        )
+
+)
+
+[2025-06-17 14:53:43] SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+[2025-06-17 14:53:43] Array
+(
+    [params] => Array
+        (
+            [0] => f
+        )
+
+)
+
+[2025-06-17 14:53:43] Array
+(
+    [result] => mysqli_result Object
+        (
+            [current_field] => 0
+            [field_count] => 9
+            [lengths] => 
+            [num_rows] => 8
+            [type] => 0
+        )
+
+)
+
+[2025-06-17 14:53:47] SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+[2025-06-17 14:53:47] Array
+(
+    [params] => Array
+        (
+            [0] => f
+        )
+
+)
+
+[2025-06-17 14:53:47] Array
+(
+    [result] => mysqli_result Object
+        (
+            [current_field] => 0
+            [field_count] => 9
+            [lengths] => 
+            [num_rows] => 8
+            [type] => 0
+        )
+
+)
+
+[2025-06-17 15:27:18] SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+[2025-06-17 15:27:18] Array
+(
+    [params] => Array
+        (
+            [0] => f
+        )
+
+)
+
+[2025-06-17 15:27:18] Array
+(
+    [result] => mysqli_result Object
+        (
+            [current_field] => 0
+            [field_count] => 9
+            [lengths] => 
+            [num_rows] => 8
+            [type] => 0
+        )
+
+)
+
+[2025-06-17 15:27:47] SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+[2025-06-17 15:27:47] Array
+(
+    [params] => Array
+        (
+            [0] => f
+        )
+
+)
+
+[2025-06-17 15:27:47] Array
+(
+    [result] => mysqli_result Object
+        (
+            [current_field] => 0
+            [field_count] => 9
+            [lengths] => 
+            [num_rows] => 8
+            [type] => 0
+        )
+
+)
+

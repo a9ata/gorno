@@ -3528,3 +3528,425 @@ Array
 
 )
 
+=== Новый запрос авторизации ===
+Получен captcha_token: “dD0xNzQ5ODMwOTg4O2k9ODUuMTk4LjEwNS4yNTQ7RD01NjhDOEI1QjU0NjVGRkFEM0QzOTU0RTlENEVFOTlDQ0JDQkZGQjBBNDQyMkZCMTE2MUUxNzc5MDkwRUQxOUMzRTg0QUM0MDI0NjcxRjhGQkY1Nzk2Qzc3NTkzNkQ1REJCRDQ2OTZENzExODZGREU2MzYxNDcyMjA4ODJFOURCMkVFRTA7dT0xNzQ5ODMwOTg4Nzk0ODczNDcyO2g9MDYxNWViYTEzOTZlMWM2MTgwMDdiY2QyOTEwNGE2ODk=”
+Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+ → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+ → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+ → Капча ОК
+Попытка логина: nifas75887@cristout.com / El-Tb45ELeonOrA$
+ → user->login вернул: false
+ → Неверный email или пароль, редирект на форму.
+=== Новый запрос авторизации ===
+Получен captcha_token: “dD0xNzQ5ODMxMTM4O2k9ODUuMTk4LjEwNS4yNTQ7RD0yREYzOUE5NjkzQUI2OTlBNUYxQjIyNkRCREQ0OUQ3MUFBOEVFRjA4RkIzMkNDOTZCMEFERDA2NTFBQTkyMERFMDIwMTM3NUM5QTY5MjMyMzI1RThCQzgzNDc1Qzk4MjlFMDY2QzExMkNDQjQ1OTg4QUNEQjI0NTdDREFGNTZBOUNBRkI7dT0xNzQ5ODMxMTM4MTIwOTE0NDQyO2g9NGMwMThkYjI1NjIwZWQ4MDU4MjBiOThmYTE3MTlmNzg=”
+Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+ → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+ → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+ → Капча ОК
+Попытка логина: nifas75887@cristout.com / El-Tb45ELeonOrA$
+ → user->login вернул: false
+ → Неверный email или пароль, редирект на форму.
+=== Новый запрос авторизации ===
+Получен captcha_token: “dD0xNzQ5ODMxMzI5O2k9ODUuMTk4LjEwNS4yNTQ7RD02MEQxMDU1OUVBQjE5MTc3ODQ3MUQwQURDNDk3NDMwNjM4MzE3ODcyRkFDNzA0Mzc2MzgyMjI2OTJBRTRFNEVGN0UyQjMyQTI2RDAyMjE2QzBBNzkyNUQzM0Q1NUEyM0IyRjZFMEFEQjk2MUY0RDRBMTMyNDMxOURFMUE2MDFGQ0NCODM3NDt1PTE3NDk4MzEzMjk5OTAxNTc0NjE7aD01YWZmYmRkMTU1ZjI2NTdmOTgyZDgxOWE1ODdiOTJjZA==”
+Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+ → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+ → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+ → Капча ОК
+Попытка логина: a9ata9er@gmail.com / Agaza2oo5$$$$$$
+ → user->login вернул: false
+ → Неверный email или пароль, редирект на форму.
+=== Новый запрос авторизации ===
+Получен captcha_token: “dD0xNzQ5ODMxNTQ1O2k9ODUuMTk4LjEwNS4yNTQ7RD03QzZFNjRBRjNEMzQ0MzZFNEExNDMxOEU3OEJDQTVBNTE4RTQ1MDcyMzE1MjkwRDYzMTQ3RjYyNjEwRjJDMUI2RTlEMEREQzJCRTJCQjRGMjhDQ0Y2M0ZCRjA5NUQ4MTI3Qjg3N0NCOEVGRDg3MkUyMzJBQUZDQjQzNUVFQkJCMEQ4REI7dT0xNzQ5ODMxNTQ1Mzg5NjM1ODUyO2g9MDAyMmE3YjlkNTE5ZDA4MDg2Y2YyMmY0NWUxMTEzNmM=”
+Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+ → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+ → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+ → Капча ОК
+Попытка логина: user3@bk.ru / User3$33333
+ → user->login вернул: false
+ → Неверный email или пароль, редирект на форму.
+=== Новый запрос авторизации ===
+Получен captcha_token: “dD0xNzQ5ODMxNjA5O2k9ODUuMTk4LjEwNS4yNTQ7RD0zMTY0QzVGODgwODhCRkEyRENEMjM3ODRCODI2NEVBQjAyNTMwOENBNEJDRDFDNzIxM0E3MDA2QjZGNDkxNEQ5MERDMTE3NDk1NEZBMTlFQjhFNEJGQzg2MzgxN0QyRDRGQTY1RTQ1M0QyQTdFMDhEOTczREQyRDU0MzVENzhDNTU0QTY7dT0xNzQ5ODMxNjA5OTIxMDA0MTg2O2g9ZDZkNjUwZWM3YWRhOTI4NTY0ZTc1YjVlNTE2ZTljNDc=”
+Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+ → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+ → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+ → Капча ОК
+Попытка логина: user2@bk.ru / Agaza2oo5$$$$$$
+ → user->login вернул: true
+ → Успешный логин, редирект в профиль.
+SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+Array
+(
+    [params] => Array
+        (
+            [0] => f
+        )
+
+)
+
+Array
+(
+    [result] => mysqli_result Object
+        (
+            [current_field] => 0
+            [field_count] => 9
+            [lengths] => 
+            [num_rows] => 8
+            [type] => 0
+        )
+
+)
+
+SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+Array
+(
+    [params] => Array
+        (
+            [0] => f
+        )
+
+)
+
+Array
+(
+    [result] => mysqli_result Object
+        (
+            [current_field] => 0
+            [field_count] => 9
+            [lengths] => 
+            [num_rows] => 8
+            [type] => 0
+        )
+
+)
+
+=== Новый запрос авторизации ===
+Получен captcha_token: “dD0xNzQ5ODMzOTQ0O2k9NTEuMTU4LjIwNS4xMzk7RD04NkJCMTg0MkVGQjI2N0VBMzkzOUEyMjE3NDJENEIyODgwRTEyMjdDM0EyMTNFODgyNjYxQjhFQkJGNUE5NzkxMkRENTU3RUUyM0ZGNTlEOTBEQzgzREFFRDYwRTdBMzM4RTBEODc4OTAyRDcwQURBOEEyRkU4QjRFRUFDMEEzNkE1MkU2RDt1PTE3NDk4MzM5NDQ1MjE5MDc0MTQ7aD0yYjY1YmZkNWQ3MGRmNGY5ZjAwNmFmNGFhMzBiYTNkNw==”
+Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+ → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+ → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+ → Капча ОК
+Попытка логина: nifas75887@cristout.com / El-Tb45ELeonOrA$
+ → user->login вернул: false
+ → Неверный email или пароль, редирект на форму.
+=== Новый запрос авторизации ===
+Получен captcha_token: “dD0xNzQ5ODMzOTY5O2k9NTEuMTU4LjIwNS4xMzk7RD0yNThGMjcxNkJBRkJCNjA1QzdFNTQ0RTFGOUJGMjQwOTcxMDM2OTcyOTY5OEJCOTA0MENCNUM3Nzg2QUVERkVDNkFEMEFEMjg0NjcxQzdENkVBMUE4Q0YzNUQ4NzFBRkI1OUQ0OEQ2RUVBOTA4Q0Y4RTRCODJFNjFCM0U1Q0FCRjQ4QUZDNjlCO3U9MTc0OTgzMzk2OTYyOTg2NjA0ODtoPTA5NDExMWZjZTM2YmY2YjZhZDFkNDVlYjAwNWM0Nzk3”
+Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+ → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+ → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+ → Капча ОК
+Попытка логина: user2@bk.ru / User3$33333
+ → user->login вернул: false
+ → Неверный email или пароль, редирект на форму.
+=== Новый запрос авторизации ===
+Получен captcha_token: “dD0xNzQ5ODQyNTUzO2k9ODUuMTk4LjEwNS4yNTQ7RD0yRjgxN0M1QkNDNDhFM0EyODlEQUI2REZDREFFNkM3RTEyMjhCN0MzOTczQjQxRDVCQzE3MEQ5NDA3MDU4MjQ1QzRFMzFDMDk2RjRBNDlBMzNGNkQyNjZFNUM1N0VDNUFFRjk5MDM0NkY4MDc5NzFCQTJFN0VEQjA3OTk0MjJBREIzNzcyQzt1PTE3NDk4NDI1NTM4NjQ2OTg5MzA7aD00MjE5ZTA2YTk1M2FhMDFkZGJjZDJkMzc3MzkxYTUxMw==”
+Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+ → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+ → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+ → Капча ОК
+Попытка логина: user2@bk.ru / Agaza2oo5$$$$$$
+ → user->login вернул: true
+ → Успешный логин, редирект в профиль.
+=== Новый запрос авторизации ===
+Получен captcha_token: “dD0xNzQ5ODQzMjYyO2k9NTEuMTU5LjIyNi4xNjE7RD01MUEzRjk1RjE4NDhFNUYxMDgyQUYxMjVCQThCMUIwNzM3NTE0REJBODc0MzY4MUYzNjg5MzcyNUMxOEU0RkEyNERGQzJCMjREOUM2MzZGOERFQTBERTMwRUI0RUUyODdGM0U5NjU5MTAyMEZGNkE1RDJGRTg3NzQ4OEQ3RDY2OUQ4QjJGRTt1PTE3NDk4NDMyNjI3NjUwNzU1NDY7aD0wZGFjYTNlM2M0ZTEyMGM2MzE4NDdhODI4ZDlmM2RhOA==”
+Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+ → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+ → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+ → Капча ОК
+Попытка логина: poderbatmelissa@gmail.com / &PodeMelissaBrat&
+ → user->login вернул: false
+ → Неверный email или пароль, редирект на форму.
+=== Новый запрос авторизации ===
+Получен captcha_token: “dD0xNzQ5ODQzNDYwO2k9NTEuMTU5LjIyNi4xNjE7RD04MTI1MUJCODVEMjRDQzczNjI3NTk2NTYzQUEzMEM4N0NFMkQ4NkQ2RDUwOUJEQTk4ODExNzc4RjUyNDY3MEZGMzEwMjYwMzVFRDUyNEQ4Qzg0RkI2MTg0QzBGRDlCQjNCMThDMzk5NjZCNTQ1NjcwNDMyNjdBOTQ3OTMxNEI2Mjc5NTUwOEU1O3U9MTc0OTg0MzQ2MDUzMTkxMTk0MjtoPTQ5NzJlYjNiY2VlNWJlYzM3MmI4YTY4MzliYmI1ODM5”
+Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+ → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+ → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+ → Капча ОК
+Попытка логина: poderbatmelissa@gmail.com / &PodeMelissaBrat&
+пароль неверный
+ → user->login вернул: false
+ → Неверный email или пароль, редирект на форму.
+=== Новый запрос авторизации ===
+Получен captcha_token: “dD0xNzQ5ODQzNTQwO2k9NTEuMTU5LjIyNi4xNjE7RD0yMTMyM0JFRTQ0RTBEQjQ0NEE0MUZBMEM4RDAyRUM5NDYwQTgwQ0Y0QjMzNkI1RjkwMDk5Q0VFNDBEQUQxNkRCRjk3OTZBRkVBRkQ5Q0I5MzQ4Q0M2NEREQzFENEFFODU4Mjk3MUYyQUU4QTZBM0ZCMThENEM1NTQyNzQyQTU0MDVBMDJGNkIzO3U9MTc0OTg0MzU0MDA2MjMyMzc0ODtoPTE3N2ExYjcyODgxZjA0MjUwMzQxNzFmODQ4N2YyYWM1”
+Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+ → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+ → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+ → Капча ОК
+Попытка логина: poderbatmelissa@gmail.com / &PodeMelissaBrat&
+пароль неверный
+ → user->login вернул: false
+ → Неверный email или пароль, редирект на форму.
+=== Новый запрос авторизации ===
+Получен captcha_token: “dD0xNzQ5ODQzNTczO2k9NTEuMTU5LjIyNi4xNjE7RD01REJEQUQ5RTUzQjM3MkY1NTZGM0UxNjM1N0RENUE1Q0RBQUJEN0UxMjE2QTg3MzRBRDg2M0YwNjJFRkZGRTBCMTM0Q0FBREZGRTZDMThEMDNGRDJBRTZFMTY5N0I5NTg1NjcyNDk4NjcxRDVDNjM2QzU4ODZGNzlBQkZCRDFGRUM1NDcxQjFDO3U9MTc0OTg0MzU3MzgyMjcwNTczMDtoPTEyYmY4MTllNjMxMTY0NjA2N2IxMzg3MjdlZWMyYzkz”
+Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+ → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+ → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+ → Капча ОК
+Попытка логина: user3@bk.ru / User3$33333
+ → user->login вернул: false
+ → Неверный email или пароль, редирект на форму.
+=== Новый запрос авторизации ===
+Получен captcha_token: “dD0xNzQ5ODQzNjExO2k9NTEuMTU5LjIyNi4xNjE7RD0xNUVEMjYyMDQ3NDRCQjY3OTg4NDUxNUFFMTg2ODhBNDE0QkJGNDdBNDQ0QTgyMjY5NEI3QzY0NjkzNzBDQjdERTE2QkVFQkU4RTFGOUIyRDc1MzNGODMzQjhFMjMxQ0IxNDlEMEQxMENBMkJDQkRCQ0I3MzFDRjEwOEMwRDI5OUU1ODY4QUIxO3U9MTc0OTg0MzYxMTIwOTkwMjU0MjtoPTFkMjAzYzM3M2RiOWQ2Yzk0ZDNjYzg0ZTE2NDgzNDIx”
+Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+ → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+ → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+ → Капча ОК
+Попытка логина: user2@bk.ru / Agaza2oo5$$$$$$
+ → user->login вернул: true
+ → Успешный логин, редирект в профиль.
+=== Новый запрос авторизации ===
+Получен captcha_token: “dD0xNzQ5ODQzNjQ0O2k9NTEuMTU5LjIyNi4xNjE7RD1GM0IzRkVBNzAwNTgxRDgwQjI4NDg3QTFDMTM1RERERTc5RDgwOTg1QTAzRUQ5ODhDNEM3ODIyMzdFRkNBQTIwQ0Y3ODZDMTYyRDVGQzA2Qjk4NTlBMUE0NkYzQjc0QTA3RTdBMDI0MzhBNTZENDI0NjM4M0IyRkM3MEQ5NDEyNDczODJCOEU0O3U9MTc0OTg0MzY0NDM4NTE5MzE5MztoPTBkNTM1MzUyYzM1YzcxMDIwYWQ3YjA1M2M5NjczYzU4”
+Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+ → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+ → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+ → Капча ОК
+Попытка логина: poderbatmelissa@gmail.com / &PodeMelissaBrat&
+пароль неверный
+ → user->login вернул: false
+ → Неверный email или пароль, редирект на форму.
+=== Новый запрос авторизации ===
+Получен captcha_token: “dD0xNzQ5ODQzNjk5O2k9NTEuMTU5LjIyNi4xNjE7RD0zREIwMTA1NkI4RDY2Mzc3ODcxRDg4NThERjRGMzFEQUU5QTFGM0NDRDA4NkQxQkFCMTdGQ0RCMTdFNkU1MDdEQkZCMUZEMjEwOTA3NTZDMTI2REQ3MjcyQzA5RDE5MjhGNTQxMDY0Q0E5MzU0MTRGQkY5OTJBMEJFQTBCQzUwRjM1MEY1MjdEO3U9MTc0OTg0MzY5OTc3NTkxNjQyMjtoPWRmOTdhMjRjZmE0NDBiN2E1MDg0N2FlOGExMWFjMDcw”
+Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+ → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+ → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+ → Капча ОК
+Попытка логина: poderbatmelissa@gmail.com / &PodeMelissaBrat&
+пароль неверный
+ → user->login вернул: false
+ → Неверный email или пароль, редирект на форму.
+=== Новый запрос авторизации ===
+Получен captcha_token: “dD0xNzQ5ODQzNzMxO2k9NTEuMTU5LjIyNi4xNjE7RD1GMUIwQzRGRkIwQzVBMzdGNkQ3NTU2NjhEMTM3NDIzMDgxNDhFRkQwMUNENzc1MTQxOTBEQUZFRkZCRTMxOTY4MEM1MjI0NzVDRjY5Q0I4NzdDMTA0MzlFN0QzRTBGQjM2NkQ5ODI4ODVDRTJCQkZFQUFFQzQyQkNFQjM0ODA1NEQ3Q0RFMjQwO3U9MTc0OTg0MzczMTAwOTAyNTEzNTtoPTAxYzMxODcyYTJjZjVmOTc5ZWM3N2YwMDI0YmI3ZTlm”
+Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+ → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+ → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+ → Капча ОК
+Попытка логина: poderbatmelissa@gmail.com / $2y$10$l6SYlKzCsDBNPzuHkGj4yOJXmKP9eKWqNYq9RoGT400tXXBJLTMnS
+пароль неверный
+ → user->login вернул: false
+ → Неверный email или пароль, редирект на форму.
+=== Новый запрос авторизации ===
+Получен captcha_token: “dD0xNzQ5ODQzNzg0O2k9NTEuMTU5LjIyNi4xNjE7RD00NEEyQ0JFOTczMTJDMEVGNUVCNURGNEU1QTBDMTI1MjZERDM2REQzRDQ2M0MyNTI0M0E0M0IwNEY2RjExQTdDNkRCRDEwREU2RDZDRUE4ODA2MDM4NDc3MUI2ODRDMTRENUM2REUyOTVBQ0E5MDc1MTMzMzgxNEFGNzM3NEI0N0NDNUQ2MTk2O3U9MTc0OTg0Mzc4NDE5MTUzMzg1OTtoPTViNDFkYTMxYzdmM2MzMDVhMmE4MDgyMjI3MzdhNWM1”
+Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+ → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+ → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+ → Капча ОК
+Попытка логина: poderbatmelissa@gmail.com / &PodeMelissaBrat&
+пароль неверный
+ → user->login вернул: false
+ → Неверный email или пароль, редирект на форму.
+SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+Array
+(
+    [params] => Array
+        (
+            [0] => f
+        )
+
+)
+
+Array
+(
+    [result] => mysqli_result Object
+        (
+            [current_field] => 0
+            [field_count] => 9
+            [lengths] => 
+            [num_rows] => 8
+            [type] => 0
+        )
+
+)
+
+=== Новый запрос регистрации ===
+Получен captcha_token: dD0xNzQ5ODQ1MTM1O2k9NTEuMTU5LjIyNi4xNjE7RD01QzdBOTA5ODg2RTM5RjcxNjA3RDk3N0Y4RDVBNDc1MTdGOThGQzQ3RkQ2NDczQkQ4MTdCQzgzMTlCQTEwNzIwOTE2NkI5MkI4QUQ5Qzc3RkQ1ODE3OTJFNTY3MzhBMTcxMjg2MEI5OERBNUIyRjA0REIzREI5MUQ5NDVBRDEyNDdGMjY5MTt1PTE3NDk4NDUxMzUzOTIwNTIyOTA7aD1lYTUzZWU2ZDdkZjMzZTEwZTkwZGNlYTY1ODBmZGQzMw==
+Ответ сервера капчи: {"status":"ok","host":"gorno","message":""}
+Parsed JSON: 
+
+=== Регистрация нового пользователя: poderbatmelissa@gmail.com ===
+Генерация токена: 877a01c68d966881e906d06f1ba8c579
+Подготовка письма на poderbatmelissa@gmail.com
+Ссылка подтверждения: https://gorno/verify.php?token=877a01c68d966881e906d06f1ba8c579
+=== Новый запрос регистрации ===
+Получен captcha_token: dD0xNzQ5ODQ1NTc3O2k9ODUuMTk4LjEwNS4yNTQ7RD1CNDREM0NDRjhERTVCMUY2OEY2QzBEQkNBNjJCRjZGODFDNjU5RDFFRTI2QTczQ0RDNEIxQkUzM0Q2MDZDODJBNTA0OTY3ODQ1QkEwNkExMkRDOUI3NzFGNTc5NUY2OUJGQzAxMDRFOTUzQ0QwMjg2RUZBN0Y5ODJGNThGRTVFRThDNTg7dT0xNzQ5ODQ1NTc3MDQ3OTYxNDAxO2g9YjIwN2E0M2ZkZjJkNjhlOGNkODQwZDBhZTkwMjA3ODU=
+Ответ сервера капчи: {"status":"failed","message":"The token has already been used."}
+Parsed JSON: 
+
+=== Новый запрос регистрации ===
+Получен captcha_token: dD0xNzQ5ODQ2NzkyO2k9NTEuMTU4LjIwNS4xMzk7RD05ODhEQUFFQTNCRjBEODgyODJBNjhDNkFFQzgyNjExQTQ5NEU1REIwODcwMkNENThEOEQyQTlDOEQxQUNDQkQ3MjUwQTFGQTdCOEY3N0VGNERCQjY5QjNDQjY5NUZGOEI0MkVCMkJCMDMwQjZFMTc5REQ2NDlCMkI2Nzc3MkEwQTJENjk4OTREO3U9MTc0OTg0Njc5MjI3NjI3MDA3NTtoPTVhYzc4ZTFkMjQwNjhlOGY5NTFkY2JhZWJiZTIxYjli
+Ответ сервера капчи: {"status":"ok","host":"gorno","message":""}
+Parsed JSON: 
+
+=== Регистрация нового пользователя: poderbatmelissa@gmail.com ===
+Генерация токена: df65ba49f89ab77fd5934817fdb93961
+Подготовка письма на poderbatmelissa@gmail.com
+Ссылка подтверждения: https://gorno/verify.php?token=df65ba49f89ab77fd5934817fdb93961
+=== Новый запрос регистрации ===
+Получен captcha_token: dD0xNzQ5ODQ3NjE1O2k9ODUuMTk4LjEwNS4yNTQ7RD03NEE2OUVBMDJGQkEwRTgxRDgwQ0Y1ODYwQ0VEOTQ1QjY5NEY1MzA2MjBDOTIwMDg2QkE0ODM1RDJCQkU1MkQ0MDY2NjhBN0I3NzUxQUU3NDFGOERCOTA2QzExOTA0QzQxMDkxRjVDNDEzQTNGRkMxOEU3QThBQTRBRjlGQTEyOEExRUI7dT0xNzQ5ODQ3NjE1Nzk2NDI0NTM4O2g9YmI2NjYxMWZiNWRhYjI0ZjZjNzBjNGE2MmM2NTYxZTY=
+Ответ сервера капчи: {"status":"ok","host":"gorno","message":""}
+Parsed JSON: 
+
+=== Регистрация нового пользователя: poderbatmelissa@gmail.com ===
+Генерация токена: 392708f840a970f546323e8ab2852f37
+Подготовка письма на poderbatmelissa@gmail.com
+Ссылка подтверждения: https://gorno/verify.php?token=392708f840a970f546323e8ab2852f37
+=== Новый запрос авторизации ===
+Получен captcha_token: “dD0xNzUwMTQ1ODIzO2k9NTEuMTU4LjIwNS4xMzk7RD02NEIwMTExREQ3N0E4NzI0RjZEQjQ1QUY1RUE0RjM3MTM0NzlCREMxMTcyQjFCM0M0QTZCOTdBMDM4REIxNjkzOEJBNzlDMkUzOTA0RDg5NjNDNEFGNDdGODNBNThFMzExOUU3RDA0MTMxOUFGRDkwNTAwQzlBRDEwQURDRTk2OEIyOUZDRTt1PTE3NTAxNDU4MjMzMTU3MzM0NjU7aD01NDEyOGVkNTJmOGMyYTQxY2U2ZDQxOWJlZmVmY2ZkMA==”
+Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+ → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+ → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+ → Капча ОК
+Попытка логина: user2@bk.ru / Agaza2oo5$$$$$$
+ → user->login вернул: true
+ → Успешный логин, редирект в профиль.
+=== Новый запрос авторизации ===
+Получен captcha_token: “dD0xNzUwMTQ1OTA0O2k9NTEuMTU4LjIwNS4xMzk7RD1BNjI2OUI0MTgzRkNBODkwRDBCNDY1RUUyRENCMTM2OUYwNTkzM0Q1M0FGRTU4RkFEMjdBNTYzMzM0Q0Q5NzFENUZEOTEwOEI1ODc4NDhBODQ3OENFQTE1REUwOEUyMzA2MkRGNUMyQzhDNjU3MzMyRUMxNUE2M0E0QTA1QjY5RTUwNEJCOTc3O3U9MTc1MDE0NTkwNDIyODkyNjY4OTtoPWQ3ZGVkNzcyM2Q2NmJjY2VkMTYwZGZhMzAzN2UyOWU1”
+Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+ → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+ → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+ → Капча ОК
+Попытка логина: el@yandex.ru / El-Tb45ELeonOrA$
+ → user->login вернул: false
+ → Неверный email или пароль, редирект на форму.
+=== Новый запрос авторизации ===
+Получен captcha_token: “dD0xNzUwMTQ1OTQ4O2k9NTEuMTU4LjIwNS4xMzk7RD0yQ0EyOEQwNDhDMEU4MzZBQzc2MTlBMkYyMzI3RTlDNThFNjA0ODBCRjE3RDQ0REE3QkEyMkFDM0NGMTVBNUVGMEQwRjhGRDFEQjNGMzVCNjVGMkEwREE2NDRDN0FBRUE0MTNGNDY1MTBCODZGQjE4MDZCQTcyMjk5RTUzRDdGM0VDOEE4MTt1PTE3NTAxNDU5NDg2MjkzOTQxMzA7aD02Y2YzNzdhYzRmMDg1ZGI2MWZhNDA1YzJlZWI1NWUwOA==”
+Отправляем верификацию капчи на https://smartcaptcha.yandexcloud.net/validate
+ → Ответ сервера капчи (raw): {"status":"ok","host":"gorno","message":""}
+ → Parsed JSON: Array
+(
+    [status] => ok
+    [host] => gorno
+    [message] => 
+)
+
+ → Капча ОК
+Попытка логина: el@yandex.ru / El-Tb45ELeonOrA$
+ → user->login вернул: true
+ → Успешный логин, редирект в профиль.
