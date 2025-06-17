@@ -17,7 +17,7 @@ include __DIR__ . '/menu.php';
 ?>
 <main class="admin-panel">
     <h1>Панель администратора</h1>
-    <p><a href="/index.php">На публичный сайт</a></p>
+    <a href="/index.php" class="main-gate">На публичный сайт</a>
 
     <?php
     

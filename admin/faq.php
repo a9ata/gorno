@@ -53,17 +53,17 @@ unset($_SESSION['success'], $_SESSION['error']);
             <tbody>
             <?php while ($row = $faqs->fetch_assoc()): ?>
                 <tr>
-                <td><?= $row['id'] ?></td>
+                <td><?= htmlspecialchars($row['id']) ?></td>
                 <td><?= htmlspecialchars($row['section_title']) ?></td>
                 <td><?= htmlspecialchars(mb_strimwidth($row['question'],0,50,'…')) ?></td>
                 <td><?= htmlspecialchars(mb_strimwidth($row['answer'],0,50,'…')) ?></td>
                 <td>
-                    <a href="?section=faq&edit_id=<?= $row['id'] ?>">Редакт.</a>
+                    <a href="?section=faq&edit_id=<?= htmlspecialchars($row['id']) ?>">Редакт.</a>
                 </td>
                 <td>
                     <form action="delete/faq.php" method="POST"
-                        onsubmit="return confirm('Удалить запись #<?= $row['id'] ?>?')">
-                    <input type="hidden" name="id" value="<?= $row['id'] ?>">
+                        onsubmit="return confirm('Удалить запись #<?= htmlspecialchars($row['id']) ?>?')">
+                    <input type="hidden" name="id" value="<?= htmlspecialchars($row['id']) ?>">
                     <button type="submit">Удалить</button>
                     </form>
                 </td>
@@ -74,24 +74,7 @@ unset($_SESSION['success'], $_SESSION['error']);
     </div>
     <div class="form">
         <?php if ($editFaq): ?>
-            <h3>Редактировать запись #<?= $editFaq['id'] ?></h3>
-            <form action="/admin/edit/faq.php" method="POST">
-                <input type="hidden" name="id" value="<?= $editFaq['id'] ?>">
-                <label>Раздел:
-                    <input type="text"
-                        name="section_title"
-                        value="<?= htmlspecialchars($editFaq['section_title']) ?>"
-                        required>
-                </label>
-                <label>Вопрос:
-                    <textarea name="question" rows="2" required><?= htmlspecialchars($editFaq['question']) ?></textarea>
-                </label>
-                <label>Ответ:
-                    <textarea name="answer" rows="4" required><?= htmlspecialchars($editFaq['answer']) ?></textarea>
-                </label>
-                <button type="submit">Обновить</button>
-                <a href="?section=faq" class="btn-secondary">Отмена</a>
-            </form>
+            <?php require __DIR__ . '/../admin/edit/faq.php'; ?>
         <?php else: ?>
             <?php require __DIR__ . '/../admin/add/faq.php'; ?>
         <?php endif; ?>

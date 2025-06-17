@@ -1,5 +1,4 @@
 <?php
-// /admin/add/faq.php
 session_start();
 require_once __DIR__ . '/../../config/db.php';
 require_once __DIR__ . '/../../includes/admin_function.php';
@@ -10,8 +9,7 @@ if (!isAdmin()) {
 }
 ?>
 
-
-<h2>Добавить запись в FAQ</h2>
+<h3>Добавить запись в FAQ</h3>
 
 <form action="/admin/add/faq_add.php" method="POST">
     <label>
@@ -29,5 +27,5 @@ if (!isAdmin()) {
         <textarea name="answer" rows="5" required></textarea>
     </label>
 
-    <button type="submit" class="btn">Сохранить</button>
+    <button type="submit">Сохранить</button>
 </form>

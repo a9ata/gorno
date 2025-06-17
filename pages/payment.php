@@ -48,10 +48,10 @@ foreach ($cartItems as $item) {
             <input type="text" name="cvc" placeholder="CVC код" required>
             <input type="text" name="expiry" placeholder="мм/гг" required>
 
-            <input type="hidden" name="total" value="<?= $totalAmount ?>">
+            <input type="hidden" name="total" value="<?= htmlspecialchars($totalAmount) ?>">
             
             <?php foreach ($selected as $id): ?>
-                <input type="hidden" name="selected_items[]" value="<?= $id ?>">
+                <input type="hidden" name="selected_items[]" value="<?= htmlspecialchars($id) ?>">
             <?php endforeach; ?>
 
             <button type="submit">Оплатить</button>

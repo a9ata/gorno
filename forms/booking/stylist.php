@@ -11,7 +11,7 @@ $stylists = getStylists($conn);
     <div class="stylist-select">
         <?php foreach ($stylists as $stylist): ?>
             <label>
-                <input type="radio" name="stylist_id" value="<?= $stylist['id'] ?>" required>
+                <input type="radio" name="stylist_id" value="<?= htmlspecialchars($stylist['id']) ?>" required>
                 <?= htmlspecialchars($stylist['name']) ?>
             </label>
         <?php endforeach; ?>

@@ -34,78 +34,78 @@ $sizesList        = implode(',', $sizes);
 ?>
 <h3>Редактировать товар #<?= $productId ?>: <?= htmlspecialchars($name) ?></h3>
 <form method="post" action="/admin/edit/product_update.php" class="edit-product-form">
-    <input type="hidden" name="id" value="<?= $productId ?>">
+    <input type="hidden" name="id" value="<?= htmlspecialchars($productId) ?>">
 
-    <label>Категория:<br>
+    <label>Категория:
       <select name="category" required>
         <?php foreach ($categories as $cat): ?>
-          <option value="<?= $cat['id'] ?>"
-            <?= $cat['id'] == $categoryId ? 'selected' : '' ?>>
+          <option value="<?= htmlspecialchars($cat['id']) ?>"
+            <?= htmlspecialchars($cat['id'] == $categoryId ? 'selected' : '') ?>>
             <?= htmlspecialchars($cat['name']) ?>
           </option>
         <?php endforeach; ?>
       </select>
-    </label><br><br>
+    </label>
 
-    <label>Подкатегория:<br>
+    <label>Подкатегория:
       <select name="subcategory" required>
         <?php foreach ($subcategories as $sub): ?>
-          <option value="<?= $sub['id'] ?>"
-            <?= $sub['id'] == $subcategoryId ? 'selected' : '' ?>>
+          <option value="<?= htmlspecialchars($sub['id']) ?>""
+            <?= htmlspecialchars($sub['id'] == $subcategoryId ? 'selected' : '') ?>>
             <?= htmlspecialchars($sub['name']) ?>
           </option>
         <?php endforeach; ?>
       </select>
-    </label><br><br>
+    </label>
 
-    <label>Пол:<br>
+    <label>Пол:
       <select name="gender" required>
-        <option value="f" <?= $gender==='f' ? 'selected' : '' ?>>Женщина</option>
-        <option value="m" <?= $gender==='m' ? 'selected' : '' ?>>Мужчина</option>
-        <option value="g" <?= $gender==='g' ? 'selected' : '' ?>>Девочка</option>
-        <option value="b" <?= $gender==='b' ? 'selected' : '' ?>>Мальчик</option>
+        <option value="f" <?= htmlspecialchars($gender==='f' ? 'selected' : '') ?>>Женщина</option>
+        <option value="m" <?= htmlspecialchars($gender==='m' ? 'selected' : '') ?>>Мужчина</option>
+        <option value="g" <?= htmlspecialchars($gender==='g' ? 'selected' : '') ?>>Девочка</option>
+        <option value="b" <?= htmlspecialchars($gender==='b' ? 'selected' : '') ?>>Мальчик</option>
       </select>
-    </label><br><br>
+    </label>
 
-    <label>Название:<br>
+    <label>Название:
       <input type="text" name="name" value="<?= htmlspecialchars($name) ?>" required>
-    </label><br><br>
+    </label>
 
-    <label>Описание:<br>
+    <label>Описание:
       <textarea name="description" rows="4"><?= htmlspecialchars($description) ?></textarea>
-    </label><br><br>
+    </label>
 
-    <label>Цена (₽):<br>
-      <input type="number" step="0.01" name="price" value="<?= $price ?>" required>
-    </label><br><br>
+    <label>Цена (₽):
+      <input type="number" step="0.01" name="price" value="<?= htmlspecialchars($price) ?>" required>
+    </label>
 
-    <label>Цвета (через запятую):<br>
+    <label>Цвета (через запятую):
       <input type="text" name="colors" value="<?= htmlspecialchars($colorsList) ?>">
-    </label><br><br>
+    </label>
 
-    <label>Размеры:<br>
+    <label>Размеры:
       <select name="sizes[]" multiple>
         <?php foreach ($sizesListAll as $s): ?>
-          <option value="<?= $s['id'] ?>" <?= in_array($s['name'], $sizes) ? 'selected' : '' ?>>
+          <option value="<?= htmlspecialchars($s['id']) ?>" <?= htmlspecialchars(in_array($s['name'], $sizes) ? 'selected' : '') ?>>
             <?= htmlspecialchars($s['name']) ?>
           </option>
         <?php endforeach; ?>
       </select>
-    </label><br><br>
+    </label>
 
 
-    <label>Количество:<br>
-      <input type="number" name="quantity" value="<?= $quantity ?>" required>
-    </label><br><br>
+    <label>Количество:
+      <input type="number" name="quantity" value="<?= htmlspecialchars($quantity) ?>" required>
+    </label>
 
-    <label>Главное изображение (URL):<br>
+    <label>Главное изображение (URL):
       <input type="text" name="main_image" value="<?= htmlspecialchars($mainImage) ?>">
-    </label><br><br>
+    </label>
 
-    <label>Доп. изображения (через запятую):<br>
+    <label>Доп. изображения (через запятую):
       <input type="text" name="additional_images" value="<?= htmlspecialchars($additionalImages) ?>">
-    </label><br><br>
+    </label>
 
     <button type="submit">Сохранить</button>
-    <a href="/admin/index.php?section=products" style="margin-left:10px;">Отмена</a>
+    <a href="?section=products" class="btn-secondary">Отмена</a>
 </form>

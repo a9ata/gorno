@@ -81,20 +81,20 @@ if (! empty($_GET['edit_id'])) {
             <tbody>
                 <?php while ($row = $result->fetch_assoc()): ?>
                     <tr>
-                    <td><?= $row['id'] ?></td>
+                    <td><?= htmlspecialchars($row['id']) ?></td>
                     <td><?= htmlspecialchars($row['name']) ?></td>
                     <td><?= htmlspecialchars($row['category']) ?></td>
                     <td><?= htmlspecialchars($row['subcategory']) ?></td>
-                    <td><?= $row['gender'] ?></td>
-                    <td><?= $row['price'] ?> ₽</td>
+                    <td><?= htmlspecialchars($row['gender']) ?></td>
+                    <td><?= htmlspecialchars($row['price']) ?> ₽</td>
                     <td><?= htmlspecialchars(mb_strimwidth($row['description'], 0, 50, '...')) ?></td>
                     <td>
-                        <a href="?section=products&edit_id=<?= $row['id'] ?>">Ред.</a>
+                        <a href="?section=products&edit_id=<?= htmlspecialchars($row['id']) ?>">Ред.</a>
                     </td>
                     <td>
                         <form action="/admin/delete/product.php" method="POST"
                             onsubmit="return confirm('Удалить этот товар?');">
-                        <input type="hidden" name="product_id" value="<?= $row['id'] ?>">
+                        <input type="hidden" name="product_id" value="<?= htmlspecialchars($row['id']) ?>">
                         <button type="submit">Удалить</button>
                         </form>
                     </td>

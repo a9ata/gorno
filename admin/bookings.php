@@ -56,26 +56,29 @@ $stmt->execute();
 $result = $stmt->get_result();
 ?>
 
-<h2>Бронирования: «<?= htmlspecialchars(mb_convert_case($type, MB_CASE_TITLE, 'UTF-8')) ?>»</h2>
 
-  <!-- переключатели типов -->
-  <div class="tabs">
+<nav class="tabs">
+  <ul>
     <?php foreach ($allowed as $_type => $_cols): ?>
+      <li>
         <a href="index.php?section=bookings&type=<?= urlencode($_type) ?>"
-            class="<?= $_type === $type ? 'active' : '' ?>">
-            <?= htmlspecialchars(mb_convert_case($_type, MB_CASE_TITLE,'UTF-8')) ?>
+           class="<?= htmlspecialchars($_type === $type ? 'active' : '') ?>">
+          <?= htmlspecialchars(mb_convert_case($_type, MB_CASE_TITLE, 'UTF-8')) ?>
         </a>
+      </li>
     <?php endforeach ?>
-  </div>
+  </ul>
+</nav>
+<h2>Бронирования: «<?= htmlspecialchars(mb_convert_case($type, MB_CASE_TITLE, 'UTF-8')) ?>»</h2>
 
   <section>
     <div>
         <table>
             <thead>
                 <tr>
-                <?php foreach ($cols as $c): ?>
-                    <th><?= htmlspecialchars($c) ?></th>
-                <?php endforeach ?>
+                    <?php foreach ($cols as $c): ?>
+                        <th><?= htmlspecialchars($c) ?></th>
+                    <?php endforeach ?>
                 <th colspan="2">Действия</th>
                 </tr>
             </thead>
@@ -86,13 +89,13 @@ $result = $stmt->get_result();
                     <td><?= nl2br(htmlspecialchars($row[$c])) ?></td>
                     <?php endforeach ?>
                     <td>
-                        <a href="index.php?section=bookings&edit_id=<?= $row['id'] ?>&type=<?= urlencode($type) ?>">Редакт.</a>
+                        <a href="?section=bookings&edit_id=<?= htmlspecialchars($row['id']) ?>&type=<?= htmlspecialchars(urlencode($type)) ?>">Редакт.</a>
                     </td>
                     <td>
-                        <form action="/admin/delete/booking.php" method="POST" style="display:inline">
-                            <input type="hidden" name="id"   value="<?= $row['id'] ?>">
+                        <form action="/delete/booking.php" method="POST" style="display:inline">
+                            <input type="hidden" name="id"   value="<?= htmlspecialchars($row['id']) ?>">
                             <input type="hidden" name="type" value="<?= htmlspecialchars($type) ?>">
-                            <button type="submit" onclick="return confirm('Удалить #<?= $row['id'] ?>?')">Удалить</button>
+                            <button type="submit" onclick="return confirm('Удалить #<?= htmlspecialchars($row['id']) ?>?')">Удалить</button>
                         </form>
                     </td>
                 </tr>

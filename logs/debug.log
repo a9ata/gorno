@@ -301,3 +301,115 @@ http://gorno/verify.php?token=63cbe7e3fa820c735c5d9b6816136262
 
 )
 
+[2025-06-17 16:21:05] SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+[2025-06-17 16:21:05] Array
+(
+    [params] => Array
+        (
+            [0] => f
+        )
+
+)
+
+[2025-06-17 16:21:05] Array
+(
+    [result] => mysqli_result Object
+        (
+            [current_field] => 0
+            [field_count] => 9
+            [lengths] => 
+            [num_rows] => 8
+            [type] => 0
+        )
+
+)
+
+[2025-06-17 16:21:07] SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+[2025-06-17 16:21:07] Array
+(
+    [params] => Array
+        (
+            [0] => m
+        )
+
+)
+
+[2025-06-17 16:21:07] Array
+(
+    [result] => mysqli_result Object
+        (
+            [current_field] => 0
+            [field_count] => 9
+            [lengths] => 
+            [num_rows] => 1
+            [type] => 0
+        )
+
+)
+
+[2025-06-17 16:21:08] SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+[2025-06-17 16:21:08] Array
+(
+    [params] => Array
+        (
+            [0] => g
+        )
+
+)
+
+[2025-06-17 16:21:08] Array
+(
+    [result] => mysqli_result Object
+        (
+            [current_field] => 0
+            [field_count] => 9
+            [lengths] => 
+            [num_rows] => 0
+            [type] => 0
+        )
+
+)
+
+[2025-06-17 16:21:09] SQL: SELECT p.*, s.name AS subcategory_name, ANY_VALUE(pi.image_url) AS image_url
+            FROM products p
+            JOIN subcategories s ON p.subcategory_id = s.id
+            LEFT JOIN product_attributes pa ON pa.product_id = p.id
+            LEFT JOIN product_images pi ON pi.product_id = p.id AND pi.is_main = 1
+            WHERE 1 AND p.gender = ? GROUP BY p.id
+[2025-06-17 16:21:09] Array
+(
+    [params] => Array
+        (
+            [0] => b
+        )
+
+)
+
+[2025-06-17 16:21:09] Array
+(
+    [result] => mysqli_result Object
+        (
+            [current_field] => 0
+            [field_count] => 9
+            [lengths] => 
+            [num_rows] => 1
+            [type] => 0
+        )
+
+)
+

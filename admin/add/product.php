@@ -22,7 +22,7 @@ $colors = getEnumValues($conn, 'product_attributes', 'color');
 ?>
 
 <h3>Добавить товар</h3>
-<form method="post" action="/admin/add/product_add.php" class="add-product-form">
+<form method="post" action="/admin/add/product_add.php">
     <label>Категория:</label>
     <select name="category" required>
         <?php foreach ($categories as $cat): ?>
@@ -57,7 +57,7 @@ $colors = getEnumValues($conn, 'product_attributes', 'color');
     <label>Цвета:</label>
     <select name="colors[]" multiple>
         <?php foreach ($colors as $color): ?>
-            <option value="<?= $color ?>"><?= $color ?></option>
+            <option value="<?= htmlspecialchars($color) ?>"><?= htmlspecialchars($color) ?></option>
         <?php endforeach; ?>
     </select>
 
@@ -65,7 +65,7 @@ $colors = getEnumValues($conn, 'product_attributes', 'color');
     <label>Размеры:</label>
     <select name="size_ids[]" multiple>
         <?php foreach ($sizes as $size): ?>
-            <option value="<?= $size['id'] ?>"><?= $size['name'] ?></option>
+            <option value="<?= htmlspecialchars($size['id']) ?>"><?= htmlspecialchars($size['name']) ?></option>
         <?php endforeach; ?>
     </select>
 
@@ -76,7 +76,7 @@ $colors = getEnumValues($conn, 'product_attributes', 'color');
     <input type="text" name="main_image" required>
 
     <label>Дополнительные изображения (через запятую, URL):</label>
-    <input type="text" name="additional_images">
+    <textarea type="text" name="additional_images"></textarea>
 
     <button type="submit">Добавить</button>
 </form>

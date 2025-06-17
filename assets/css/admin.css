@@ -1,4 +1,4 @@
-.admin-nav{
+.admin-nav, .tabs{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -26,13 +26,6 @@
 
 .admin-panel{
    margin: auto;
-
-}
-
-.admin-panel h1 {
-    font-size: 1.3em;
-    margin-bottom: 1.5rem;
-    color: #333;
 }
 
 .admin-panel section {
@@ -58,7 +51,7 @@
 .admin-panel table td {
     padding: 0.75rem;
     border: 1px solid #dee2e6;
-    text-align: left;
+    text-align: center;
 }
 
 .admin-panel table th {
@@ -89,19 +82,20 @@
 }
 
 /* Форма добавления / редактирования */
-.admin-panel section form {
+.admin-panel section .form form{
     display: flex;
     flex-direction: column;
+    gap: 15px;
 }
 
-.admin-panel section form label {
+.admin-panel section .form form label {
     display: flex;
     flex-direction: column;
     font-weight: 500;
 }
 
-.admin-panel section form input,
-.admin-panel section form select {
+.admin-panel section .form form input,
+.admin-panel section .form form select {
     margin-top: 0.5rem;
     padding: 0.5rem;
     border: 1px solid #ced4da;
@@ -109,7 +103,7 @@
     font-size: 0.875rem;
 }
 
-.admin-panel section form button {
+.admin-panel section .form form button {
     padding: 0.6rem 1.2rem;
     background-color: #28a745;
     color: #fff;
@@ -119,6 +113,41 @@
     font-size: 0.9rem;
 }
 
-.admin-panel section p {
-    margin: 0 0 1rem 0;
+.admin-panel section .form form .btn-secondary {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #808080;
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.admin-panel section .form form .btn-secondary:hover {
+  background-color: #FFE4C4;
+}
+
+.admin-panel .main-gate {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #FFE4C4;
+    color: #000;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+}
+
+.admin-panel .main-gate:hover {
+    background-color: #808080;
+    color: #fff;
 }

@@ -43,19 +43,19 @@ if ($userId) {
             <?php foreach ($products as $product): ?>
                 <div class="product-card">
                     <div class="product-favorite">
-                        <button class="favorite-btn" data-id="<?= $product['id'] ?>">
+                        <button class="favorite-btn" data-id="<?= htmlspecialchars($product['id']) ?>">
                             <img src="<?= ICONS_URL ?>favorite-active.svg" alt="Удалить из избранного">
                         </button>
                     </div>
                     <div class="product-image">
-                        <img src="<?= $product['image_url'] ?? IMAGES_URL . 'products/default.png' ?>"
+                        <img src="<?= htmlspecialchars($product['image_url'] ?? IMAGES_URL . 'products/default.png') ?>"
                              alt="<?= htmlspecialchars($product['name']) ?>">
                     </div>
                     <div class="product-info">
                         <h3><?= htmlspecialchars($product['name']) ?></h3>
                         <p class="subcategory"><?= htmlspecialchars($product['subcategory_name']) ?></p>
                         <p class="price"><?= htmlspecialchars($product['price']) ?> ₽</p>
-                        <button type="button" onclick="openProductModal(<?= $product['id'] ?>)">
+                        <button type="button" onclick="openProductModal(<?= htmlspecialchars($product['id']) ?>)">
                             Добавить в корзину
                         </button>
                     </div>

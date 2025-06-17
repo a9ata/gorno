@@ -6,14 +6,14 @@
     <ul class="category-filter">
         <?php foreach (getAllCategories($conn) as $cat): ?>
             <li>
-                <h4><?= $cat['name'] ?></h4>
+                <h4><?= htmlspecialchars($cat['name']) ?></h4>
                 <ul>
                     <?php foreach ($cat['subcategories'] as $sub): ?>
                         <li>
                             <label class="checkbox-wrapper">
-                                <input type="checkbox" name="subcategory_ids[]" value="<?= $sub['id'] ?>"
+                                <input type="checkbox" name="subcategory_ids[]" value="<?= htmlspecialchars($sub['id']) ?>"
                                 <?= in_array($sub['id'], $_GET['subcategory_ids'] ?? []) ? 'checked' : '' ?>>
-                                <?= $sub['name'] ?>
+                                <?= htmlspecialchars($sub['name']) ?>
                             </label>
                         </li>
                     <?php endforeach; ?>
@@ -33,9 +33,9 @@
         <?php foreach (getSizesByType($conn, 'clothing') as $size): ?>
             <li>
                 <label class="checkbox-wrapper">
-                    <input type="checkbox" name="size_ids[]" value="<?= $size['id'] ?>"
+                    <input type="checkbox" name="size_ids[]" value="<?= htmlspecialchars($size['id']) ?>"
                         <?= in_array($size['id'], $_GET['size_ids'] ?? []) ? 'checked' : '' ?>>
-                    <?= $size['name'] ?>
+                    <?= htmlspecialchars($size['name']) ?>
                 </label>
             </li>
         <?php endforeach; ?>
@@ -46,9 +46,9 @@
         <?php foreach (getSizesByType($conn, 'shoes') as $size): ?>
             <li>
                 <label>
-                    <input type="checkbox" name="size_ids[]" value="<?= $size['id'] ?>"
+                    <input type="checkbox" name="size_ids[]" value="<?= htmlspecialchars($size['id']) ?>"
                         <?= in_array($size['id'], $_GET['size_ids'] ?? []) ? 'checked' : '' ?>>
-                    <span><?= $size['name'] ?></span>
+                    <span><?= htmlspecialchars($size['name']) ?></span>
                 </label>
             </li>
         <?php endforeach; ?>

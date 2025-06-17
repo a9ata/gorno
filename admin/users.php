@@ -49,30 +49,37 @@ $result = $conn->query("SELECT id, name, email, phone, birthdate, role FROM user
 <section>
     <div>
         <table>
-            <tr>
-                <th>ID</th>
-                <th>Имя</th>
-                <th>Email</th>
-                <th>Телефон</th>
-                <th>Дата рождения</th>
-                <th>Роль</th>
-                <th colspan="2">Действия</th>
-            </tr>
-            <?php while($u=$result->fetch_assoc()): ?>
+            <thead>
                 <tr>
-                    <td><?=$u['id']?></td>
-                    <td><?=htmlspecialchars($u['name'])?></td>
-                    <td><?=htmlspecialchars($u['email'])?></td>
-                    <td><?=htmlspecialchars($u['phone']   ?? '')?></td>
-                    <td><?=htmlspecialchars($u['birthdate']??'')?></td>
-                    <td><?=htmlspecialchars($u['role'])?></td>
-                    <td><a href="?section=users&edit_id=<?=$u['id']?>">Редакт.</a></td>
-                    <td>
-                    <a href="/admin/delete/user.php?id=<?=$u['id']?>"
-                        onclick="return confirm('Удалить?')">Удалить</a>
-                    </td>
+                    <th>ID</th>
+                    <th>Имя</th>
+                    <th>Email</th>
+                    <th>Телефон</th>
+                    <th>Дата рождения</th>
+                    <th>Роль</th>
+                    <th colspan="2">Действия</th>
                 </tr>
-            <?php endwhile; ?>
+            </thead>
+            <tbody>
+                <?php while($u=$result->fetch_assoc()): ?>
+                    <tr>
+                        <td><?=htmlspecialchars($u['id']) ?></td>
+                        <td><?=htmlspecialchars($u['name'])?></td>
+                        <td><?=htmlspecialchars($u['email'])?></td>
+                        <td><?=htmlspecialchars($u['phone']   ?? '')?></td>
+                        <td><?=htmlspecialchars($u['birthdate']??'')?></td>
+                        <td><?=htmlspecialchars($u['role'])?></td>
+                        <td><a href="?section=users&edit_id=<?= htmlspecialchars($u['id']) ?>">Редакт.</a></td>
+                        <td>
+                            <form action="/delete/user.php" method="POST" style="display:inline">
+                                <input type="hidden" name="id" value="<?= htmlspecialchars($u['id']) ?>">
+                                <button type="submit" onclick="return confirm('Удалить #<?= htmlspecialchars($u['id']) ?>?')">
+                                Удалить</button>
+                            </form>
+                        </td>
+                    </tr>
+                <?php endwhile; ?>
+            </tbody>
         </table>
     </div>
     <div class="form">

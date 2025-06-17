@@ -134,7 +134,7 @@ $discount = calculateDiscount($totalSpent);
                     <div>Сумма покупок</div>
                 </div>
                 <div class="loyalty-values">
-                    <strong><?= $discount ?>%</strong>
+                    <strong><?= htmlspecialchars($discount) ?>%</strong>
                     <strong><?= number_format($totalSpent, 0, '.', ' ') ?> ₽</strong>
                 </div>
             </div>

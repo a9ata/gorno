@@ -46,22 +46,22 @@ $totalSum = 0;
                 $totalSum += $sum;
             ?>
                 <tr>
-                    <td><input type="checkbox" class="select-item" name="selected_items[]" value="<?= $item['id'] ?>"></td>
-                    <td><img src="<?= $item['image_url'] ?? IMAGES_URL . 'products/default.png' ?>" width="248px" /></td>
+                    <td><input type="checkbox" class="select-item" name="selected_items[]" value="<?= htmlspecialchars($item['id']) ?>"></td>
+                    <td><img src="<?= htmlspecialchars($item['image_url'] ?? IMAGES_URL . 'products/default.png') ?>" width="248px" /></td>
                     <td><?= htmlspecialchars($item['name']) ?><br><small><?= htmlspecialchars($item['description']) ?></small></td>
-                    <td><?= $item['price'] ?> ₽</td>
+                    <td><?= htmlspecialchars($item['price']) ?> ₽</td>
                     <td>
                         <form method="post" action="/includes/update_quantity.php">
-                            <input type="hidden" name="id" value="<?= $item['id'] ?>">
+                            <input type="hidden" name="id" value="<?= htmlspecialchars($item['id']) ?>">
                             <button name="action" value="decrease">-</button>
-                            <?= $item['quantity'] ?>
+                            <?= htmlspecialchars($item['quantity']) ?>
                             <button name="action" value="increase">+</button>
                         </form>
                     </td>
                     <td><?= htmlspecialchars($item['size_name']) ?></td>
                     <td><?= number_format($sum, 0, '.', ' ') ?> ₽</td>
                     <td>
-                        <button class="trash-btn" data-id="<?= $item['id'] ?>">
+                        <button class="trash-btn" data-id="<?= htmlspecialchars($item['id']) ?>">
                             <img src="<?= ICONS_URL ?>trash.svg" alt="Удалить">
                         </button>
                     </td>

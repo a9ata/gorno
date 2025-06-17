@@ -34,7 +34,7 @@ $allCats = getAllCategories($conn);
             <?php foreach ($genders as $label => $genderKey): ?>
             <li>
                 <!-- ссылка на весь сегмент -->
-                <a href="/catalog&gender=<?= $genderKey ?>">
+                <a href="/catalog&gender=<?= htmlspecialchars($genderKey) ?>">
                 <?= htmlspecialchars($label) ?>
                 </a>
                 <ul class="dropdown">
@@ -42,7 +42,7 @@ $allCats = getAllCategories($conn);
                     <li>
                     <p>
                         <!-- ссылка на конкретную категорию -->
-                        <a href="/catalog&gender=<?= $genderKey ?>&category_id=<?= $catId ?>">
+                        <a href="/catalog&gender=<?= htmlspecialchars($genderKey) ?>&category_id=<?= htmlspecialchars($catId) ?>">
                         <?= htmlspecialchars($cat['name']) ?>
                         </a>
                     </p>
@@ -51,7 +51,7 @@ $allCats = getAllCategories($conn);
                         <?php foreach ($cat['subcategories'] as $sub): ?>
                             <li>
                             <!-- ссылка на подкатегорию -->
-                            <a href="/catalog&gender=<?= $genderKey ?>&subcategory_id=<?= $sub['id'] ?>">
+                            <a href="/catalog&gender=<?= htmlspecialchars($genderKey) ?>&subcategory_id=<?= htmlspecialchars($sub['id']) ?>">
                                 <?= htmlspecialchars($sub['name']) ?>
                             </a>
                             </li>

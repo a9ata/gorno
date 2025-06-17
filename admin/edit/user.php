@@ -1,42 +1,42 @@
-<h3>Редактировать пользователя #<?= $edit['id'] ?></h3>
+<h3>Редактировать пользователя #<?= htmlspecialchars($edit['id']) ?></h3>
 <form method="POST" action="/admin/edit/user_update.php">
-  <!-- признак редактирования -->
-  <input type="hidden" name="edit_id" value="<?= $edit['id'] ?>">
 
-  <label>Имя:<br>
+  <input type="hidden" name="edit_id" value="<?= htmlspecialchars($edit['id']) ?>">
+
+  <label>Имя:
     <input type="text" name="name"
            value="<?= htmlspecialchars($edit['name']) ?>"
            required>
-  </label><br><br>
+  </label>
 
-  <label>Email:<br>
+  <label>Email:
     <input type="email" name="email"
            value="<?= htmlspecialchars($edit['email']) ?>"
            required>
-  </label><br><br>
+  </label>
 
-  <label>Телефон:<br>
+  <label>Телефон:
     <input type="text" name="phone"
            value="<?= htmlspecialchars($edit['phone'] ?? '') ?>">
-  </label><br><br>
+  </label>
 
-  <label>Дата рождения:<br>
+  <label>Дата рождения:
     <input type="date" name="birthdate"
            value="<?= htmlspecialchars($edit['birthdate'] ?? '') ?>">
-  </label><br><br>
+  </label>
 
-  <label>Пароль (если не менять — оставить пустым):<br>
+  <label>Пароль (если не менять — оставить пустым):
     <input type="password" name="password">
-  </label><br><br>
+  </label>
 
-  <label>Роль:<br>
+  <label>Роль:
     <select name="role">
-      <option value="user"    <?= $edit['role']==='user'    ? 'selected':'' ?>>Пользователь</option>
-      <option value="admin"   <?= $edit['role']==='admin'   ? 'selected':'' ?>>Админ</option>
-      <option value="stylist" <?= $edit['role']==='stylist' ? 'selected':'' ?>>Стилист</option>
+      <option value="user"    <?= htmlspecialchars($edit['role']==='user'    ? 'selected':'') ?>>Пользователь</option>
+      <option value="admin"   <?= htmlspecialchars($edit['role']==='admin'   ? 'selected':'') ?>>Админ</option>
+      <option value="stylist" <?= htmlspecialchars($edit['role']==='stylist' ? 'selected':'') ?>>Стилист</option>
     </select>
-  </label><br><br>
+  </label>
 
   <button type="submit">Сохранить</button>
-  <a href="?section=users">Отмена</a>
+  <a href="?section=users" class="btn-secondary">Отмена</a>
 </form>

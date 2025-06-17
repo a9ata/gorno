@@ -56,8 +56,8 @@ $products = getFilteredProducts($conn, $gender, $filters);
                 ?>
                 <div class="product-card">
                     <div class="product-favorite">
-                        <button class="favorite-btn" data-id="<?= $product['id'] ?>">
-                            <img src="<?= $icon ?>" alt="В избранное">
+                        <button class="favorite-btn" data-id="<?= htmlspecialchars($product['id']) ?>">
+                            <img src="<?= htmlspecialchars($icon) ?>" alt="В избранное">
                         </button>
                     </div>
                     <div class="product-image">
@@ -67,7 +67,7 @@ $products = getFilteredProducts($conn, $gender, $filters);
                         <h3><?= htmlspecialchars($product['name']) ?></h3>
                         <p class="subcategory"><?= htmlspecialchars($product['subcategory_name']) ?></p>
                         <p class="price"><?= htmlspecialchars($product['price']) ?> ₽</p>
-                        <button type="button" onclick="openProductModal(<?= $product['id'] ?>)">Добавить в корзину</button>
+                        <button type="button" onclick="openProductModal(<?= htmlspecialchars($product['id']) ?>)">Добавить в корзину</button>
                     </div>
                 </div>
             <?php endforeach; ?>
