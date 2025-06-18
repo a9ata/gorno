@@ -114,8 +114,6 @@ $discount = calculateDiscount($totalSpent);
                 <?php endforeach; ?>
             <?php endif; ?>
         </div>
-
-
         <div class="loyalty-card-box">
             <div class="loyalty-card">
                 <div class="loyalty-active">
@@ -137,6 +135,9 @@ $discount = calculateDiscount($totalSpent);
                     <strong><?= htmlspecialchars($discount) ?>%</strong>
                     <strong><?= number_format($totalSpent, 0, '.', ' ') ?> ₽</strong>
                 </div>
+            </div>
+            <div class="orders-link">
+                <a href="/orders" class="btn">Мои заказы</a>
             </div>
         </div>
     </div>
