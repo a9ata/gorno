@@ -4,7 +4,7 @@ require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../config/db.php';
 
 $userId = $_SESSION['id_user'] ?? null;
-$selected = $_SESSION['selected_items'] ?? [];
+$selected = $_POST['selected_items'] ?? [];
 
 $name = $_POST['name'] ?? '';
 $email = $_POST['email'] ?? '';
@@ -14,9 +14,10 @@ $expiry = $_POST['expiry'] ?? '';
 $total = $_POST['total'] ?? 0;
 $paymentMethodId = $_POST['payment_method_id'] ?? null;
 $deliveryMethodId = $_POST['delivery_method_id'] ?? null;
+$deliveryAddress = $_POST['delivery_address'] ?? '';
 
 if (!$userId || !$name || !$email || !$total || !$paymentMethodId || !$deliveryMethodId) {
-    header("Location: /index.php?page=payment&error=1");
+    header("Location: /payment&error=1");
     exit;
 }
 
@@ -31,9 +32,16 @@ $deliveryPrice = $deliveryRow['price'] ?? 0.00;
 // Общая сумма: товары + доставка
 $totalWithDelivery = $total + $deliveryPrice;
 
+$paidMethods = [1, 3]; // Картой онлайн и СБП
+$statusId = in_array((int)$paymentMethodId, $paidMethods) ? 2 : 1;
+
 // Создание заказа
-$stmt = $conn->prepare("INSERT INTO orders (user_id, total_amount, payment_method_id, delivery_method_id, status_id) VALUES (?, ?, ?, ?, 1)");
-$stmt->bind_param("idii", $userId, $totalWithDelivery, $paymentMethodId, $deliveryMethodId);
+$stmt = $conn->prepare("
+    INSERT INTO orders 
+    (user_id, total_amount, payment_method_id, delivery_method_id, delivery_address, status_id) 
+    VALUES (?, ?, ?, ?, ?, ?)
+");
+$stmt->bind_param("idissi", $userId, $totalWithDelivery, $paymentMethodId, $deliveryMethodId, $deliveryAddress, $statusId);
 $stmt->execute();
 $orderId = $conn->insert_id;
 
@@ -89,7 +97,7 @@ function calculateDiscount($total) {
     return 0;
 }
 
-$stmt = $conn->prepare("SELECT SUM(total_amount) FROM orders WHERE user_id = ? AND status_id = 1");
+$stmt = $conn->prepare("SELECT SUM(total_amount) FROM orders WHERE user_id = ? AND status_id = 2");
 $stmt->bind_param("i", $userId);
 $stmt->execute();
 $res = $stmt->get_result();
@@ -113,7 +121,5 @@ if ($res->num_rows > 0) {
 }
 $stmt->execute();
 
-unset($_SESSION['selected_items']);
-
-header("Location: ?page=profile&success=payment");
+header("Location: /profile");
 exit;

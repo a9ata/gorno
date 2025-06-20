@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then(res => res.json())
         .then(res => {
             if (res.success) {
-                window.location.href = "/index.php?page=payment";
+                window.location.href = "/payment";
             } else {
                 const error = document.getElementById('selectionError');
                 error.textContent = res.message || "Ошибка.";

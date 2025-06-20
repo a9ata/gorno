@@ -137,7 +137,7 @@ $discount = calculateDiscount($totalSpent);
                 </div>
             </div>
             <div class="orders-link">
-                <a href="/orders" class="btn">Мои заказы</a>
+                <a href="/orders">Мои заказы</a>
             </div>
         </div>
     </div>

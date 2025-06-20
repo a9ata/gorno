@@ -47,7 +47,6 @@ foreach ($cartItems as $item) {
         <div class="payment-summary">
             <p><strong>Количество товаров:</strong> <?= count($cartItems) ?></p>
             <p><strong>Сумма товаров:</strong> <?= number_format($totalAmount, 0, '.', ' ') ?> ₽</p>
-
             <p><strong>Доставка:</strong> <span id="deliveryCost">–</span></p>
             <p><strong>Скидка по карте:</strong> <span id="discountText">–</span></p>
             <p><strong>Итоговая сумма:</strong> <span id="finalSum"><?= number_format($totalAmount, 0, '.', ' ') ?> ₽</span></p>
@@ -72,6 +71,9 @@ foreach ($cartItems as $item) {
                 }
                 ?>
             </select>
+            <div id="addressField">
+                <input type="text" name="delivery_address" id="delivery_address" placeholder="Адрес доставки">
+            </div>
 
             <input type="text" name="name" placeholder="Имя" required>
             <input type="email" name="email" placeholder="Почта" required>
@@ -90,26 +92,53 @@ foreach ($cartItems as $item) {
     </div>
 </section>
 <script>
-    const deliverySelect = document.getElementById('deliverySelect');
+   const deliverySelect = document.getElementById('deliverySelect');
     const deliveryCostSpan = document.getElementById('deliveryCost');
     const discountText = document.getElementById('discountText');
     const finalSumSpan = document.getElementById('finalSum');
     const totalInput = document.getElementById('totalInput');
 
+    const addressField = document.getElementById('addressField');
+    const addressInput = document.getElementById('delivery_address');
+
     const productTotal = <?= $totalAmount ?>;
     const discountPercent = <?= $discountPercentage ?>;
 
-    discountText.textContent = discountPercent > 0 ? `${discountPercent}%` : 'Скидка появится от 50 000 ₽';
+    const SELF_PICKUP_ID = 2; // ID самовывоза
 
-    deliverySelect.addEventListener('change', () => {
+    // Показать скидку
+    discountText.textContent = `${discountPercent}%`;
+
+    function updateUI() {
         const selectedOption = deliverySelect.options[deliverySelect.selectedIndex];
         const deliveryPrice = parseFloat(selectedOption.dataset.price || 0);
+        const deliveryId = parseInt(selectedOption.value);
 
+        // Показываем или скрываем поле адреса
+        if (deliveryId === SELF_PICKUP_ID) {
+            addressField.style.display = 'none';
+            addressInput.removeAttribute('required');
+            addressInput.value = '';
+        } else {
+            addressField.style.display = 'block';
+            addressInput.setAttribute('required', 'required');
+        }
+
+        // Пересчёт итоговой суммы
         const discountValue = productTotal * (discountPercent / 100);
         const finalSum = productTotal + deliveryPrice - discountValue;
 
         deliveryCostSpan.textContent = `${deliveryPrice.toFixed(0)} ₽`;
         finalSumSpan.textContent = `${finalSum.toFixed(0)} ₽`;
         totalInput.value = finalSum.toFixed(2);
+    }
+
+    deliverySelect.addEventListener('change', updateUI);
+
+    // Вызов при загрузке, если значение уже выбрано
+    window.addEventListener('DOMContentLoaded', () => {
+        if (deliverySelect.value) {
+            updateUI();
+        }
     });
 </script>

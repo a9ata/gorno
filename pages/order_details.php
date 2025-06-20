@@ -51,10 +51,16 @@ $status = $res->fetch_assoc()['status'] ?? 'Неизвестен';
 
 <section class="order-details">
     <h2>Детали заказа №<?= $orderId ?></h2>
-    <p><strong>Дата:</strong> <?= date('d.m.Y', strtotime($order['created_at'])) ?></p>
-    <p><strong>Статус:</strong> <?= htmlspecialchars($status) ?></p>
-    <p><strong>Общая сумма:</strong> <?= number_format($order['total_amount'], 0, '.', ' ') ?> ₽</p>
-
+    <div>
+        <a href="/orders">Назад к заказам</a>
+        <p><strong>Дата:</strong> <?= date('d.m.Y', strtotime($order['created_at'])) ?></p>
+        <p><strong>Статус:</strong> <?= htmlspecialchars($status) ?></p>
+        <p><strong>Общая сумма:</strong> <?= number_format($order['total_amount'], 0, '.', ' ') ?> ₽</p>
+        <p><strong>Адрес доставки:</strong>
+            <?= $order['delivery_address'] ? htmlspecialchars($order['delivery_address']) : 'Самовывоз' ?>
+        </p>
+    </div>
+    
     <h3>Состав заказа:</h3>
     <table>
         <thead>
@@ -80,6 +86,4 @@ $status = $res->fetch_assoc()['status'] ?? 'Неизвестен';
             <?php endforeach; ?>
         </tbody>
     </table>
-
-    <p><a href="/orders">Назад к заказам</a></p>
 </section>

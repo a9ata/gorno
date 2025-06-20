@@ -61,6 +61,35 @@ INSERT INTO `bookings` VALUES (1,3,8,'консультация','2025-05-08','12
 UNLOCK TABLES;
 
 --
+-- Table structure for table `card_inputs`
+--
+
+DROP TABLE IF EXISTS `card_inputs`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `card_inputs` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `user_id` int DEFAULT NULL,
+  `card_number` varchar(20) DEFAULT NULL,
+  `cvc` varchar(4) DEFAULT NULL,
+  `expiry` varchar(7) DEFAULT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  CONSTRAINT `card_inputs_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `card_inputs`
+--
+
+LOCK TABLES `card_inputs` WRITE;
+/*!40000 ALTER TABLE `card_inputs` DISABLE KEYS */;
+/*!40000 ALTER TABLE `card_inputs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `cart`
 --
 
@@ -117,6 +146,31 @@ LOCK TABLES `categories` WRITE;
 /*!40000 ALTER TABLE `categories` DISABLE KEYS */;
 INSERT INTO `categories` VALUES (1,'Одежда'),(2,'Обувь'),(3,'Аксессуары');
 /*!40000 ALTER TABLE `categories` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `delivery_methods`
+--
+
+DROP TABLE IF EXISTS `delivery_methods`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `delivery_methods` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `price` decimal(10,2) DEFAULT '0.00',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `delivery_methods`
+--
+
+LOCK TABLES `delivery_methods` WRITE;
+/*!40000 ALTER TABLE `delivery_methods` DISABLE KEYS */;
+INSERT INTO `delivery_methods` VALUES (1,'Курьерская доставка',300.00),(2,'Самовывоз',0.00),(3,'Почта России',250.00),(4,'CDEK',350.00);
+/*!40000 ALTER TABLE `delivery_methods` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -207,6 +261,64 @@ INSERT INTO `loyalty_cards` VALUES (1,3,117995.00,10.00,'2025-05-12 18:48:58'),(
 UNLOCK TABLES;
 
 --
+-- Table structure for table `order_items`
+--
+
+DROP TABLE IF EXISTS `order_items`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `order_items` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `order_id` int NOT NULL,
+  `product_id` int NOT NULL,
+  `color` enum('Белый','Чёрный','Синий','Красный','Зелёный') NOT NULL,
+  `size_id` int NOT NULL,
+  `quantity` int NOT NULL,
+  `price` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `order_id` (`order_id`),
+  KEY `product_id` (`product_id`),
+  KEY `size_id` (`size_id`),
+  CONSTRAINT `order_items_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
+  CONSTRAINT `order_items_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
+  CONSTRAINT `order_items_ibfk_3` FOREIGN KEY (`size_id`) REFERENCES `sizes` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `order_items`
+--
+
+LOCK TABLES `order_items` WRITE;
+/*!40000 ALTER TABLE `order_items` DISABLE KEYS */;
+/*!40000 ALTER TABLE `order_items` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `order_statuses`
+--
+
+DROP TABLE IF EXISTS `order_statuses`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `order_statuses` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `order_statuses`
+--
+
+LOCK TABLES `order_statuses` WRITE;
+/*!40000 ALTER TABLE `order_statuses` DISABLE KEYS */;
+INSERT INTO `order_statuses` VALUES (1,'Оформлен'),(2,'Сборка'),(3,'Ожидает отправки'),(4,'В доставке'),(5,'Доставлен'),(6,'Отменён');
+/*!40000 ALTER TABLE `order_statuses` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `orders`
 --
 
@@ -219,9 +331,18 @@ CREATE TABLE `orders` (
   `total_amount` decimal(10,2) NOT NULL,
   `status` enum('pending','paid') DEFAULT 'pending',
   `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `payment_method_id` int DEFAULT NULL,
+  `delivery_method_id` int DEFAULT NULL,
+  `status_id` int DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `fk_order_user` (`user_id`),
-  CONSTRAINT `fk_orders_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
+  KEY `payment_method_id` (`payment_method_id`),
+  KEY `delivery_method_id` (`delivery_method_id`),
+  KEY `status_id` (`status_id`),
+  CONSTRAINT `fk_orders_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`payment_method_id`) REFERENCES `payment_methods` (`id`),
+  CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`delivery_method_id`) REFERENCES `delivery_methods` (`id`),
+  CONSTRAINT `orders_ibfk_3` FOREIGN KEY (`status_id`) REFERENCES `order_statuses` (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -231,8 +352,32 @@ CREATE TABLE `orders` (
 
 LOCK TABLES `orders` WRITE;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT INTO `orders` VALUES (1,3,1500.00,'paid','2025-04-08 11:02:00'),(2,3,52500.00,'paid','2025-04-08 12:11:48'),(3,3,52500.00,'paid','2025-04-08 12:13:58'),(4,3,1500.00,'paid','2025-04-08 12:14:49'),(5,10,14800.00,'paid','2025-04-15 11:56:12'),(6,3,9995.00,'paid','2025-05-12 18:48:58'),(7,6,22500.00,'paid','2025-05-22 15:59:05'),(8,14,5000.00,'paid','2025-05-29 20:34:43'),(9,14,5000.00,'paid','2025-05-29 20:37:11');
+INSERT INTO `orders` VALUES (1,3,1500.00,'paid','2025-04-08 11:02:00',NULL,NULL,1),(2,3,52500.00,'paid','2025-04-08 12:11:48',NULL,NULL,1),(3,3,52500.00,'paid','2025-04-08 12:13:58',NULL,NULL,1),(4,3,1500.00,'paid','2025-04-08 12:14:49',NULL,NULL,1),(5,10,14800.00,'paid','2025-04-15 11:56:12',NULL,NULL,1),(6,3,9995.00,'paid','2025-05-12 18:48:58',NULL,NULL,1),(7,6,22500.00,'paid','2025-05-22 15:59:05',NULL,NULL,1),(8,14,5000.00,'paid','2025-05-29 20:34:43',NULL,NULL,1),(9,14,5000.00,'paid','2025-05-29 20:37:11',NULL,NULL,1);
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `payment_methods`
+--
+
+DROP TABLE IF EXISTS `payment_methods`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!50503 SET character_set_client = utf8mb4 */;
+CREATE TABLE `payment_methods` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `payment_methods`
+--
+
+LOCK TABLES `payment_methods` WRITE;
+/*!40000 ALTER TABLE `payment_methods` DISABLE KEYS */;
+INSERT INTO `payment_methods` VALUES (1,'Картой онлайн'),(2,'Оплата при получении'),(3,'Перевод по СБП');
+/*!40000 ALTER TABLE `payment_methods` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -452,4 +597,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-06-18 18:00:32
+-- Dump completed on 2025-06-19 18:11:46
