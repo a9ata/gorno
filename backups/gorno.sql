@@ -47,7 +47,7 @@ CREATE TABLE `bookings` (
   CONSTRAINT `bookings_ibfk_2` FOREIGN KEY (`stylist_id`) REFERENCES `users` (`id`) ON DELETE SET NULL,
   CONSTRAINT `fk_bookings_stylist` FOREIGN KEY (`stylist_id`) REFERENCES `users` (`id`) ON DELETE SET NULL,
   CONSTRAINT `fk_bookings_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -56,7 +56,7 @@ CREATE TABLE `bookings` (
 
 LOCK TABLES `bookings` WRITE;
 /*!40000 ALTER TABLE `bookings` DISABLE KEYS */;
-INSERT INTO `bookings` VALUES (1,3,8,'консультация','2025-05-08','12:00:00',NULL,NULL,'2025-04-07 08:19:30'),(2,3,NULL,'индивидуальный заказ','2025-04-07','11:26:00',NULL,'платье голубого цвета с рукавами типа фонариков','2025-04-07 08:26:00'),(3,3,NULL,'примерка на дому','2025-04-12','13:34:00','москва, планерная 35','летнее платье зеленого цвета. летние туфли на каблуке','2025-04-07 08:27:10'),(5,10,8,'консультация','2001-12-12','12:12:00',NULL,NULL,'2025-04-15 11:59:30'),(7,10,8,'консультация','3333-12-13','13:13:00',NULL,NULL,'2025-04-15 12:02:35'),(10,12,8,'консультация','2025-05-15','14:14:00',NULL,NULL,'2025-05-14 15:07:26'),(11,12,NULL,'примерка на дому','2025-05-16','19:00:00','горохина 15, 65','456789098 артикул, черные,44 размер, артикул 4567890987 35 размер розового цвета для ребёнка','2025-05-14 15:29:13'),(12,12,NULL,'индивидуальный заказ','2025-09-28','10:19:00',NULL,'мне необходимо сшить пиджак черного цвета из лучшей ткани, размеры:......','2025-05-14 15:31:12'),(13,14,8,'консультация','2025-06-01','13:40:00',NULL,NULL,'2025-05-29 20:42:54');
+INSERT INTO `bookings` VALUES (1,3,8,'консультация','2025-05-08','12:00:00',NULL,NULL,'2025-04-07 08:19:30'),(2,3,NULL,'индивидуальный заказ','2025-04-07','11:26:00',NULL,'платье голубого цвета с рукавами типа фонариков','2025-04-07 08:26:00'),(3,3,NULL,'примерка на дому','2025-04-12','13:34:00','москва, планерная 35','летнее платье зеленого цвета. летние туфли на каблуке','2025-04-07 08:27:10'),(5,10,8,'консультация','2001-12-12','12:12:00',NULL,NULL,'2025-04-15 11:59:30'),(7,10,8,'консультация','3333-12-13','13:13:00',NULL,NULL,'2025-04-15 12:02:35'),(10,12,8,'консультация','2025-05-15','14:14:00',NULL,NULL,'2025-05-14 15:07:26'),(11,12,NULL,'примерка на дому','2025-05-16','19:00:00','горохина 15, 65','456789098 артикул, черные,44 размер, артикул 4567890987 35 размер розового цвета для ребёнка','2025-05-14 15:29:13'),(12,12,NULL,'индивидуальный заказ','2025-09-28','10:19:00',NULL,'мне необходимо сшить пиджак черного цвета из лучшей ткани, размеры:......','2025-05-14 15:31:12'),(13,14,8,'консультация','2025-06-01','13:40:00',NULL,NULL,'2025-05-29 20:42:54'),(14,6,8,'консультация','2025-06-25','17:25:00',NULL,NULL,'2025-06-19 19:21:51'),(16,36,8,'консультация','2025-06-27','14:49:00',NULL,NULL,'2025-06-20 07:45:19'),(17,36,37,'консультация','2025-06-23','13:55:00',NULL,NULL,'2025-06-20 07:52:47');
 /*!40000 ALTER TABLE `bookings` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -77,7 +77,7 @@ CREATE TABLE `card_inputs` (
   PRIMARY KEY (`id`),
   KEY `user_id` (`user_id`),
   CONSTRAINT `card_inputs_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -86,6 +86,7 @@ CREATE TABLE `card_inputs` (
 
 LOCK TABLES `card_inputs` WRITE;
 /*!40000 ALTER TABLE `card_inputs` DISABLE KEYS */;
+INSERT INTO `card_inputs` VALUES (1,6,'1234567812341234','123','1227','2025-06-19 18:27:27'),(5,36,'1234123412341234','123','1230','2025-06-20 07:43:57'),(6,36,'1234123412341234','123','1234','2025-06-20 07:48:08');
 /*!40000 ALTER TABLE `card_inputs` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -111,7 +112,7 @@ CREATE TABLE `cart` (
   CONSTRAINT `fk_cart_product` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE,
   CONSTRAINT `fk_cart_size_id` FOREIGN KEY (`size_id`) REFERENCES `sizes` (`id`),
   CONSTRAINT `fk_cart_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=28 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -120,7 +121,7 @@ CREATE TABLE `cart` (
 
 LOCK TABLES `cart` WRITE;
 /*!40000 ALTER TABLE `cart` DISABLE KEYS */;
-INSERT INTO `cart` VALUES (15,4,1,'Зелёный',1,'2025-06-02 20:56:43',3),(16,4,5,'Голубой',1,'2025-06-02 20:57:08',29),(17,6,14,'Белый',2,'2025-06-02 21:31:21',4);
+INSERT INTO `cart` VALUES (15,4,1,'Зелёный',1,'2025-06-02 20:56:43',3),(16,4,5,'Голубой',1,'2025-06-02 20:57:08',29);
 /*!40000 ALTER TABLE `cart` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -217,7 +218,7 @@ CREATE TABLE `favorites` (
   CONSTRAINT `favorites_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE,
   CONSTRAINT `fk_favorites_product` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE,
   CONSTRAINT `fk_favorites_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -247,7 +248,7 @@ CREATE TABLE `loyalty_cards` (
   KEY `fk_loyalty_cards_user` (`user_id`),
   CONSTRAINT `fk_loyalty_cards_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
   CONSTRAINT `loyalty_cards_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -256,7 +257,7 @@ CREATE TABLE `loyalty_cards` (
 
 LOCK TABLES `loyalty_cards` WRITE;
 /*!40000 ALTER TABLE `loyalty_cards` DISABLE KEYS */;
-INSERT INTO `loyalty_cards` VALUES (1,3,117995.00,10.00,'2025-05-12 18:48:58'),(3,6,22500.00,0.00,'2025-05-22 15:59:05'),(6,10,14800.00,0.00,'2025-04-15 11:56:12'),(7,14,10000.00,0.00,'2025-05-29 20:37:11'),(8,4,0.00,0.00,'2025-05-29 21:06:42');
+INSERT INTO `loyalty_cards` VALUES (1,3,117995.00,10.00,'2025-05-12 18:48:58'),(3,6,31100.00,0.00,'2025-06-19 18:27:27'),(6,10,14800.00,0.00,'2025-04-15 11:56:12'),(7,14,10000.00,0.00,'2025-05-29 20:37:11'),(8,4,0.00,0.00,'2025-05-29 21:06:42'),(10,36,53099.00,5.00,'2025-06-20 07:48:08');
 /*!40000 ALTER TABLE `loyalty_cards` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -271,7 +272,7 @@ CREATE TABLE `order_items` (
   `id` int NOT NULL AUTO_INCREMENT,
   `order_id` int NOT NULL,
   `product_id` int NOT NULL,
-  `color` enum('Белый','Чёрный','Синий','Красный','Зелёный') NOT NULL,
+  `color` enum('Белый','Чёрный','Синий','Красный','Зелёный','Голубой') CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL,
   `size_id` int NOT NULL,
   `quantity` int NOT NULL,
   `price` decimal(10,2) NOT NULL,
@@ -282,7 +283,7 @@ CREATE TABLE `order_items` (
   CONSTRAINT `order_items_ibfk_1` FOREIGN KEY (`order_id`) REFERENCES `orders` (`id`),
   CONSTRAINT `order_items_ibfk_2` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`),
   CONSTRAINT `order_items_ibfk_3` FOREIGN KEY (`size_id`) REFERENCES `sizes` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -291,6 +292,7 @@ CREATE TABLE `order_items` (
 
 LOCK TABLES `order_items` WRITE;
 /*!40000 ALTER TABLE `order_items` DISABLE KEYS */;
+INSERT INTO `order_items` VALUES (1,10,14,'Белый',4,8,1000.00),(7,15,1,'Голубой',3,1,1500.00),(8,15,18,'Чёрный',29,1,3400.00),(9,15,19,'Красный',6,1,35000.00),(10,15,12,'Красный',4,1,6700.00),(11,16,4,'Красный',1,1,5199.00);
 /*!40000 ALTER TABLE `order_items` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -334,6 +336,7 @@ CREATE TABLE `orders` (
   `payment_method_id` int DEFAULT NULL,
   `delivery_method_id` int DEFAULT NULL,
   `status_id` int DEFAULT '1',
+  `delivery_address` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_order_user` (`user_id`),
   KEY `payment_method_id` (`payment_method_id`),
@@ -343,7 +346,7 @@ CREATE TABLE `orders` (
   CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`payment_method_id`) REFERENCES `payment_methods` (`id`),
   CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`delivery_method_id`) REFERENCES `delivery_methods` (`id`),
   CONSTRAINT `orders_ibfk_3` FOREIGN KEY (`status_id`) REFERENCES `order_statuses` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -352,7 +355,7 @@ CREATE TABLE `orders` (
 
 LOCK TABLES `orders` WRITE;
 /*!40000 ALTER TABLE `orders` DISABLE KEYS */;
-INSERT INTO `orders` VALUES (1,3,1500.00,'paid','2025-04-08 11:02:00',NULL,NULL,1),(2,3,52500.00,'paid','2025-04-08 12:11:48',NULL,NULL,1),(3,3,52500.00,'paid','2025-04-08 12:13:58',NULL,NULL,1),(4,3,1500.00,'paid','2025-04-08 12:14:49',NULL,NULL,1),(5,10,14800.00,'paid','2025-04-15 11:56:12',NULL,NULL,1),(6,3,9995.00,'paid','2025-05-12 18:48:58',NULL,NULL,1),(7,6,22500.00,'paid','2025-05-22 15:59:05',NULL,NULL,1),(8,14,5000.00,'paid','2025-05-29 20:34:43',NULL,NULL,1),(9,14,5000.00,'paid','2025-05-29 20:37:11',NULL,NULL,1);
+INSERT INTO `orders` VALUES (1,3,1500.00,'paid','2025-04-08 11:02:00',NULL,NULL,1,NULL),(2,3,52500.00,'paid','2025-04-08 12:11:48',NULL,NULL,1,NULL),(3,3,52500.00,'paid','2025-04-08 12:13:58',NULL,NULL,1,NULL),(4,3,1500.00,'paid','2025-04-08 12:14:49',NULL,NULL,1,NULL),(5,10,14800.00,'paid','2025-04-15 11:56:12',NULL,NULL,1,NULL),(6,3,9995.00,'paid','2025-05-12 18:48:58',NULL,NULL,1,NULL),(7,6,22500.00,'paid','2025-05-22 15:59:05',NULL,NULL,1,NULL),(8,14,5000.00,'paid','2025-05-29 20:34:43',NULL,NULL,1,NULL),(9,14,5000.00,'paid','2025-05-29 20:37:11',NULL,NULL,1,NULL),(10,6,8600.00,'paid','2025-06-19 18:27:27',1,1,2,'Москва, Клен зеленый,33'),(15,36,47200.00,'paid','2025-06-20 07:43:57',1,1,2,'Москва, Нежинская 7'),(16,36,5899.00,'paid','2025-06-20 07:48:08',1,4,2,'Москва, Нежинская 7');
 /*!40000 ALTER TABLE `orders` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -399,7 +402,7 @@ CREATE TABLE `product_attributes` (
   CONSTRAINT `fk_product_attributes_product` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE,
   CONSTRAINT `fk_size_id` FOREIGN KEY (`size_id`) REFERENCES `sizes` (`id`),
   CONSTRAINT `product_attributes_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -408,7 +411,7 @@ CREATE TABLE `product_attributes` (
 
 LOCK TABLES `product_attributes` WRITE;
 /*!40000 ALTER TABLE `product_attributes` DISABLE KEYS */;
-INSERT INTO `product_attributes` VALUES (1,1,'Голубой',100,4),(2,1,'Зеленый',30,3),(3,1,'Черный',30,7),(4,2,'Зеленый',5,34),(5,2,'Черный',5,37),(6,3,'Синий',5,4),(7,3,'Черный',5,3),(8,1,'Красный',5,7),(10,5,'Голубой',10,29),(11,11,'Черный',2,1),(13,12,'Красный',20,4),(14,9,'Зеленый',5,5),(16,4,'Красный',3,1),(17,14,'Белый',6,4);
+INSERT INTO `product_attributes` VALUES (1,1,'Голубой',100,4),(2,1,'Зеленый',30,3),(3,1,'Черный',30,7),(4,2,'Зеленый',5,34),(5,2,'Черный',5,37),(6,3,'Синий',5,4),(7,3,'Черный',5,3),(8,1,'Красный',5,7),(10,5,'Голубой',10,29),(11,11,'Черный',2,1),(13,12,'Красный',20,4),(14,9,'Зеленый',5,5),(16,4,'Красный',3,1),(17,14,'Белый',6,4),(18,15,'Черный',5,30),(19,16,'Красный',10,3),(20,17,'Белый',4,28),(21,18,'Черный',5,29),(22,19,'Красный',3,6),(23,20,'Белый',12,4);
 /*!40000 ALTER TABLE `product_attributes` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -428,7 +431,7 @@ CREATE TABLE `product_images` (
   KEY `fk_product_images_product` (`product_id`),
   CONSTRAINT `fk_product_images_product` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE,
   CONSTRAINT `product_images_ibfk_1` FOREIGN KEY (`product_id`) REFERENCES `products` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=60 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=78 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -437,7 +440,7 @@ CREATE TABLE `product_images` (
 
 LOCK TABLES `product_images` WRITE;
 /*!40000 ALTER TABLE `product_images` DISABLE KEYS */;
-INSERT INTO `product_images` VALUES (1,1,'https://images.pexels.com/photos/20509221/pexels-photo-20509221.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',1),(2,1,'https://images.pexels.com/photos/20509221/pexels-photo-20509221.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',0),(3,1,'https://images.pexels.com/photos/20509221/pexels-photo-20509221.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',0),(4,2,'https://outmaxshop.ru/components/com_jshopping/files/img_products/30097/nike-sb-dunk-low-30097-1.jpg',1),(5,2,'https://outmaxshop.ru/components/com_jshopping/files/img_products/27465/nike-sb-dunk-low-27465-1.jpg',0),(6,2,'https://static.insales-cdn.com/images/products/1/7068/358063004/Nike_SB_Dunk_Low_%D0%BA%D1%83%D0%BF%D0%B8%D1%82%D1%8C-04.jpg',0),(7,3,'https://cdn.tkaner.com/wp/uploads/2020/04/ronjas-raeuberlaedchen.de_.jpg',1),(8,3,'https://cdn.laredoute.com/cdn-cgi/image/width=1200,height=1200,fit=pad,dpr=1/products/4/6/7/4672f3c83f3438217810d3a37896b652.jpg',0),(9,4,'https://basket-15.wbbasket.ru/vol2302/part230219/230219432/images/big/1.webp',1),(10,4,'https://basket-15.wbbasket.ru/vol2302/part230219/230219432/images/big/8.webp',0),(11,4,'https://basket-15.wbbasket.ru/vol2302/part230219/230219432/images/big/15.webp',0),(12,4,'https://basket-15.wbbasket.ru/vol2302/part230219/230219432/images/big/6.webp',0),(28,5,'https://ae01.alicdn.com/kf/S419119b3ef06495ba153427705528cb08.jpg',1),(29,5,'https://ae04.alicdn.com/kf/S871e41d686574740b2ebf8265c12ca08E.png',0),(30,5,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8ydgOqR0CWQflxzTK_52t-GNSrq7hcCehJbYdd7sXlEGow2t6bqL_S8tK74AgdzkO-5Y&usqp=CAU',0),(31,9,'https://ae04.alicdn.com/kf/H299d94f3546843e39f44ff760ef40948W.jpg_640x640.jpg',1),(32,9,'https://ae04.alicdn.com/kf/H299d94f3546843e39f44ff760ef40948W.jpg_640x640.jpg',0),(33,9,'https://ae04.alicdn.com/kf/H299d94f3546843e39f44ff760ef40948W.jpg_640x640.jpg',0),(34,9,'https://ae04.alicdn.com/kf/H299d94f3546843e39f44ff760ef40948W.jpg_640x640.jpg',0),(35,9,'https://ae04.alicdn.com/kf/H299d94f3546843e39f44ff760ef40948W.jpg_640x640.jpg',0),(39,11,'https://basket-12.wbbasket.ru/vol1705/part170568/170568793/images/c516x688/1.webp',1),(40,11,'https://basket-12.wbbasket.ru/vol1705/part170568/170568793/images/c516x688/1.webp',0),(41,11,'https://basket-12.wbbasket.ru/vol1705/part170568/170568793/images/c516x688/1.webp',0),(46,12,'https://basket-02.wbbasket.ru/vol164/part16447/16447758/images/big/1.webp',1),(47,12,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0L4KQJh6GIZiqZzA2sA7M9DgChDjMiWS_m2e6agPfaSdIQDLTH57t__-FEOThT7AXq0M&usqp=CAU',0),(48,12,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-_yko24JaM5ZrGY4vywDENlzRRXzZ2DKAyGHPn7MmNtOxdAVo1hqiWrbtXeTr-EJU8MQ&usqp=CAU',0),(49,12,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZz0TW7GVTGcpIjKWQ8kk0kJvPpswENrBYMsfwZ386dn2ktmbmMpuxwdXjsKDl4uZ1-x4&usqp=CAU',0),(53,10,'https://basket-05.wbbasket.ru/vol765/part76524/76524618/images/big/1.webp',1),(54,10,'https://basket-05.wbbasket.ru/vol765/part76524/76524618/images/big/1.webp',0),(55,10,'https://basket-05.wbbasket.ru/vol765/part76524/76524618/images/big/1.webp',0),(58,14,'https://basket-16.wbbasket.ru/vol2506/part250639/250639685/images/c516x688/1.webp',1),(59,14,'https://basket-12.wbbasket.ru/vol1812/part181278/181278008/images/c516x688/1.webp',0);
+INSERT INTO `product_images` VALUES (1,1,'https://images.pexels.com/photos/20509221/pexels-photo-20509221.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',1),(2,1,'https://images.pexels.com/photos/20509221/pexels-photo-20509221.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',0),(3,1,'https://images.pexels.com/photos/20509221/pexels-photo-20509221.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',0),(4,2,'https://outmaxshop.ru/components/com_jshopping/files/img_products/30097/nike-sb-dunk-low-30097-1.jpg',1),(5,2,'https://outmaxshop.ru/components/com_jshopping/files/img_products/27465/nike-sb-dunk-low-27465-1.jpg',0),(6,2,'https://static.insales-cdn.com/images/products/1/7068/358063004/Nike_SB_Dunk_Low_%D0%BA%D1%83%D0%BF%D0%B8%D1%82%D1%8C-04.jpg',0),(7,3,'https://cdn.tkaner.com/wp/uploads/2020/04/ronjas-raeuberlaedchen.de_.jpg',1),(8,3,'https://cdn.laredoute.com/cdn-cgi/image/width=1200,height=1200,fit=pad,dpr=1/products/4/6/7/4672f3c83f3438217810d3a37896b652.jpg',0),(9,4,'https://basket-15.wbbasket.ru/vol2302/part230219/230219432/images/big/1.webp',1),(10,4,'https://basket-15.wbbasket.ru/vol2302/part230219/230219432/images/big/8.webp',0),(11,4,'https://basket-15.wbbasket.ru/vol2302/part230219/230219432/images/big/15.webp',0),(12,4,'https://basket-15.wbbasket.ru/vol2302/part230219/230219432/images/big/6.webp',0),(28,5,'https://ae01.alicdn.com/kf/S419119b3ef06495ba153427705528cb08.jpg',1),(29,5,'https://ae04.alicdn.com/kf/S871e41d686574740b2ebf8265c12ca08E.png',0),(30,5,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8ydgOqR0CWQflxzTK_52t-GNSrq7hcCehJbYdd7sXlEGow2t6bqL_S8tK74AgdzkO-5Y&usqp=CAU',0),(31,9,'https://ae04.alicdn.com/kf/H299d94f3546843e39f44ff760ef40948W.jpg_640x640.jpg',1),(32,9,'https://ae04.alicdn.com/kf/H299d94f3546843e39f44ff760ef40948W.jpg_640x640.jpg',0),(33,9,'https://ae04.alicdn.com/kf/H299d94f3546843e39f44ff760ef40948W.jpg_640x640.jpg',0),(34,9,'https://ae04.alicdn.com/kf/H299d94f3546843e39f44ff760ef40948W.jpg_640x640.jpg',0),(35,9,'https://ae04.alicdn.com/kf/H299d94f3546843e39f44ff760ef40948W.jpg_640x640.jpg',0),(39,11,'https://basket-12.wbbasket.ru/vol1705/part170568/170568793/images/c516x688/1.webp',1),(40,11,'https://basket-12.wbbasket.ru/vol1705/part170568/170568793/images/c516x688/1.webp',0),(41,11,'https://basket-12.wbbasket.ru/vol1705/part170568/170568793/images/c516x688/1.webp',0),(46,12,'https://basket-02.wbbasket.ru/vol164/part16447/16447758/images/big/1.webp',1),(47,12,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR0L4KQJh6GIZiqZzA2sA7M9DgChDjMiWS_m2e6agPfaSdIQDLTH57t__-FEOThT7AXq0M&usqp=CAU',0),(48,12,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-_yko24JaM5ZrGY4vywDENlzRRXzZ2DKAyGHPn7MmNtOxdAVo1hqiWrbtXeTr-EJU8MQ&usqp=CAU',0),(49,12,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZz0TW7GVTGcpIjKWQ8kk0kJvPpswENrBYMsfwZ386dn2ktmbmMpuxwdXjsKDl4uZ1-x4&usqp=CAU',0),(53,10,'https://basket-05.wbbasket.ru/vol765/part76524/76524618/images/big/1.webp',1),(54,10,'https://basket-05.wbbasket.ru/vol765/part76524/76524618/images/big/1.webp',0),(55,10,'https://basket-05.wbbasket.ru/vol765/part76524/76524618/images/big/1.webp',0),(58,14,'https://basket-16.wbbasket.ru/vol2506/part250639/250639685/images/c516x688/1.webp',1),(59,14,'https://basket-12.wbbasket.ru/vol1812/part181278/181278008/images/c516x688/1.webp',0),(60,15,'https://basket-12.wbbasket.ru/vol1751/part175145/175145863/images/big/1.webp',1),(61,15,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9tVxMzauMxyxWfvF60nMUlHlLp15rhkVO6uRMIBtAnmAA2pYG82EDKi7e2h9j2iVVdnQ&usqp=CAU',0),(62,15,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmQ8iA6PR_4a8Z4lJc7NpVqts_3RI-_97E3glK2Lf08sLbMSn2PzyQ0IFSet_n2wNCDKk&usqp=CAU',0),(63,15,'https://basket-13.wbbasket.ru/vol2017/part201764/201764093/images/c516x688/1.webp',0),(64,16,'https://basket-13.wbbasket.ru/vol1964/part196417/196417443/images/big/1.webp',1),(65,16,'https://ae04.alicdn.com/kf/Sad717c077ea142db88b420ee6aefff95L.jpg_480x480.jpg',0),(66,16,'https://basket-13.wbbasket.ru/vol2013/part201302/201302954/images/c516x688/1.webp',0),(67,17,'https://kotofey.ru/images/cms/data/import_files/93/9349f55e0f6f11ee8bf5ac1f6bd8bc11_9349f5b90f6f11ee8bf5ac1f6bd8bc11.jpg',1),(68,17,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTA56Sh5YfBb4_i7C6DZ-Q-ahJFZevH4OHTeQD66HEp4ORk6I2D34R6gOLaXozfXr2UPc&usqp=CAU',0),(69,17,'https://kotofey.ru/images/cms/thumbs/017e4b9041f75b4a9cc707971bb323066a7a3810/9349f55e0f6f11ee8bf5ac1f6bd8bc11_9349f6950f6f11ee8bf5ac1f6bd8bc11_556_555_jpg_5_80.jpg',0),(70,18,'https://basket-04.wbbasket.ru/vol596/part59643/59643793/images/big/2.webp',1),(71,18,'https://catalog.detmir.st/media/t40HctFvb8jY9p-gV0FSw_59ECIIKpkwbbIa_sTUn9I=',0),(72,19,'https://suits-spb.ru/wp-content/uploads/2021/08/vzs02275-68.jpg',1),(73,19,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQHZaHQSPmy_jIkI3GBlMkTLEhT0xDHDXhPcaRcE24eiNfrSkxWDUOtx35kLxEvp9j6adE&usqp=CAU',0),(74,19,'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdYWmeJb0iWmKuaZ628alzG0b0G0cXbkT5g8qZqX3Y3GNgBZAjNIGEPw0N3WtGRtDJYI0&usqp=CAU',0),(75,20,'https://img.joomcdn.net/d606ab02b0b19e6bcd28d727e3dadb0449264924_original.jpeg',1),(76,20,'https://img.joomcdn.net/876eb96d32e8e4024d0568edeac0cbb2f8970dda_original.jpeg',0),(77,20,'https://img.joomcdn.net/19d3ca5b27ee22cab2df46b6e11db550b6c67f87_original.jpeg',0);
 /*!40000 ALTER TABLE `product_images` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -460,7 +463,7 @@ CREATE TABLE `products` (
   KEY `fk_products_subcategory` (`subcategory_id`),
   CONSTRAINT `fk_products_subcategory` FOREIGN KEY (`subcategory_id`) REFERENCES `subcategories` (`id`) ON DELETE CASCADE,
   CONSTRAINT `products_ibfk_1` FOREIGN KEY (`subcategory_id`) REFERENCES `subcategories` (`id`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=21 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -469,7 +472,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,20,'f','Летнее платье','Летнее платье выполнено в стиле корейских платьев',1500.00,'2025-04-06 15:46:47'),(2,29,'m','Nice Cross','мужские кросовки зеленого цвета',5000.00,'2025-04-08 20:08:09'),(3,37,'b','Клетчатая рубашка','Клетчатая рубашка для мальчика',2400.00,'2025-04-09 07:12:55'),(4,31,'f','Сумка Такса','Кожаная винного цвета женская сумка',5199.00,'2025-05-10 20:23:55'),(5,27,'f','Летние туфли','Выполнены из натуральной кожи, имеют хороший ступинатор после которого ноги не стают от ходьбы',2500.00,'2025-05-10 20:36:39'),(9,25,'f','Инопланетная толстовка','Удобная зеленая толстовка с классным принтом',3000.00,'2025-05-10 21:21:10'),(10,23,'f','МОМ\'s летние','джинсы',2600.00,'2025-05-10 21:29:34'),(11,32,'f','Cute bag','милый женский рюкзак',1999.00,'2025-05-10 21:37:11'),(12,25,'f','Розовый свитер','Незаменимая базовая модель вязаного свитера крупной вязки, которая отлично впишется в любой гардероб и позволит выглядеть стильно даже в самые сильные холода. Модель станет сдержанной и универсальной частью ваших образов, которую можно комбинировать в актуальных сейчас многослойных сочетаниях. Шерсть в составе сохранит тепло, а свободный крой подарит многообразие вариантов носки. ',6700.00,'2025-05-29 20:57:15'),(14,33,'f','Летние перчатки','Летние женские перчатки выполнены из нейлоновых нитей.Эти стильные аксессуары — незаменимая вещь для каждой модной девушки, стремящейся выделиться на праздниках и вечеринках. Выполненные из легкого материала с ажурным декором, они идеально подходят для создания имиджевых образов на хэллоуин, романтических свиданиях или незабываемых фотосессиях.',1000.00,'2025-06-02 21:31:07');
+INSERT INTO `products` VALUES (1,20,'f','Летнее платье','Летнее платье выполнено в стиле корейских платьев',1500.00,'2025-04-06 15:46:47'),(2,29,'m','Nice Cross','мужские кросовки зеленого цвета',5000.00,'2025-04-08 20:08:09'),(3,37,'b','Клетчатая рубашка','Клетчатая рубашка для мальчика',2400.00,'2025-04-09 07:12:55'),(4,31,'f','Сумка Такса','Кожаная винного цвета женская сумка',5199.00,'2025-05-10 20:23:55'),(5,27,'f','Летние туфли','Выполнены из натуральной кожи, имеют хороший ступинатор после которого ноги не стают от ходьбы',2500.00,'2025-05-10 20:36:39'),(9,25,'f','Инопланетная толстовка','Удобная зеленая толстовка с классным принтом',3000.00,'2025-05-10 21:21:10'),(10,23,'f','МОМ\'s летние','джинсы',2600.00,'2025-05-10 21:29:34'),(11,32,'f','Cute bag','милый женский рюкзак',1999.00,'2025-05-10 21:37:11'),(12,25,'f','Розовый свитер','Незаменимая базовая модель вязаного свитера крупной вязки, которая отлично впишется в любой гардероб и позволит выглядеть стильно даже в самые сильные холода. Модель станет сдержанной и универсальной частью ваших образов, которую можно комбинировать в актуальных сейчас многослойных сочетаниях. Шерсть в составе сохранит тепло, а свободный крой подарит многообразие вариантов носки. ',6700.00,'2025-05-29 20:57:15'),(14,33,'f','Летние перчатки','Летние женские перчатки выполнены из нейлоновых нитей.Эти стильные аксессуары — незаменимая вещь для каждой модной девушки, стремящейся выделиться на праздниках и вечеринках. Выполненные из легкого материала с ажурным декором, они идеально подходят для создания имиджевых образов на хэллоуин, романтических свиданиях или незабываемых фотосессиях.',1000.00,'2025-06-02 21:31:07'),(15,30,'f','Ботинки казаки','Ботинки казаки короткие демисезонные замша ковбойские сапоги',3550.00,'2025-06-20 06:25:40'),(16,25,'g','Худи','Худи для девочки с завязками розовое',2200.00,'2025-06-20 06:31:21'),(17,27,'g','Туфли','Кожаные туфли с бантом выполнены в нарядном бежевом цвете и отлично подходят для школьных будней.\r\nВерх выполнен из натуральной кожи. Подкладка и стелька из натуральной подкладочной кожи светлого цвета не окрасят носочки или колготки.',2500.00,'2025-06-20 06:34:15'),(18,28,'b','Кеды','Текстильные кеды выполнены с использованием качественных материалов, которые обеспечивают комфорт и долговечность. Верх летних кед изготовлен из качественного износостойкого текстиля (80% хлопок, 20% полиэстер), а подкладка из 100% хлопка.',3400.00,'2025-06-20 06:38:31'),(19,35,'m','Свадебный костюм','Мужской костюм тройка бордового цвета',35000.00,'2025-06-20 06:41:09'),(20,26,'f','Топ с бабочкой','Летний женский топ с бабочкой',2000.00,'2025-06-20 06:44:27');
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -498,7 +501,7 @@ CREATE TABLE `questions` (
 
 LOCK TABLES `questions` WRITE;
 /*!40000 ALTER TABLE `questions` DISABLE KEYS */;
-INSERT INTO `questions` VALUES (1,4,'check it','2025-04-04 09:27:36'),(2,34,'рпорлоюб','2025-06-17 13:21:58'),(3,34,'рпорлоюб','2025-06-17 13:25:21');
+INSERT INTO `questions` VALUES (1,4,'check it','2025-04-04 09:27:36');
 /*!40000 ALTER TABLE `questions` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -575,7 +578,7 @@ CREATE TABLE `users` (
   `verification_token` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=35 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=38 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -584,7 +587,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'User1','user1@bk.ru','79999999999','$2y$10$fZa4qXZTz5DUVVvaRwirdeo87sFV0fnXByGGvOyBwOgbpZMvPNuf.','2000-08-08','user','2025-03-23 16:24:41',1,NULL),(3,'User2','user2@bk.ru','79662828575','$2y$10$fQbl/AxrsCQlkBk6v1yhx.sktTRCKgAACPKLvSXV0XKTG.xIEIrsq','2000-01-01','user','2025-03-30 20:09:26',1,NULL),(4,'User3new','user3@bk.ru','79666666666','$2y$10$y4L7THBW.vG751WX1g.h5.//4Zn4z/vTmfHvOq573bFbBw.jWF1nm','2000-02-01','user','2025-04-03 08:33:29',0,NULL),(5,'user4','user4@bk.ru','79999999999','$2y$10$QvBoFm3AWLxiSHMhqsznseaQRtfvdw4axYGbA0a95scoFp3dIER1W','2000-01-01','user','2025-04-03 11:51:49',0,NULL),(6,'admin','admin@bk.ru','79075553535','$2y$10$HgTDsSO9y.hWBzFhCCrDpuMY0yl41l8QxYXsUGAtIphqZwDdxH1.m','2005-02-18','admin','2025-04-06 19:36:30',1,NULL),(8,'Сюзанн Коллер','sui@bk.ru','79042578900','$2y$10$exli.7iT6RNTr0DYWRnKzea3fPYL9akvWc/UCsBwteKipqVyYVc3C',NULL,'stylist','2025-04-07 06:35:15',0,NULL),(10,'Олег','lg@bk.ru','79078989899','$2y$10$INAENvSLvuYNwz1/MjjqfOiE43zjssL5juhsr1YB1iDWR85o1dwiG','2000-01-01','user','2025-04-15 11:00:07',0,NULL),(12,'Алексей','alex@bk.ru','79663338888','$2y$10$Lf4JRO4P9/7UqYsrWIJtW.IwtvWZyOflmnqRPl6YIk/lZ7sqR2UEu','1990-09-09','user','2025-05-12 18:54:12',0,NULL),(13,'Яна','yana@bk.ru','79077778899','$2y$10$.0ojsAzUAUzMxGQynjQtuOtCj0AP0cBibPK05wbLNEUf5TQzX3NPW','2005-02-14','admin','2025-05-22 16:51:04',0,NULL),(14,'Элеонора','el@yandex.ru','79772998888','$2y$10$kJ4M1c5vXddNnqMtQTbqueL9mLfWPTLjIqyk0zgo5b7e3ICgL2osq','1993-11-23','user','2025-05-29 20:18:46',1,NULL),(34,'Агата Жеребцова','a9ata9er@gmail.com','78966282857','$2y$10$hu7wD1stll/SCH3t.0nAJuY1LEV//jVEhv5JMTp9y.DGMzkqjhvC6','2000-01-01','user','2025-06-17 11:25:38',1,NULL);
+INSERT INTO `users` VALUES (1,'User1','user1@bk.ru','79999999999','$2y$10$fZa4qXZTz5DUVVvaRwirdeo87sFV0fnXByGGvOyBwOgbpZMvPNuf.','2000-08-08','user','2025-03-23 16:24:41',1,NULL),(3,'User2','user2@bk.ru','79662828575','$2y$10$fQbl/AxrsCQlkBk6v1yhx.sktTRCKgAACPKLvSXV0XKTG.xIEIrsq','2000-01-01','user','2025-03-30 20:09:26',1,NULL),(4,'User3new','user3@bk.ru','79666666666','$2y$10$y4L7THBW.vG751WX1g.h5.//4Zn4z/vTmfHvOq573bFbBw.jWF1nm','2000-02-01','user','2025-04-03 08:33:29',0,NULL),(5,'user4','user4@bk.ru','79999999999','$2y$10$QvBoFm3AWLxiSHMhqsznseaQRtfvdw4axYGbA0a95scoFp3dIER1W','2000-01-01','user','2025-04-03 11:51:49',0,NULL),(6,'admin','admin@bk.ru','79075553535','$2y$10$HgTDsSO9y.hWBzFhCCrDpuMY0yl41l8QxYXsUGAtIphqZwDdxH1.m','2005-02-18','admin','2025-04-06 19:36:30',1,NULL),(8,'Сюзанн Коллер','sui@bk.ru','79042578900','$2y$10$exli.7iT6RNTr0DYWRnKzea3fPYL9akvWc/UCsBwteKipqVyYVc3C',NULL,'stylist','2025-04-07 06:35:15',0,NULL),(10,'Олег','lg@bk.ru','79078989899','$2y$10$INAENvSLvuYNwz1/MjjqfOiE43zjssL5juhsr1YB1iDWR85o1dwiG','2000-01-01','user','2025-04-15 11:00:07',0,NULL),(12,'Алексей','alex@bk.ru','79663338888','$2y$10$Lf4JRO4P9/7UqYsrWIJtW.IwtvWZyOflmnqRPl6YIk/lZ7sqR2UEu','1990-09-09','user','2025-05-12 18:54:12',0,NULL),(13,'Яна','yana@bk.ru','79077778899','$2y$10$.0ojsAzUAUzMxGQynjQtuOtCj0AP0cBibPK05wbLNEUf5TQzX3NPW','2005-02-14','admin','2025-05-22 16:51:04',0,NULL),(14,'Элеонора','el@yandex.ru','79772998888','$2y$10$kJ4M1c5vXddNnqMtQTbqueL9mLfWPTLjIqyk0zgo5b7e3ICgL2osq','1993-11-23','user','2025-05-29 20:18:46',1,NULL),(36,'Агата Жеребцова','a9ata9er@gmail.com','78966282857','$2y$10$VvbeL4d3ZrAq/S5LuFuFH.uevo.AsJppuEV1of6xqCHLd9yy83GzW','2000-01-01','user','2025-06-20 07:41:33',1,NULL),(37,'Алесандр Рогов','alexRog@bk.ru','89994567898','$2y$10$.UzV6E9As9nTwyUvznt9ZO3c6mWq3x.u/POFValLLEM/WgO5NUjFu','1970-01-09','stylist','2025-06-20 07:51:32',0,NULL);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -597,4 +600,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-06-19 18:11:46
+-- Dump completed on 2025-06-20 12:01:06
